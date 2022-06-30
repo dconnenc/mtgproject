@@ -1,0 +1,66 @@
+#header{
+  background-color: darkslategray;
+  color:beige;
+  width: auto;
+  height: 8vh;
+  text-align: center;
+}
+
+.App {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#table-header{
+  color: white;
+  background-color: rgb(61, 61, 61);
+  display: table-header-group;
+  border-bottom: 3pt rgb(255, 255, 255) solid;
+}
+
+.table-row{
+  color: white;
+  display: table-row-group;
+  background-color: darkgray;
+  border-bottom: 1pt white solid;
+}
+
+#card-number{
+  width: 8vw;
+}
+
+#card-name{
+  width: 30vw;
+}
+
+#card-data{
+  width: 10vw;
+}
+
+#preview{
+  display:block;
+  max-width: 20vw;
+  height: auto;
+  position: fixed;
+  border-radius: 8pt
+}
+
+#comparison-card {
+  overflow:hidden;
+  margin: 0 auto 0 auto;
+  max-height: 34vh;
+  height: auto;
+  width: auto;
+  border-radius: 8pt;
+}
+
+#comparison-card-container {
+  margin: 10pt 0 10pt 0;
+  height: 35vh;
+  width: auto;
+  display: flexbox-block;
+  justify-content: center;
+  align-items: center;
+}
+
