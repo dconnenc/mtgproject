@@ -6,24 +6,27 @@ import { Header } from "./Components/Header";
 import { Comparison } from "./Components/Comparison";
 import { Table } from "./Components/Table";
 import { Background} from "./Components/Background"
+import { Footer } from "./Components/Footer";
+
+
 
 //import { GlobalState } from './Components/GlobalState';
 
-/*
--Only one batch of cards is rendering to the table.
+/* 
+
+//KNOWN BUGS
 -Cards with "//" in their name are throwing out errors in mouseover.
--Component FileHandler needs to be atomized.
-  Big errors since cutting up the table, and renaming "Card" to "TableRow"
+-Memory Leak when setting ComparisonCards to a Random Card during first load.
+-Cards are losing color splash on comparison click
+
+//TOO DOO
 -Flesh out GlobalState and create state store.
--Amend ScryFallQuery to accept "/random" in place of "/collection"
-  -ScryfallQuery has been throwing errors for the commented out portion regarding "err"
--Create a comparison unit for card score evaulation, either in 1 of 16, or 1v1 comparison.
--Styling, styling, styling.
-  -create funtion to render rarity as a single letter, ie U, C, R, M
-  -create function to render color idenity as a splash of color
-  -why is not spread across whole screen?
-  -create function that sets background to random basic land full art
 -Later: User and reserve for saving cards and scores.
+
+//Styling, styling, styling.
+-Set default background if query doesn't load
+-Set default preview to cardback
+  -add some smoothing animation
 */
 
 function App() {
@@ -34,12 +37,12 @@ function App() {
   const [background, setBackground] = useState([]);
 
   return (
-    <div id="master-div" className=".container" style={{
+    <div id="master-div" className=".container"  style={{
       backgroundImage: `url(${background})`,
       backgroundRepeat:"no-repeat",
       backgroundSize: "cover",
-      height: "100vh",
-      boxShadow: "inset 0 0 0 1000px rgba(0,0,0,.4)",
+      backgroundAttachment: "fixed",
+      boxShadow: "inset 0 0 0 1000px rgba(0,0,0,.4)"
     }}>
       {/* <GlobalState> */}
       <Header />
@@ -53,8 +56,8 @@ function App() {
         comparisonCards={comparisonCards}
         setComparisonCards={setComparisonCards}  
       />
-      <div className="row" id="table-main">
-        <div className="col-3">
+      <div className="row .container">
+        <div className="col-3 .container" id="preview-container">
           <ImagePreviewer previewCard={previewCard} />
         </div>
         <div className="col-9">
@@ -70,6 +73,7 @@ function App() {
         setCards={setCards}
         setComparisonCards={setComparisonCards}
       />
+      <Footer />
       {/*</GlobalState> */}
     </div>
   );

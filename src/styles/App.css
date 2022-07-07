@@ -6,10 +6,25 @@
   text-align: center;
 }
 
+#footer{
+  background-color: darkslategray;
+  color:beige;
+  width: auto;
+  height: 8vh;
+  text-align: center;
+}
+
+
 .App {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+#table-main{
+  border: 5pt solid white;
+  border-radius: 3pt;
+  box-shadow: 10px 10px 15px black;;
 }
 
 #table-header{
@@ -43,7 +58,11 @@
   max-width: 20vw;
   height: auto;
   position: fixed;
-  border-radius: 8pt
+  border-radius: 11pt;
+  box-shadow: 10px 10px 15px black;
+}
+#preview:hover{
+  transform:scale(1.2, 1.2)
 }
 
 #comparison-card {
@@ -53,6 +72,11 @@
   height: auto;
   width: auto;
   border-radius: 8pt;
+  box-shadow: 10px 10px 15px black;
+}
+
+#comparison-card:hover {
+  transform:scale(1.1, 1.1);
 }
 
 #comparison-card-container {
@@ -62,5 +86,5 @@
   display: flexbox-block;
   justify-content: center;
   align-items: center;
+  
 }
-

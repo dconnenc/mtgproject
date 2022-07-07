@@ -5,7 +5,7 @@ function ImagePreviewer({ previewCard }) {
     }}>
       <img id="preview"
         src={previewCard}
-        alt=""
+        alt="preview of highlighted card" 
       />
     </div>
   );

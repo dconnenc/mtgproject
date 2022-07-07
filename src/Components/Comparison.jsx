@@ -2,7 +2,6 @@ export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCard
   if (!comparisonCards.length) return null;
 
   const newComparison = (winner) => {
-    
     //adjusts the cards ELO, and sorts table accordingly 
       //note: cards with equivalent score are being rearranged. Possible to maintain score tiers?
     setCards(cards.map(obj => {
@@ -17,16 +16,16 @@ export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCard
     const randomCardNum1 = Math.floor(Math.random() * cards.length)
     setComparisonCards([cards[randomCardNum], cards[randomCardNum1]])
   }
-
+  
   return (
     <div className=".container" id="comparison-card-container">
       <div className="row">
         <div className="col-3"></div>
         <div className="col-3">
-          <img onClick={() => newComparison(0)} src={comparisonCards[0].image_uris?.normal} alt="" id="comparison-card"></img>
+          <img onClick={() => newComparison(0)} src={comparisonCards[0].image_uris?.border_crop} alt="" id="comparison-card"></img>
         </div>
         <div className="col-3">
-          <img onClick={() => newComparison(1)} src={comparisonCards[1].image_uris?.normal} alt="" id="comparison-card"></img>
+          <img onClick={() => newComparison(1)} src={comparisonCards[1].image_uris?.border_crop} alt="" id="comparison-card"></img>
         </div>
         <div className="col-3"></div>
       </div>

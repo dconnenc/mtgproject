@@ -47,13 +47,10 @@ export const FileHandler = ({
         return {...obj, score: 1000};
       })
       setCards(scoredCards);
-
-      const randomCardNum = Math.floor(Math.random() * cards.length);
-      const randomCardNum1 = Math.floor(Math.random() * cards.length);
-
-      setComparisonCards([cards[randomCardNum], cards[randomCardNum1]]);
+      //line 51 should set this to random cards instead of the first two in the array
+      setComparisonCards(scoredCards.slice(0,2))
     }
-  }, [cardInput, setCards, setComparisonCards]);
+  }, [cardInput, setCards, setComparisonCards]);  
 
   //updates table when cards are changed
   useEffect(() => {
