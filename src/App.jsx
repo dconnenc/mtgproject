@@ -8,8 +8,6 @@ import { Table } from "./Components/Table";
 import { Background} from "./Components/Background"
 import { Footer } from "./Components/Footer";
 
-
-
 //import { GlobalState } from './Components/GlobalState';
 
 /* 
@@ -18,11 +16,16 @@ import { Footer } from "./Components/Footer";
 -Cards with "//" in their name are throwing out errors in mouseover.
 -Memory Leak when setting ComparisonCards to a Random Card during first load.
 -Cards are losing color splash on comparison click
+-Why do I need to do an npm install? 
 
 //TOO DOO
 -Flesh out GlobalState and create state store.
 -Later: User and reserve for saving cards and scores.
-
+  -Postgress, MySQL ?
+  -User table vs query table
+  -https://blog.logrocket.com/getting-started-with-postgres-in-your-react-app/
+  -https://www.mongodb.com/compare/relational-vs-non-relational-databases
+  -https://andrewbaisden.medium.com/creating-react-node-apps-that-connect-to-postgresql-and-harperdb-2734771c5261
 //Styling, styling, styling.
 -Set default background if query doesn't load
 -Set default preview to cardback
