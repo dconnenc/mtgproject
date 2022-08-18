@@ -19,9 +19,13 @@ import { Footer } from "./Components/Footer";
 -Memory Leak when setting ComparisonCards to a Random Card during first load.
 -Cards are losing color splash on comparison click
 
-//TOO DOO
+//TO DO
 -Flesh out GlobalState and create state store.
--Later: User and reserve for saving cards and scores.
+-BACKEND: User and reserve for saving cards and scores.
+  •Unify my node / index files?
+  •Create profile page for users.
+  •Create page routing for above.
+  •Set Auth0 data to state
 
 //Styling, styling, styling.
 -Set default background if query doesn't load
