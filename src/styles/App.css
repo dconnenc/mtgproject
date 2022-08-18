@@ -7,13 +7,18 @@
 }
 
 #footer{
+  position: absolute;
   background-color: darkslategray;
   color:beige;
-  width: auto;
-  height: 8vh;
+  width: 100vw;
   text-align: center;
+  height: 4vh;
+  bottom: 0px;
 }
 
+#master-div{
+  height: 100vh;
+}
 
 .App {
   justify-content: center;
@@ -61,6 +66,7 @@
   border-radius: 11pt;
   box-shadow: 10px 10px 15px black;
 }
+
 #preview:hover{
   transform:scale(1.2, 1.2)
 }
@@ -86,5 +92,4 @@
   display: flexbox-block;
   justify-content: center;
   align-items: center;
-  
 }

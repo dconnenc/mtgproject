@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import "./styles/App.css";
 import FileHandler from "./Components/fileHandler";
 import ImagePreviewer from "./Components/ImagePreviewer";
@@ -49,35 +50,38 @@ function App() {
       boxShadow: "inset 0 0 0 1000px rgba(0,0,0,.4)"
     }}>
       {/* <GlobalState> */}
-      <Header />
-      <Background 
-        background={background}
-        setBackground={setBackground}
-      />
-      <Comparison
-        cards={cards}
-        setCards={setCards} 
-        comparisonCards={comparisonCards}
-        setComparisonCards={setComparisonCards}  
-      />
-      <div className="row .container">
-        <div className="col-3 .container" id="preview-container">
-          <ImagePreviewer previewCard={previewCard} />
+        <Header 
+          background={background}
+          setBackground={setBackground}
+        />
+        <Background 
+          background={background}
+          setBackground={setBackground}
+        />
+        <Comparison
+          cards={cards}
+          setCards={setCards} 
+          comparisonCards={comparisonCards}
+          setComparisonCards={setComparisonCards}  
+        />
+        <div className="row .container">
+          <div className="col-3 .container" id="preview-container">
+            <ImagePreviewer previewCard={previewCard} />
+          </div>
+          <div className="col-9">
+            <Table setPreviewCard={setPreviewCard} cards={cards} />
+          </div>
         </div>
-        <div className="col-9">
-          <Table setPreviewCard={setPreviewCard} cards={cards} />
-        </div>
-      </div>
-      <FileHandler
-        cardInput={cardInput}
-        setCardInput={setCardInput}
-        previewCard={previewCard}
-        setPreviewCard={setPreviewCard}
-        cards={cards}
-        setCards={setCards}
-        setComparisonCards={setComparisonCards}
-      />
-      <Footer />
+        <FileHandler
+          cardInput={cardInput}
+          setCardInput={setCardInput}
+          previewCard={previewCard}
+          setPreviewCard={setPreviewCard}
+          cards={cards}
+          setCards={setCards}
+          setComparisonCards={setComparisonCards}
+        />
+        <Footer />
       {/*</GlobalState> */}
     </div>
   );

@@ -2,16 +2,24 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "./Auth0/login";
 import LogoutButton from "./Auth0/logout";
 import Profile from "./Auth0/profile";
+import { Routes, Route, Link } from "react-router-dom";
 
-export const Header = () => {
+export const Header = ( {background, setBackground} ) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   return (
     <div id="header" className=".container">
       <div className="row">
-        <div className="col-3"><Profile /><button onClick={()=> {console.log(user)}}>Click me!</button></div>
-        <div className="col-6"><h1>My P1P1</h1></div>
-        <div className="col-3"><LoginButton /><LogoutButton /></div>
+        <div className="col-3"><Profile /></div>
+        <div className="col-6"><Link to="/"><h1>My P1P1</h1></Link></div>
+        <div className="col-3">
+          <button><Link to={{
+              pathname: "/profilepage",
+              state: background, setBackground
+            }}>My Profile</Link></button>
+          <LoginButton />
+          <LogoutButton />
+        </div>
       </div>
     </div>
   );
