@@ -1,8 +1,9 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
+import { PostCards } from "./PostCards";
 
-export const ProfilePage = ({background, setBackground}) => {
+export const ProfilePage = ({background, setBackground, cards}) => {
     return(
         <div id="master-div" className=".container " style={{
             backgroundImage: `url(${background})`,
@@ -15,11 +16,12 @@ export const ProfilePage = ({background, setBackground}) => {
             <div clasName="row">
                 <div className="col">
                     <div className="d-flex align-items-center justify-content-center">
-                    <div>
-                        My lists
-                    </div>
-                    <button>Save Collection</button>
-                    <button>Import Collection</button>
+                        <div>
+                            My lists
+                        </div>
+                        <button onClick={() => console.log(cards)}>Test Button</button>
+                        <PostCards cards={cards}/>
+                        <button>Import Collection</button>
                     </div>
                 </div>
             </div>

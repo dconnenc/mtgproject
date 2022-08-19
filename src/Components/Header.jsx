@@ -4,7 +4,7 @@ import LogoutButton from "./Auth0/logout";
 import Profile from "./Auth0/profile";
 import { Routes, Route, Link } from "react-router-dom";
 
-export const Header = ( {background, setBackground} ) => {
+export const Header = ( {background, setBackground, cards} ) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   return (
@@ -15,7 +15,7 @@ export const Header = ( {background, setBackground} ) => {
         <div className="col-3">
           <button><Link to={{
               pathname: "/profilepage",
-              state: background, setBackground
+              state: background, setBackground, cards
             }}>My Profile</Link></button>
           <LoginButton />
           <LogoutButton />
