@@ -9,7 +9,6 @@ export const FileHandler = ({
   setCards,
   setComparisonCards,
 }) => {
-  
   //accepts a .txt file of MTG cards, visit cubecobra.com to generate.
   const reader = new FileReader();
   reader.addEventListener("load", function () {

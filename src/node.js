@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
+const cors = require('cors');
 const port = 3001
 
 app.use(bodyParser.json())
@@ -10,6 +11,10 @@ app.use(
     extended: true,
   })
 )
+
+app.use(cors({
+  origin: '*'
+}));
 
 app.get('/api', (req, res) => {
   res.send('Hello World!')

@@ -3,6 +3,7 @@ import LoginButton from "./Auth0/login";
 import LogoutButton from "./Auth0/logout";
 import Profile from "./Auth0/profile";
 import { Routes, Route, Link } from "react-router-dom";
+import { PostCards } from "./PostCards";
 
 export const Header = ( {background, setBackground, cards} ) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -10,8 +11,14 @@ export const Header = ( {background, setBackground, cards} ) => {
   return (
     <div id="header" className=".container">
       <div className="row">
-        <div className="col-3"><Profile /></div>
-        <div className="col-6"><Link to="/"><h1>My P1P1</h1></Link></div>
+        <div className="col-3">
+          <Profile />
+          <PostCards />
+        </div>
+        <div className="col-6">
+          <Link to="/">
+            <h1>My P1P1</h1>
+          </Link></div>
         <div className="col-3">
           <button><Link to={{
               pathname: "/profilepage",

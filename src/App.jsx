@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
 import "./styles/App.css";
 import FileHandler from "./Components/fileHandler";
 import ImagePreviewer from "./Components/ImagePreviewer";
@@ -8,10 +7,7 @@ import { Comparison } from "./Components/Comparison";
 import { Table } from "./Components/Table";
 import { Background} from "./Components/Background"
 import { Footer } from "./Components/Footer";
-
-
-
-//import { GlobalState } from './Components/GlobalState';
+import { PostCards } from "./Components/PostCards";
 
 /* 
 
@@ -21,7 +17,10 @@ import { Footer } from "./Components/Footer";
 -Cards are losing color splash on comparison click
 
 //TO DO
--Flesh out GlobalState and create state store.
+-??Flesh out GlobalState and create state store??
+-Pagination: 
+  •Set up profile 'page' using visibility.
+  •Undo the react router, too many issues with state management. 
 -BACKEND: User and reserve for saving cards and scores.
   •Unify my node / index files?
   •Create profile page for users.
@@ -30,6 +29,8 @@ import { Footer } from "./Components/Footer";
 
 //Styling, styling, styling.
 -Set default background if query doesn't load
+-Set CardTable to scroll its contents, not the whole page.
+-Fix background to whole page, so there isn't whitespace at the bottom.
 -Set default preview to cardback
   -add some smoothing animation
 */
@@ -44,15 +45,12 @@ function App() {
   return (
     <div id="master-div" className=".container"  style={{
       backgroundImage: `url(${background})`,
-      backgroundRepeat:"no-repeat",
-      backgroundSize: "cover",
-      backgroundAttachment: "fixed",
-      boxShadow: "inset 0 0 0 1000px rgba(0,0,0,.4)"
     }}>
       {/* <GlobalState> */}
         <Header 
           background={background}
           setBackground={setBackground}
+          cards={cards}
         />
         <Background 
           background={background}

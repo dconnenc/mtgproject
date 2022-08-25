@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-
+//this component queries sryfall for a full art land and sets the background to a land
 export const Background = ({ setBackground }) => {
-  //goal is to query a random land and set the background to the full art of that land on page load
+  
   const backgroundQuery = async () => { 
     const query = "https://api.scryfall.com/cards/random?q=%28type%3Aland%29+is%3Aartcrop"
     const response = await fetch(query);

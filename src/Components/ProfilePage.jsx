@@ -1,7 +1,7 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
-import { PostCards } from "./PostCards";
+//import { PostCards } from "./PostCards";
+//import { useAuth0 } from "@auth0/auth0-react";
 
 export const ProfilePage = ({background, setBackground, cards}) => {
     return(
@@ -20,7 +20,7 @@ export const ProfilePage = ({background, setBackground, cards}) => {
                             My lists
                         </div>
                         <button onClick={() => console.log(cards)}>Test Button</button>
-                        <PostCards cards={cards}/>
+                        {/* <PostCards cards={cards}/> */}
                         <button>Import Collection</button>
                     </div>
                 </div>

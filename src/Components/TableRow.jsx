@@ -1,7 +1,6 @@
 export const TableRow = ({ card, setPreviewCard, index }) => {
   //error with cards that have "//" in their name test
   
-
   // shortens rarity to single letter value
   const rarity = (cardRarity) => {
     switch(cardRarity){
@@ -23,21 +22,26 @@ export const TableRow = ({ card, setPreviewCard, index }) => {
   //sets the color vertical of the column to a visual rep of the color
   //BUG: loses color upon comparison
   const color = (colorIdentity) => {
+    let colorString = ''
 
-    let colorString = colorIdentity
-    
-    if(colorIdentity.length >= 2) {
-        colorString = "gold";
-      } if(colorIdentity.length < 1) {
-        colorString = "grey";
-      } else {
-        colorString.toString()     
-          .replace("G", "green")
-          .replace("R", "red")
-          .replace("U", "blue")
-          .replace("W", "white")
-          .replace("B", "black")
+    switch(colorIdentity){
+      case colorIdentity.length > 1:
+        return colorString = "gold";
+      case colorIdentity.length < 1: 
+        return colorString = "gray";
+      case ["W"]:
+        return colorString = "white";
+      case ["U"]: 
+        return colorString = "blue";
+      case ["R"]:
+        return colorString = "red";
+      case ["B"]:
+        return colorString = "black";
+      case ["G"]:
+        return colorString = "green";
     }
+    
+    console.log(colorString, card.color_identity);
 
     const circle = <div style={{
       height: "1em",
@@ -45,7 +49,8 @@ export const TableRow = ({ card, setPreviewCard, index }) => {
       borderRadius: "50%",
       border: "1pt black solid",
       backgroundColor: colorString
-    }}></div>;
+    }}>
+    </div>;
 
     return circle
 }
