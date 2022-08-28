@@ -17,6 +17,9 @@ import { PostCards } from "./Components/PostCards";
 -Cards are losing color splash on comparison click
 
 //TO DO
+
+-Move formated cards from postcards to file handler
+-Move backend files up a folder backend vs frontend folders
 -??Flesh out GlobalState and create state store??
 -Pagination: 
   •Set up profile 'page' using visibility.

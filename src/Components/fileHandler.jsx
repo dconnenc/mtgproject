@@ -59,13 +59,15 @@ export const FileHandler = ({
   }, [cardInput, cards.length, updateCards]);
 
   return (
-    <div className="App">
-      <h1>Submit a .txt file of cards! </h1>
-      <form target="_self" onSubmit={parseInput}>
-        <input type="file" id="input" />
-        <button id="submit">Submit</button>
-        <pre id="preReader"></pre>
-      </form>
+    <div className=".container">
+      <div className="file-handler">
+        <h1>Submit a .txt file of cards! </h1>
+        <form target="_self" onSubmit={parseInput}>
+          <input type="file" id="input" />
+          <button id="submit">Submit</button>
+          <pre id="preReader"></pre>
+        </form>
+      </div>
     </div>
   );
 };

@@ -41,7 +41,7 @@ export const TableRow = ({ card, setPreviewCard, index }) => {
         return colorString = "green";
     }
     
-    console.log(colorString, card.color_identity);
+    //console.log(colorString, card.color_identity);
 
     const circle = <div style={{
       height: "1em",

@@ -22,10 +22,10 @@ export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCard
       <div className="row">
         <div className="col-3"></div>
         <div className="col-3">
-          <img onClick={() => newComparison(0)} src={comparisonCards[0].image_uris?.border_crop} alt="" id="comparison-card"></img>
+          <img onClick={() => newComparison(0)} src={comparisonCards[0].image_uris?.normal} alt="" id="comparison-card"></img>
         </div>
         <div className="col-3">
-          <img onClick={() => newComparison(1)} src={comparisonCards[1].image_uris?.border_crop} alt="" id="comparison-card"></img>
+          <img onClick={() => newComparison(1)} src={comparisonCards[1].image_uris?.normal} alt="" id="comparison-card"></img>
         </div>
         <div className="col-3"></div>
       </div>

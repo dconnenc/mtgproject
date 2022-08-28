@@ -13,7 +13,7 @@ export const Header = ( {background, setBackground, cards} ) => {
       <div className="row">
         <div className="col-3">
           <Profile />
-          <PostCards />
+          <PostCards cards={cards}/>
         </div>
         <div className="col-6">
           <Link to="/">
