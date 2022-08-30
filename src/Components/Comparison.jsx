@@ -1,5 +1,5 @@
 export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCards }) => {
-  if (!comparisonCards.length) return null;
+  
 
   const newComparison = (winner) => {
     //adjusts the cards ELO, and sorts table accordingly 
@@ -16,8 +16,10 @@ export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCard
     const randomCardNum1 = Math.floor(Math.random() * cards.length)
     setComparisonCards([cards[randomCardNum], cards[randomCardNum1]])
   }
-  
-  return (
+  if (!comparisonCards.length){
+    return <div></div>
+  };
+    return (
     <div className=".container" id="comparison-card-container">
       <div className="row">
         <div className="col-3"></div>

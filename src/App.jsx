@@ -7,7 +7,7 @@ import { Comparison } from "./Components/Comparison";
 import { Table } from "./Components/Table";
 import { Background} from "./Components/Background"
 import { Footer } from "./Components/Footer";
-import { PostCards } from "./Components/PostCards";
+import { ProfileContainer } from "./Components/ProfileFunctions/ProfileContainer";
 
 /* 
 
@@ -55,16 +55,21 @@ function App() {
           setBackground={setBackground}
           cards={cards}
         />
+
         <Background 
           background={background}
           setBackground={setBackground}
         />
+
         <Comparison
           cards={cards}
           setCards={setCards} 
           comparisonCards={comparisonCards}
           setComparisonCards={setComparisonCards}  
         />
+
+        <ProfileContainer cards={cards}/>
+
         <div className="row .container">
           <div className="col-3 .container" id="preview-container">
             <ImagePreviewer previewCard={previewCard} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css'

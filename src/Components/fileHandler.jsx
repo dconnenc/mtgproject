@@ -44,9 +44,20 @@ export const FileHandler = ({
       const retrievedCards = retrievedBatch.flatMap((batch) => batch.data);
       const scoredCards = retrievedCards.map( obj => {
         return {...obj, score: 1000};
-      })
+      }).map(card => {
+        const { color_identity, image_uris, name, score, rarity } = card;
+
+        return { 
+          color_identity,
+          image_uris: image_uris?.normal, 
+          name, 
+          score, 
+          rarity
+        }
+      });
+
       setCards(scoredCards);
-      //line 51 should set this to random cards instead of the first two in the array
+      //this line should set to random cards instead of the first two in the array
       setComparisonCards(scoredCards.slice(0,2))
     }
   }, [cardInput, setCards, setComparisonCards]);  

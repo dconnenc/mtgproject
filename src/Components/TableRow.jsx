@@ -22,27 +22,34 @@ export const TableRow = ({ card, setPreviewCard, index }) => {
   //sets the color vertical of the column to a visual rep of the color
   //BUG: loses color upon comparison
   const color = (colorIdentity) => {
-    let colorString = ''
-
+    let colorString = '';
+    
     switch(colorIdentity){
       case colorIdentity.length > 1:
-        return colorString = "gold";
+        colorString = "gold";
+        break;
       case colorIdentity.length < 1: 
-        return colorString = "gray";
-      case ["W"]:
-        return colorString = "white";
-      case ["U"]: 
-        return colorString = "blue";
-      case ["R"]:
-        return colorString = "red";
-      case ["B"]:
-        return colorString = "black";
-      case ["G"]:
-        return colorString = "green";
+        colorString = "gray";
+        break;
+      case 'W':
+        colorString = "white";
+        break;
+      case 'U': 
+        colorString = "blue";
+        break;
+      case 'R':
+        colorString = "red";
+        break;
+      case 'B':
+        colorString = "black";
+        break;
+      case 'G':
+        colorString = "green";
+        break;
+      default: 
+        console.log('No color found', colorIdentity);
     }
     
-    //console.log(colorString, card.color_identity);
-
     const circle = <div style={{
       height: "1em",
       width: "1em",
@@ -57,10 +64,9 @@ export const TableRow = ({ card, setPreviewCard, index }) => {
 
   return (
     <tr 
-      id={card} className="table-row" key={card.id}
+      id={card} className="table-row" key={index}
       onClick={() => console.log(card)}
-      onMouseEnter={() => setPreviewCard(card.image_uris?.normal)}
-      //onMouseLeave={() => console.log(card.image_uris?.normal)}
+      onMouseEnter={() => setPreviewCard(card.image_uris)}
     >
       <td id="card-number">{index + 1}</td>
       <td id="card-name">{card.name}</td>
