@@ -1,4 +1,5 @@
 #header{
+  display: block;
   background-color: darkslategray;
   color:beige;
   width: 100vw;
@@ -30,8 +31,6 @@ h1 {
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
 }
 
-
-
 .App {
   justify-content: center;
   align-items: center;
@@ -46,10 +45,13 @@ h1 {
 }
 
 #table-main{
-  border: 20pt solid white;
+  margin-top: 5vh;
+  display: block;
+  border: 5pt solid white;
   border-radius: 3pt;
   box-shadow: 10px 10px 15px black;
-  max-height: 50vh;
+  max-height: 40vh;
+  max-width: 800px;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -80,18 +82,20 @@ h1 {
   width: 10vw;
 }
 
+#preview-container{
+ top: 30%
+}
+
 #preview{
   display:block;
-  max-width: 20vw;
+  max-width: 15vw;
   height: auto;
-  position: fixed;
+  position: fixed;  
   border-radius: 11pt;
   box-shadow: 10px 10px 15px black;
 }
 
-#preview:hover{
-  transform:scale(1.2, 1.2)
-}
+
 
 #comparison-card {
   overflow:hidden;
@@ -103,15 +107,13 @@ h1 {
   box-shadow: 10px 10px 15px black;
 }
 
-#comparison-card:hover {
-  transform:scale(1.1, 1.1);
-}
+
 
 #comparison-card-container {
-  margin: 10pt 0 10pt 0;
+  padding-top: 7vh;
   height: 35vh;
   width: auto;
-  display: flexbox-block;
+  display: block;
   justify-content: center;
   align-items: center;
 }

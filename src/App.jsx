@@ -14,23 +14,18 @@ import { ProfileContainer } from "./Components/ProfileFunctions/ProfileContainer
 //KNOWN BUGS
 -Cards with "//" in their name are throwing out errors in mouseover.
 -Memory Leak when setting ComparisonCards to a Random Card during first load.
--Cards are losing color splash on comparison click
 
 //TO DO
-
--Move formated cards from postcards to file handler
--Move backend files up a folder backend vs frontend folders
--??Flesh out GlobalState and create state store??
 -Pagination: 
   •Set up profile 'page' using visibility.
   •Undo the react router, too many issues with state management. 
--BACKEND: User and reserve for saving cards and scores.
+-BACKEND:
+  •Finish backend routes.  
+  •User and reserve for saving cards and scores.
   •Unify my node / index files?
-  •Create profile page for users.
-  •Create page routing for above.
   •Set Auth0 data to state
 
-//Styling, styling, styling.
+//Styling, styling, styling.cd
 -Set default background if query doesn't load
 -Set CardTable to scroll its contents, not the whole page.
 -Fix background to whole page, so there isn't whitespace at the bottom.

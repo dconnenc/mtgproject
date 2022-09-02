@@ -9,9 +9,9 @@ import { ProfilePage } from './Components/ProfilePage';
 
 ReactDOM.render(
   <Auth0Provider
-    domain={process.env.DOMAIN}
-    clientId={process.env.CLIENT_ID}
-    redirectUri={window.location.origin}
+  domain="dev-tcmbdivh.us.auth0.com"
+  clientId="ACNivhbUlhVwJWXBmQxKtcM4jFoNRlqO"
+  redirectUri={window.location.origin}
   >
     <BrowserRouter>
       <Routes>

@@ -3,7 +3,7 @@ function ImagePreviewer({ previewCard }) {
     return <></>
   } else {
     return (
-      <div style={{
+      <div id="preview-container" style={{
         maxWidth: "25vw"
       }}>
         <img id="preview"

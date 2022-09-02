@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export const Header = ( {background, setBackground, cards} ) => {
  
-
   return (
     <div id="header" className=".container">
       <div className="row">
