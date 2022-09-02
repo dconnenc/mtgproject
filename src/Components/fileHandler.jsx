@@ -42,11 +42,10 @@ export const FileHandler = ({
 
     if (retrievedBatch.length) {
       const retrievedCards = retrievedBatch.flatMap((batch) => batch.data);
-      const scoredCards = retrievedCards.map( obj => {
+      const scoredCards = retrievedCards.map(obj => {
         return {...obj, score: 1000};
       }).map(card => {
         const { color_identity, image_uris, name, score, rarity } = card;
-
         return { 
           color_identity,
           image_uris: image_uris?.normal, 
@@ -69,7 +68,10 @@ export const FileHandler = ({
     }
   }, [cardInput, cards.length, updateCards]);
 
-  return (
+  if(cards.length > 0){
+    return(<div></div>)
+  } else{
+    return (
     <div className=".container">
       <div className="file-handler">
         <h1>Submit a .txt file of cards! </h1>
@@ -81,6 +83,6 @@ export const FileHandler = ({
       </div>
     </div>
   );
-};
-
+  };
+}
 export default FileHandler;
