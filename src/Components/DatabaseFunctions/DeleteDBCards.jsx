@@ -1,4 +1,4 @@
-export const DeleteCards = () => {
+export const DeleteDBCards = () => {
     return(
         <>
         </>

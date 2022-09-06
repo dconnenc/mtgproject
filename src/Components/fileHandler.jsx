@@ -72,7 +72,7 @@ export const FileHandler = ({
     return(<div></div>)
   } else{
     return (
-    <div className=".container">
+    <div className=".container" id="file-handler-container">
       <div className="file-handler">
         <h1>Submit a .txt file of cards! </h1>
         <form target="_self" onSubmit={parseInput}>

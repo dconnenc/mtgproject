@@ -7,7 +7,7 @@ import { Comparison } from "./Components/Comparison";
 import { Table } from "./Components/Table";
 import { Background} from "./Components/Background"
 import { Footer } from "./Components/Footer";
-import { ProfileContainer } from "./Components/ProfileFunctions/ProfileContainer";
+import { ProfileContainer } from "./Components/DatabaseFunctions/ProfileContainer";
 
 /* 
 
@@ -40,6 +40,7 @@ function App() {
   const [comparisonCards, setComparisonCards] = useState([]);
   const [background, setBackground] = useState([]);
 
+  //set background to return a default image if there is no background.length
   return (
     <div id="master-div" className=".container"  style={{
       backgroundImage: `url(${background})`,

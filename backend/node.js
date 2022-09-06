@@ -27,5 +27,5 @@ app.put('/users/:id', db.updateUser)
 app.delete('/users/:id', db.deleteUser)
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`MyP1P1 is listening on port ${port}`)
 })

@@ -5,7 +5,7 @@ export const PostCards = ( {cards} ) => {
     const { user } = useAuth0();
     const saveCards = async e => {
         e.preventDefault();
-        
+        console.log(user)
         const name = `${user.given_name} + ${user.family_name}`
         const email = user.email
         const stringifiedCards = JSON.stringify(cards);

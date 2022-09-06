@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-//this component queries sryfall for a full art land and sets the background to a land
+//this component queries scryfall for a full art land and sets the background to a land
 export const Background = ({ setBackground }) => {
   
   const backgroundQuery = async () => { 
