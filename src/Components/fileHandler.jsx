@@ -66,7 +66,7 @@ export const FileHandler = ({
     if (cardInput.length > 0 && cards.length === 0) {
       updateCards();
     }
-  }, [cardInput, cards.length, updateCards]);
+  }, [cardInput, cards.length]);
 
   if(cards.length > 0){
     return(<div></div>)

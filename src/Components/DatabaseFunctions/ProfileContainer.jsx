@@ -2,11 +2,12 @@ import { DeleteDBCards } from "./DeleteDBCards"
 import { GetDBCards } from "./GetDBCards"
 import { PostCards } from "./PostCards"
 import { UpdateDBCards } from "./UpdateDBCards"
-export const ProfileContainer = (cards) => {
+export const ProfileContainer = (cards, setCards) => {
     return(
-        <div>
+        <div id="profile-container">
+            <h1>Or retrieve a list here!</h1>
             <PostCards cards={cards}/> 
-            <GetDBCards />
+            <GetDBCards setCards={setCards}/>
             <UpdateDBCards />
             <DeleteDBCards />
         </div>

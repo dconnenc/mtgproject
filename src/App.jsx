@@ -64,7 +64,7 @@ function App() {
           setComparisonCards={setComparisonCards}  
         />
 
-        <ProfileContainer cards={cards}/>
+        
 
         <div className="row .container">
           <div className="col-3 .container" id="preview-container">
@@ -83,6 +83,7 @@ function App() {
           setCards={setCards}
           setComparisonCards={setComparisonCards}
         />
+        <ProfileContainer cards={cards} setCards={setCards}/>
         <Footer />
       {/*</GlobalState> */}
     </div>
