@@ -1,5 +1,5 @@
 import { TableRow } from "./TableRow.jsx";
-
+//
 export const Table = ({ cards, setPreviewCard }) => {
   if(!cards.length) {
     return <></>

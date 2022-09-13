@@ -1,6 +1,10 @@
 export const DeleteDBCards = () => {
     const deleteDBCards = () => {
-        fetch()
+        try {
+            
+        } catch (error) {
+            
+        }
     }
     
     

@@ -7,7 +7,7 @@ import { Comparison } from "./Components/Comparison";
 import { Table } from "./Components/Table";
 import { Background} from "./Components/Background"
 import { Footer } from "./Components/Footer";
-import { ProfileContainer } from "./Components/DatabaseFunctions/ProfileContainer";
+import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
 
 /* 
 
@@ -39,6 +39,7 @@ function App() {
   const [previewCard, setPreviewCard] = useState([]);
   const [comparisonCards, setComparisonCards] = useState([]);
   const [background, setBackground] = useState([]);
+  const [userDBCards, setUserDBCards] = useState([]);
 
   //set background to return a default image if there is no background.length
   return (
@@ -64,26 +65,31 @@ function App() {
           setComparisonCards={setComparisonCards}  
         />
 
-        
-
         <div className="row .container">
           <div className="col-3 .container" id="preview-container">
             <ImagePreviewer previewCard={previewCard} />
           </div>
-          <div className="col-9">
+          <div className="col-6 .container" id="tableContainer">
+            <FileHandler
+              cardInput={cardInput}
+              setCardInput={setCardInput}
+              previewCard={previewCard}
+              setPreviewCard={setPreviewCard}
+              cards={cards}
+              setCards={setCards}
+              setComparisonCards={setComparisonCards}
+            />
             <Table setPreviewCard={setPreviewCard} cards={cards} />
           </div>
+          <div className="col-3 .container" id="DBcontainer">
+            <DBContainer 
+              cards={cards} 
+              setCards={setCards} 
+              userDBCards={userDBCards}
+              setUserDBCards={setUserDBCards}
+            />
+          </div>
         </div>
-        <FileHandler
-          cardInput={cardInput}
-          setCardInput={setCardInput}
-          previewCard={previewCard}
-          setPreviewCard={setPreviewCard}
-          cards={cards}
-          setCards={setCards}
-          setComparisonCards={setComparisonCards}
-        />
-        <ProfileContainer cards={cards} setCards={setCards}/>
         <Footer />
       {/*</GlobalState> */}
     </div>
