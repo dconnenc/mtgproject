@@ -1,6 +1,7 @@
 import React from 'react';
+import { DeleteDBCards } from './DeleteDBCards';
 
-export const DBList = (userDBCards) => {
+export const DBList = ({userDBCards}) => {
     
     return (
         <div className=".container">
@@ -14,12 +15,12 @@ export const DBList = (userDBCards) => {
                 </tr>
                 </thead>
                 <tbody>
-                    {/*userDBCards.map(userDBCards => 
+                    {userDBCards.map(userDBCards => 
                         <tr>
-                            <td>{userDBCards.id}</td>
+                            <td>{userDBCards.name}</td>
                             <td>Load</td>
                             <td>Edit</td>
-                            <td>Delete</td>
+                            <td><DeleteDBCards id={userDBCards.id}/></td>
                         </tr>    
                     )}
                 {/*
