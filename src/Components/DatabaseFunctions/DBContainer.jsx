@@ -1,6 +1,5 @@
 import { GetDBCards } from "./GetDBCards"
 import { PostCards } from "./PostCards"
-import { UpdateDBCards } from "./UpdateDBCards"
 import { DBList } from "./DBList"
 
 export const DBContainer = ({ cards, setCards, setUserDBCards, userDBCards }) => {
@@ -13,8 +12,7 @@ export const DBContainer = ({ cards, setCards, setUserDBCards, userDBCards }) =>
                     </div>
                     <div className="row">
                         <GetDBCards setUserDBCards={setUserDBCards} />
-                        <DBList userDBCards={userDBCards}/>
-                        <UpdateDBCards />
+                        <DBList userDBCards={userDBCards} setCards={setCards}/>
                     </div>
                 </div>
         </div>

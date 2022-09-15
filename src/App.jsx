@@ -64,12 +64,18 @@ function App() {
           comparisonCards={comparisonCards}
           setComparisonCards={setComparisonCards}  
         />
-
+        
         <div className="row .container">
           <div className="col-3 .container" id="preview-container">
             <ImagePreviewer previewCard={previewCard} />
           </div>
           <div className="col-6 .container" id="tableContainer">
+          <DBContainer 
+              cards={cards} 
+              setCards={setCards} 
+              userDBCards={userDBCards}
+              setUserDBCards={setUserDBCards}
+              />
             <FileHandler
               cardInput={cardInput}
               setCardInput={setCardInput}
@@ -82,12 +88,14 @@ function App() {
             <Table setPreviewCard={setPreviewCard} cards={cards} />
           </div>
           <div className="col-3 .container" id="DBcontainer">
-            <DBContainer 
+            {/*
+              <DBContainer 
               cards={cards} 
               setCards={setCards} 
               userDBCards={userDBCards}
               setUserDBCards={setUserDBCards}
-            />
+              />
+            */}
           </div>
         </div>
         <Footer />

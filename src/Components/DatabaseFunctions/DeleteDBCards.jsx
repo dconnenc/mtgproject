@@ -1,5 +1,3 @@
-//import e from "express"
-
 export const DeleteDBCards = ({id}) => {
     const deleteDBCards = async (id) => {
         try {
@@ -19,7 +17,7 @@ export const DeleteDBCards = ({id}) => {
     
     return(
         <>
-            <button onClick={handleClick}>Delete Cards </button>
+            <button className="btn btn-danger"onClick={handleClick}>Delete Cards </button>
         </>
     )
 }

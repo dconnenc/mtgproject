@@ -1,7 +1,8 @@
 import React from 'react';
 import { DeleteDBCards } from './DeleteDBCards';
+import { LoadDBCards } from './LoadDBCards';
 
-export const DBList = ({userDBCards}) => {
+export const DBList = ({userDBCards, setCards}) => {
     
     return (
         <div className=".container">
@@ -18,7 +19,7 @@ export const DBList = ({userDBCards}) => {
                    {userDBCards.map(userDBCards => 
                                 <tr key={userDBCards.id}>
                                     <td>{userDBCards.listname}</td>
-                                    <td>Load</td>
+                                    <td><LoadDBCards setCards={setCards} id={userDBCards.id}/></td>
                                     <td>Edit</td>
                                     <td><DeleteDBCards id={userDBCards.id}/></td>
                                 </tr>    

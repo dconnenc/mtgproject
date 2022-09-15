@@ -21,7 +21,7 @@ export const GetDBCards = ({ setUserDBCards }) => {
 
     return(
         <>
-            <button onClick={fetchDBCards}> Get Cards</button>
+            <button className="btn btn-default" onClick={fetchDBCards}> Get Cards</button>
         </>
     )
 }
