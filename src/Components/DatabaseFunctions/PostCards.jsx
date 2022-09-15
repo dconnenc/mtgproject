@@ -1,21 +1,25 @@
 //Currently getting a CORS error, and data being transfered is too large.  
 import { useAuth0 } from "@auth0/auth0-react";
+import { useState } from "react";
 
 export const PostCards = ( {cards} ) => {
+    const [description, setDescription] = useState('')
     const { user } = useAuth0();
-    const saveCards = async e => {
+    
+    
+    const onSubmitForm = async e => {
         e.preventDefault();
         
-        //console.log(user)
-        const name = `${user.given_name} + ${user.family_name}`
+        const name = `${user.given_name} ${user.family_name}`
         const email = user.email
         const stringifiedCards = JSON.stringify(cards);
+        console.log(description);
 
         try {
             await fetch("http://localhost:3001/users", {
                 method: "POST",
                 headers: { "Content-Type": "application/json",},
-                body: JSON.stringify({ name: name, email: email, cards: stringifiedCards})
+                body: JSON.stringify({ name: name, email: email, cards: stringifiedCards, listName: description })
             })
         } catch (err) {
             console.error(err.message);
@@ -23,6 +27,16 @@ export const PostCards = ( {cards} ) => {
     }
 
     return (
-        <button onClick={saveCards}> Save List </button>
+        <div>
+            <form className="d-flex mt-5" onSubmit={onSubmitForm}>
+                <input
+                    type="text"
+                    className="form-control"
+                    value={description}
+                    onChange={e => setDescription(e.target.value)}
+                />
+                <button className="btn btn-success">Add</button>
+            </form>
+        </div>
     )
 }

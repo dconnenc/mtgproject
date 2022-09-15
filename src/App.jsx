@@ -41,7 +41,7 @@ function App() {
   const [background, setBackground] = useState([]);
   const [userDBCards, setUserDBCards] = useState([]);
 
-  //set background to return a default image if there is no background.length
+  //TODO: set background to return a default image if there is no background.length
   return (
     <div id="master-div" className=".container"  style={{
       backgroundImage: `url(${background})`,

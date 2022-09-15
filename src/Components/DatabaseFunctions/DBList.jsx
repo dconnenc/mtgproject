@@ -15,21 +15,14 @@ export const DBList = ({userDBCards}) => {
                 </tr>
                 </thead>
                 <tbody>
-                    {userDBCards.map(userDBCards => 
-                        <tr>
-                            <td>{userDBCards.name}</td>
-                            <td>Load</td>
-                            <td>Edit</td>
-                            <td><DeleteDBCards id={userDBCards.id}/></td>
-                        </tr>    
+                   {userDBCards.map(userDBCards => 
+                                <tr key={userDBCards.id}>
+                                    <td>{userDBCards.listname}</td>
+                                    <td>Load</td>
+                                    <td>Edit</td>
+                                    <td><DeleteDBCards id={userDBCards.id}/></td>
+                                </tr>    
                     )}
-                {/*
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                */}
                 </tbody>
             </table>
 

@@ -129,7 +129,7 @@ h1 {
   width: auto;
   max-width: fit-content;
   max-height: min-content;
-  display: flexbox;
+  display: block;
   background: rgba(256, 256, 256, .4);
   border: solid white 3px;
   margin-right: 3vw;
