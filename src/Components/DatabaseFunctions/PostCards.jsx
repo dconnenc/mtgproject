@@ -13,7 +13,6 @@ export const PostCards = ( {cards} ) => {
         const name = `${user.given_name} ${user.family_name}`
         const email = user.email
         const stringifiedCards = JSON.stringify(cards);
-        console.log(description);
 
         try {
             await fetch("http://localhost:3001/users", {

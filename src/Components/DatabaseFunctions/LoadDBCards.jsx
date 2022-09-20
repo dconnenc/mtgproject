@@ -1,4 +1,4 @@
-export const LoadDBCards = ({setCards, cards}) => {
+export const LoadDBCards = ({setCards, setComparisonCards, cards}) => {
 
     const handleClick = (e) => {
         e.preventDefault();

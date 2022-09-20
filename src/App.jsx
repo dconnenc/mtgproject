@@ -8,6 +8,7 @@ import { Table } from "./Components/Table";
 import { Background} from "./Components/Background"
 import { Footer } from "./Components/Footer";
 import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
+import { useAuth0 } from "@auth0/auth0-react";
 
 /* 
 
@@ -16,12 +17,14 @@ import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
 -Memory Leak when setting ComparisonCards to a Random Card during first load.
 
 //TO DO
+-Login Management
+  •Set login management, and visibility for components based on that. 
+
 -Pagination: 
   •Set up profile 'page' using visibility.
-  •Undo the react router, too many issues with state management. 
+  •User page that displays their list.
+
 -BACKEND:
-  •Finish backend routes.  
-  •User and reserve for saving cards and scores.
   •Unify my node / index files?
   •Set Auth0 data to state
 
@@ -39,27 +42,26 @@ function App() {
   const [comparisonCards, setComparisonCards] = useState([]);
   const [background, setBackground] = useState([]);
   const [userDBCards, setUserDBCards] = useState([]);
-  const [loggedIn, setLoggedIn] = useState([false]);
 
+  const { user, isAuthenticated } = useAuth0();
+
+  console.log(user, isAuthenticated)
   //TODO: set background to return a default image if there is no background.length
-  if(loggedIn === false) {
+  if(!isAuthenticated) {
     return(
       <div id="master-div" className=".container"  style={{
         backgroundImage: `url(${background})`,
       }}>
         <Header 
-            loggedIn={loggedIn}
-            setLoggedIn={setLoggedIn}
             background={background}
             setBackground={setBackground}
             cards={cards}
         />
-        <h1>Please login!</h1>
+        <h1 style={{"padding-top": "25%", "text-align": "center"}}>Please login!</h1>
         <Footer />
       </div>
     )
   } else {
-  
     return (
       <div id="master-div" className=".container"  style={{
         backgroundImage: `url(${background})`,
@@ -102,6 +104,7 @@ function App() {
                 setCards={setCards} 
                 userDBCards={userDBCards}
                 setUserDBCards={setUserDBCards}
+                setComparisonCards={setComparisonCards}
                 />
               <Table setPreviewCard={setPreviewCard} cards={cards} />
             </div>

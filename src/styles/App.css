@@ -4,6 +4,7 @@
   color:beige;
   width: 100vw;
   height: 6vh;
+  max-height: 50px;
   text-align: center;
   position: fixed;
 }
@@ -132,6 +133,7 @@ h1 {
   display: block;
   background: rgba(256, 256, 256, .4);
   border: solid white 3px;
+  margin-top: 60px; 
   margin-right: auto;
   margin-left: auto;
   border-radius: 3pt;

@@ -2,7 +2,7 @@ import { GetDBCards } from "./GetDBCards"
 import { PostCards } from "./PostCards"
 import { DBList } from "./DBList"
 
-export const DBContainer = ({ cards, setCards, setUserDBCards, userDBCards }) => {
+export const DBContainer = ({ cards, setCards, setUserDBCards, userDBCards, setComparisonCards }) => {
     return(
         <div id="profile-container">
             <h1>Fetch a list here!</h1>
@@ -15,7 +15,7 @@ export const DBContainer = ({ cards, setCards, setUserDBCards, userDBCards }) =>
                             <GetDBCards setUserDBCards={setUserDBCards} />
                         </div>
                         <div className="col-9">
-                            <DBList userDBCards={userDBCards} setCards={setCards}/>
+                            <DBList userDBCards={userDBCards} setCards={setCards} setComparisonCards={setComparisonCards}/>
                         </div>
                     </div>
                 </div>
