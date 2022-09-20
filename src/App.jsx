@@ -27,7 +27,6 @@ import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
 
 //Styling, styling, styling.cd
 -Set default background if query doesn't load
--Set CardTable to scroll its contents, not the whole page.
 -Fix background to whole page, so there isn't whitespace at the bottom.
 -Set default preview to cardback
   -add some smoothing animation
@@ -40,68 +39,87 @@ function App() {
   const [comparisonCards, setComparisonCards] = useState([]);
   const [background, setBackground] = useState([]);
   const [userDBCards, setUserDBCards] = useState([]);
+  const [loggedIn, setLoggedIn] = useState([false]);
 
   //TODO: set background to return a default image if there is no background.length
-  return (
-    <div id="master-div" className=".container"  style={{
-      backgroundImage: `url(${background})`,
-    }}>
-      {/* <GlobalState> */}
+  if(loggedIn == false) {
+    return(
+      <div id="master-div" className=".container"  style={{
+        backgroundImage: `url(${background})`,
+      }}>
         <Header 
-          background={background}
-          setBackground={setBackground}
-          cards={cards}
+            loggedIn={loggedIn}
+            setLoggedIn={setLoggedIn}
+            background={background}
+            setBackground={setBackground}
+            cards={cards}
         />
-
-        <Background 
-          background={background}
-          setBackground={setBackground}
-        />
-
-        <Comparison
-          cards={cards}
-          setCards={setCards} 
-          comparisonCards={comparisonCards}
-          setComparisonCards={setComparisonCards}  
-        />
-        
-        <div className="row .container">
-          <div className="col-3 .container" id="preview-container">
-            <ImagePreviewer previewCard={previewCard} />
-          </div>
-          <div className="col-6 .container" id="tableContainer">
-          <DBContainer 
-              cards={cards} 
-              setCards={setCards} 
-              userDBCards={userDBCards}
-              setUserDBCards={setUserDBCards}
-              />
-            <FileHandler
-              cardInput={cardInput}
-              setCardInput={setCardInput}
-              previewCard={previewCard}
-              setPreviewCard={setPreviewCard}
-              cards={cards}
-              setCards={setCards}
-              setComparisonCards={setComparisonCards}
-            />
-            <Table setPreviewCard={setPreviewCard} cards={cards} />
-          </div>
-          <div className="col-3 .container" id="DBcontainer">
-            {/*
-              <DBContainer 
-              cards={cards} 
-              setCards={setCards} 
-              userDBCards={userDBCards}
-              setUserDBCards={setUserDBCards}
-              />
-            */}
-          </div>
-        </div>
+        <h1>Please login!</h1>
         <Footer />
-      {/*</GlobalState> */}
-    </div>
-  );
-}
+      </div>
+    )
+  } else {
+  
+    return (
+      <div id="master-div" className=".container"  style={{
+        backgroundImage: `url(${background})`,
+      }}>
+        {/* <GlobalState> */}
+          <Header 
+            background={background}
+            setBackground={setBackground}
+            cards={cards}
+          />
 
+          <Background 
+            background={background}
+            setBackground={setBackground}
+          />
+
+          <Comparison
+            cards={cards}
+            setCards={setCards} 
+            comparisonCards={comparisonCards}
+            setComparisonCards={setComparisonCards}  
+          />
+          
+          <div className="row .container">
+            <div className="col-3 .container" id="preview-container">
+              <ImagePreviewer previewCard={previewCard} />
+            </div>
+            <div className="col-6 .container" id="tableContainer">
+            <DBContainer 
+                cards={cards} 
+                setCards={setCards} 
+                userDBCards={userDBCards}
+                setUserDBCards={setUserDBCards}
+                />
+              <FileHandler
+                cardInput={cardInput}
+                setCardInput={setCardInput}
+                previewCard={previewCard}
+                setPreviewCard={setPreviewCard}
+                cards={cards}
+                setCards={setCards}
+                setComparisonCards={setComparisonCards}
+              />
+              <Table setPreviewCard={setPreviewCard} cards={cards} />
+            </div>
+            <div className="col-3 .container" id="DBcontainer">
+              {/*
+                <DBContainer 
+                cards={cards} 
+                setCards={setCards} 
+                userDBCards={userDBCards}
+                setUserDBCards={setUserDBCards}
+                />
+              */}
+            </div>
+          </div>
+          <Footer />
+        {/*</GlobalState> */}
+      </div>
+    );
+  }
+}
 export default App;

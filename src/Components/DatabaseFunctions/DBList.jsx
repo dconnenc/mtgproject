@@ -11,7 +11,6 @@ export const DBList = ({userDBCards, setCards}) => {
                 <tr>
                     <th>Description</th>
                     <th>Load</th>
-                    <th>Edit</th>
                     <th>Delete</th>
                 </tr>
                 </thead>
@@ -19,14 +18,12 @@ export const DBList = ({userDBCards, setCards}) => {
                    {userDBCards.map(userDBCards => 
                                 <tr key={userDBCards.id}>
                                     <td>{userDBCards.listname}</td>
-                                    <td><LoadDBCards setCards={setCards} id={userDBCards.id}/></td>
-                                    <td>Edit</td>
+                                    <td><LoadDBCards setCards={setCards} cards={userDBCards.cards}/></td>
                                     <td><DeleteDBCards id={userDBCards.id}/></td>
                                 </tr>    
                     )}
                 </tbody>
             </table>
-
         </div>
     )
 }

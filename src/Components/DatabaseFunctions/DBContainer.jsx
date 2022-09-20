@@ -11,8 +11,12 @@ export const DBContainer = ({ cards, setCards, setUserDBCards, userDBCards }) =>
                         <PostCards cards={cards}/>
                     </div>
                     <div className="row">
-                        <GetDBCards setUserDBCards={setUserDBCards} />
-                        <DBList userDBCards={userDBCards} setCards={setCards}/>
+                        <div className="col-3">
+                            <GetDBCards setUserDBCards={setUserDBCards} />
+                        </div>
+                        <div className="col-9">
+                            <DBList userDBCards={userDBCards} setCards={setCards}/>
+                        </div>
                     </div>
                 </div>
         </div>

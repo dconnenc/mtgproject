@@ -2,7 +2,6 @@ import { useEffect } from "react"
 
 export const GetDBCards = ({ setUserDBCards }) => {
     
-
     const fetchDBCards = async () => {
         try {
             const response = await fetch('http://localhost:3001/users')
@@ -21,7 +20,7 @@ export const GetDBCards = ({ setUserDBCards }) => {
 
     return(
         <>
-            <button className="btn btn-default" onClick={fetchDBCards}> Get Cards</button>
+            <button className="btn btn-success" onClick={fetchDBCards}> Get Cards</button>
         </>
     )
 }
