@@ -42,7 +42,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState([false]);
 
   //TODO: set background to return a default image if there is no background.length
-  if(loggedIn == false) {
+  if(loggedIn === false) {
     return(
       <div id="master-div" className=".container"  style={{
         backgroundImage: `url(${background})`,
@@ -88,12 +88,6 @@ function App() {
               <ImagePreviewer previewCard={previewCard} />
             </div>
             <div className="col-6 .container" id="tableContainer">
-            <DBContainer 
-                cards={cards} 
-                setCards={setCards} 
-                userDBCards={userDBCards}
-                setUserDBCards={setUserDBCards}
-                />
               <FileHandler
                 cardInput={cardInput}
                 setCardInput={setCardInput}
@@ -103,6 +97,12 @@ function App() {
                 setCards={setCards}
                 setComparisonCards={setComparisonCards}
               />
+              <DBContainer 
+                cards={cards} 
+                setCards={setCards} 
+                userDBCards={userDBCards}
+                setUserDBCards={setUserDBCards}
+                />
               <Table setPreviewCard={setPreviewCard} cards={cards} />
             </div>
             <div className="col-3 .container" id="DBcontainer">

@@ -2,9 +2,10 @@ export const LoadDBCards = ({setCards, cards}) => {
 
     const handleClick = (e) => {
         e.preventDefault();
-
-        console.log(cards)
-        //setCards(cards);
+        let parsedCards = JSON.parse(cards)
+        
+        console.log(parsedCards)
+        setCards(parsedCards);
     }
 
     return(

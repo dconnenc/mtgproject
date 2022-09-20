@@ -5,6 +5,7 @@ export const Table = ({ cards, setPreviewCard }) => {
     return <></>
   } else {
     return (
+        
         <table id="table-main">
           <tbody>
             <tr id="table-header">

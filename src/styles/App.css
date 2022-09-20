@@ -113,13 +113,13 @@ h1 {
   height: auto;
   width: auto;
   max-width: fit-content;
-  max-height: min-content;
-  display: flexbox;
+  max-height: fit-content;
+  display: block;
   background: rgba(256, 256, 256, .4);
   border: solid white 3px;
+  margin-top: 25%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50%;
   border-radius: 3pt;
   padding: 5pt 5pt 5pt 5pt;
 }
@@ -128,12 +128,12 @@ h1 {
   height: auto;
   width: auto;
   max-width: fit-content;
-  max-height: min-content;
+  max-height: fit-content;
   display: block;
   background: rgba(256, 256, 256, .4);
   border: solid white 3px;
-  margin-right: 3vw;
-  margin-top: 50%;
+  margin-right: auto;
+  margin-left: auto;
   border-radius: 3pt;
   padding: 5pt 5pt 5pt 5pt;
 }
