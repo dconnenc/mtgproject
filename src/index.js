@@ -8,18 +8,18 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import { ProfilePage } from './Components/ProfilePage';
 
 ReactDOM.render(
-  <Auth0Provider
-  domain="dev-tcmbdivh.us.auth0.com"
-  clientId="ACNivhbUlhVwJWXBmQxKtcM4jFoNRlqO"
-  redirectUri={window.location.origin}
-  >
-    <BrowserRouter>
+  <BrowserRouter>
+    <Auth0Provider
+    domain="dev-tcmbdivh.us.auth0.com"
+    clientId="ACNivhbUlhVwJWXBmQxKtcM4jFoNRlqO"
+    redirectUri={window.location.origin}
+    >
       <Routes>
         <Route path='/' element ={<App />} />
         <Route path="profilepage" element={<ProfilePage />} />
       </Routes>
-    </BrowserRouter>
-  </Auth0Provider>,
+    </Auth0Provider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

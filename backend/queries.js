@@ -38,6 +38,16 @@ const createUser = (request, response) => {
   })
 }
 
+const createUserx = (request, response) => {
+  const { name, email } = request.body;
+
+  pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email], (error, results) => {
+    if(error){
+      throw error
+    }
+    response.status(201).send(`User added with ID: ${results}`)
+  })
+}
 const updateUser = (request, response) => {
   const id = parseInt(request.params.id)
   const { name, email } = request.body
@@ -71,4 +81,5 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
+  createUserx
 }

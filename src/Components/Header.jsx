@@ -1,5 +1,4 @@
-import LoginButton from "./Auth0/login";
-import LogoutButton from "./Auth0/logout";
+import { Authenticator} from "./Auth0/authenticator";
 import Profile from "./Auth0/profile";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -16,7 +15,7 @@ export const Header = () => {
             <p>My P1P1</p>
           </div>
         <div className="col-3">
-          {isAuthenticated ? <LogoutButton /> : <LoginButton/> }
+            <Authenticator />
         </div>
       </div>
     </div>

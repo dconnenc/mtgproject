@@ -17,6 +17,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 -Memory Leak when setting ComparisonCards to a Random Card during first load.
 
 //TO DO
+user authentication to database?
+https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
+
 -Login Management
   •Set login management, and visibility for components based on that. 
 
@@ -45,7 +48,7 @@ function App() {
 
   const { user, isAuthenticated } = useAuth0();
 
-  console.log(user, isAuthenticated)
+  console.log(user)
   //TODO: set background to return a default image if there is no background.length
   if(!isAuthenticated) {
     return(
@@ -57,7 +60,7 @@ function App() {
             setBackground={setBackground}
             cards={cards}
         />
-        <h1 style={{"padding-top": "25%", "text-align": "center"}}>Please login!</h1>
+        <h1 style={{"paddingTop": "25%", "textAlign": "center"}}>Please login!</h1>
         <Footer />
       </div>
     )

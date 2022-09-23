@@ -18,6 +18,7 @@ export const Table = ({ cards, setPreviewCard }) => {
             {cards &&
               cards.map((card, index) => (
                 <TableRow
+                  key={index}
                   card={card}
                   setPreviewCard={setPreviewCard}
                   index={index}

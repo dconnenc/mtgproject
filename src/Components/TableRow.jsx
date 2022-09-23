@@ -40,7 +40,7 @@ export const TableRow = ({ card, setPreviewCard, index }) => {
 
   return (
     <tr
-      id={card} className="table-row" key={index}
+      id={card} className="table-row"
       onClick={() => console.log(card)}
       onMouseEnter={() => {setPreviewCard(card.image_uris)}}
     >
