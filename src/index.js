@@ -6,6 +6,7 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.css'
 import { Auth0Provider } from '@auth0/auth0-react';
 import { ProfilePage } from './Components/ProfilePage';
+import { Auth } from './Components/Auth0/Auth.jsx';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -15,6 +16,7 @@ ReactDOM.render(
     redirectUri={window.location.origin}
     >
       <Routes>
+        <Route path="/auth" element ={<Auth />} />
         <Route path='/' element ={<App />} />
         <Route path="profilepage" element={<ProfilePage />} />
       </Routes>

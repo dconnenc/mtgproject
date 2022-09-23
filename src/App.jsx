@@ -29,7 +29,6 @@ https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
 
 -BACKEND:
   •Unify my node / index files?
-  •Set Auth0 data to state
 
 //Styling, styling, styling.cd
 -Set default background if query doesn't load
@@ -46,24 +45,12 @@ function App() {
   const [background, setBackground] = useState([]);
   const [userDBCards, setUserDBCards] = useState([]);
 
-  const { user, isAuthenticated } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
 
-  console.log(user)
+  console.log(isAuthenticated)
   //TODO: set background to return a default image if there is no background.length
-  if(!isAuthenticated) {
-    return(
-      <div id="master-div" className=".container"  style={{
-        backgroundImage: `url(${background})`,
-      }}>
-        <Header 
-            background={background}
-            setBackground={setBackground}
-            cards={cards}
-        />
-        <h1 style={{"paddingTop": "25%", "textAlign": "center"}}>Please login!</h1>
-        <Footer />
-      </div>
-    )
+  if(!isAuthenticated && !isLoading ) {
+    window.location.href = "http://localhost:3000/auth"
   } else {
     return (
       <div id="master-div" className=".container"  style={{
