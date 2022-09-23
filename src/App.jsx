@@ -45,13 +45,14 @@ function App() {
   const [background, setBackground] = useState([]);
   const [userDBCards, setUserDBCards] = useState([]);
 
-  const { isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
-  console.log(isAuthenticated)
+  
   //TODO: set background to return a default image if there is no background.length
   if(!isAuthenticated && !isLoading ) {
     window.location.href = "http://localhost:3000/auth"
   } else {
+    console.log(user)
     return (
       <div id="master-div" className=".container"  style={{
         backgroundImage: `url(${background})`,

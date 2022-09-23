@@ -8,6 +8,8 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import { ProfilePage } from './Components/ProfilePage';
 import { Auth } from './Components/Auth0/Auth.jsx';
 
+
+
 ReactDOM.render(
   <BrowserRouter>
     <Auth0Provider
