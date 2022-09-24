@@ -15,7 +15,7 @@ export const PostCards = ( {cards} ) => {
         const stringifiedCards = JSON.stringify(cards);
 
         try {
-            await fetch("http://localhost:3001/users", {
+            await fetch("http://localhost:3001/usersCards", {
                 method: "POST",
                 headers: { "Content-Type": "application/json",},
                 body: JSON.stringify({ name: name, email: email, cards: stringifiedCards, listName: description })

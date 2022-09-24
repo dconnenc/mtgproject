@@ -52,7 +52,28 @@ function App() {
   if(!isAuthenticated && !isLoading ) {
     window.location.href = "http://localhost:3000/auth"
   } else {
-    console.log(user)
+     
+    //insert user token into database
+     const postUser = async () => {
+
+      const name = `${user.given_name} ${user.family_name}`;
+      const email = user.email;
+      const user_id =  user.sub;
+
+      try {
+        await fetch("http://localhost:3001/users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json",},
+          body: JSON.stringify({ name: name, email: email, user_id: user_id }) 
+        })
+        console.log("checkpoint?")
+      } catch (error) {
+        console.error(error.message)
+      }
+    }
+    
+    postUser()
+
     return (
       <div id="master-div" className=".container"  style={{
         backgroundImage: `url(${background})`,

@@ -27,7 +27,7 @@ const getUserById = (request, response) => {
   })
 }
 
-const createUser = (request, response) => {
+const createUsersCards = (request, response) => {
   const { name, email, cards, listName } = request.body;  
   
   pool.query('INSERT INTO users (name, email, cards, listName) VALUES ($1, $2, $3, $4)', [name, email, cards, listName], (error, results) => {
@@ -38,16 +38,17 @@ const createUser = (request, response) => {
   })
 }
 
-const createUserx = (request, response) => {
-  const { name, email } = request.body;
+const createUser = (request, response) => {
+  const { name, email, user_id } = request.body;
 
-  pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email], (error, results) => {
+  pool.query('INSERT INTO users (name, email, user_id) VALUES ($1, $2, $3) ON CONFLICT (user_id) DO NOTHING', [name, email, user_id], (error, results) => {
     if(error){
       throw error
     }
     response.status(201).send(`User added with ID: ${results}`)
   })
 }
+
 const updateUser = (request, response) => {
   const id = parseInt(request.params.id)
   const { name, email } = request.body
@@ -81,5 +82,5 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
-  createUserx
+  createUsersCards
 }
