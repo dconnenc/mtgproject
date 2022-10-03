@@ -3,7 +3,7 @@ import { DeleteDBCards } from './DeleteDBCards';
 import { LoadDBCards } from './LoadDBCards';
 
 export const DBList = ({userDBCards, setCards, setComparisonCards}) => {
-    
+    let cardsArray = userDBCards.cards
     return (
         <div className=".container">
             <table className="table">
@@ -15,17 +15,19 @@ export const DBList = ({userDBCards, setCards, setComparisonCards}) => {
                 </tr>
                 </thead>
                 <tbody>
-                   {userDBCards.map(userDBCards => 
+                   {console.log(cardsArray, typeof cardsArray)} 
+                   {userDBCards ? userDBCards.map(userDBCards => 
                                 <tr key={userDBCards.id}>
-                                    <td>{userDBCards.listname}</td>
+                                    <td>{userDBCards.list}</td>
                                     <td><LoadDBCards   
                                             setCards={setCards} 
                                             setComparisonCards={setComparisonCards} 
                                             cards={userDBCards.cards}/>
                                     </td>
                                     <td><DeleteDBCards id={userDBCards.id}/></td>
-                                </tr>    
-                    )}
+                                </tr>
+                                    
+                    ): <tr></tr> }
                 </tbody>
             </table>
         </div>

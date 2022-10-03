@@ -20,7 +20,6 @@ const postUser = async (user) => {
        headers: { "Content-Type": "application/json",},
        body: JSON.stringify({ name: name, email: email, user_id: user_id })
      })
-     console.log("checkpoint?")
    } catch (error) {
      console.error(error.message)
    }

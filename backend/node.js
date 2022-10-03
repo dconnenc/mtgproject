@@ -14,13 +14,13 @@ app.use(bodyParser.json({limit: "50mb"}))
 app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
 app.get('/api', (req, res) => {
-
   res.send('Hello World!')
 })
 
 app.get('/users', db.getUsers)
 app.get('/users/:id', db.getUserById)
 app.get('/usersCards', db.getUsersCards)
+app.get('/usersCards/:id', db.getUsersCardsById)
 app.post('/usersCards', db.createUsersCards)
 app.post('/users/', db.createUser)
 app.delete('/users/:id', db.deleteUser)

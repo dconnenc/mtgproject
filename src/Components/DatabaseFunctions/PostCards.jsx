@@ -10,16 +10,17 @@ export const PostCards = ( {cards} ) => {
     const onSubmitForm = async e => {
         e.preventDefault();
         
-        const name = `${user.given_name} ${user.family_name}`
-        const email = user.email
+        const userid = user.sub
+        
         const stringifiedCards = JSON.stringify(cards);
 
         try {
             await fetch("http://localhost:3001/usersCards", {
                 method: "POST",
                 headers: { "Content-Type": "application/json",},
-                body: JSON.stringify({ name: name, email: email, cards: stringifiedCards, listName: description })
+                body: JSON.stringify({ user_id: userid, cards: stringifiedCards, listName: description })
             })
+            console.log(userid)
         } catch (err) {
             console.error(err.message);
         }
