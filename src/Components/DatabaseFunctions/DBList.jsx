@@ -16,7 +16,7 @@ export const DBList = ({userDBCards, setCards, setComparisonCards}) => {
                 </thead>
                 <tbody>
                    {console.log(cardsArray, typeof cardsArray)} 
-                   {userDBCards ? userDBCards.map(userDBCards => 
+                   {cardsArray ? cardsArray.map(userDBCards => 
                                 <tr key={userDBCards.id}>
                                     <td>{userDBCards.list}</td>
                                     <td><LoadDBCards   
