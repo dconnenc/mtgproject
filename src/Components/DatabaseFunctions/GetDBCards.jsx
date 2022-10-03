@@ -6,9 +6,7 @@ export const GetDBCards = ({ setUserDBCards }) => {
         try {
             const response = await fetch('http://localhost:3001/users')
             const jsonData = await response.json();
-
-            setUserDBCards(jsonData)
-
+            setUserDBCards(JSON.parse(jsonData))
         } catch (error) {
             console.error(error.message)
         }
