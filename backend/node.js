@@ -23,7 +23,7 @@ app.get('/usersCards', db.getUsersCards)
 app.get('/usersCards/:id', db.getUsersCardsById)
 app.post('/usersCards', db.createUsersCards)
 app.post('/users/', db.createUser)
-app.delete('/users/:id', db.deleteUser)
+app.delete('/usersCards/:id/:description', db.deleteUserCards)
 
 app.listen(port, () => {
   console.log(`MyP1P1 is listening on port ${port}`)

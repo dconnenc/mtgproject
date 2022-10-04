@@ -9,6 +9,8 @@ import { ProfilePage } from './Components/ProfilePage';
 import { Auth } from './Components/Auth0/Auth.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
 
+
+//should this be imported from another location?
 const postUser = async (user) => {
    const name = `${user.given_name} ${user.family_name}`;
    const email = user.email;
@@ -43,6 +45,7 @@ const ProtectedRoute = ({ component, ...args }) => {
   }
 };
 
+//rediscuss what this does?
 const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
   const navigate = useNavigate();
   const onRedirectCallback = (appState) => {

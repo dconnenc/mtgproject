@@ -27,7 +27,6 @@ const getUserById = (request, response) => {
     })
 }
 
-//is this working?
 const getUsersCardsById = (request, response) => {
   const id = request.params.id
   console.log(id)
@@ -47,7 +46,7 @@ const getUsersCards = (request, response) => {
 
 const createUsersCards = (request, response) => {
   const { user_id, cards, listName } = request.body; 
-  console.log(request.body)
+  
   database('cards').insert({
     user_id: user_id,
     cards: cards,
@@ -71,10 +70,12 @@ const createUser = (request, response) => {
   })
 }
 
-const deleteUser = (request, response) => {
-  const id = parseInt(request.params.id)
+const deleteUserCards = (request, response) => {
+  const id = request.params.id;
+  const description = request.params.description;
 
-  database('users').where('user_id', id).del()
+  console.log(description, id)
+  database('cards').where('user_id', id).where('list', description).del()
   .then(user => {
     response.status(200).json({user})
   });
@@ -86,6 +87,6 @@ module.exports = {
   createUser,
   getUsersCards,
   getUsersCardsById,
-  deleteUser,
+  deleteUserCards,
   createUsersCards
 }

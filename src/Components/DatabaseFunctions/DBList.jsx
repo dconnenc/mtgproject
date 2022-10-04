@@ -24,7 +24,7 @@ export const DBList = ({userDBCards, setCards, setComparisonCards}) => {
                                             setComparisonCards={setComparisonCards} 
                                             cards={userDBCards.cards}/>
                                     </td>
-                                    <td><DeleteDBCards id={userDBCards.id}/></td>
+                                    <td><DeleteDBCards id={userDBCards.user_id} description={userDBCards.list}/></td>
                                 </tr>
                                     
                     ): <tr></tr> }

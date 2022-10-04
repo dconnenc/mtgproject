@@ -1,10 +1,10 @@
-export const DeleteDBCards = ({id}) => {
+export const DeleteDBCards = ({id, description}) => {
     const deleteDBCards = async (id) => {
         try {
-
-            let response = await fetch(`http://localhost:3001/users/${id}`, { method: 'DELETE' })
-            console.log(response.body);
-
+            console.log(id, description)
+            await fetch(`http://localhost:3001/usersCards/${id}/${description}`, 
+                { method: 'DELETE' }
+            )
         } catch (error) {
             console.error(error.message)
         }
