@@ -51,7 +51,6 @@ function App() {
     <div id="master-div" className=".container"  style={{
       backgroundImage: `url(${background})`,
     }}>
-      {/* <GlobalState> */}
         <Header
           background={background}
           setBackground={setBackground}
@@ -72,7 +71,7 @@ function App() {
 
         <div className="row .container">
           <div className="col-3 .container" id="preview-container">
-            <ImagePreviewer previewCard={previewCard} />
+            <ImagePreviewer previewCard={previewCard} cards={cards} />
           </div>
           <div className="col-6 .container" id="tableContainer">
             <FileHandler
@@ -98,7 +97,6 @@ function App() {
           </div>
         </div>
         <Footer />
-      {/*</GlobalState> */}
     </div>
   );
 }
