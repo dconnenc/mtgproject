@@ -19,7 +19,7 @@ const getUsers = (_request, response) => {
 }
 
 const getUserById = (request, response) => {
-  const id = parseInt(request.params.id)
+  const id = request.params.id
 
   database.select().from("users").where('user_id', id)
     .then(users => {
@@ -74,7 +74,6 @@ const deleteUserCards = (request, response) => {
   const id = request.params.id;
   const description = request.params.description;
 
-  console.log(description, id)
   database('cards').where('user_id', id).where('list', description).del()
   .then(user => {
     response.status(200).json({user})

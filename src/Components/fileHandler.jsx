@@ -9,6 +9,7 @@ export const FileHandler = ({
   setCards,
   setComparisonCards,
 }) => {
+
   //accepts a .txt file of MTG cards, visit cubecobra.com to generate.
   const reader = new FileReader();
   reader.addEventListener("load", function () {
@@ -77,6 +78,9 @@ export const FileHandler = ({
         <h1>Submit a .txt file of cards! </h1>
         <form target="_self" onSubmit={parseInput}>
           <input type="file" id="input" />
+          <button type="button" class="btn-close btn-danger" aria-label="Close"
+            onClick={()=> {setCardInput([])}}
+          ></button>
           <button className="btn btn-success"id="submit">Submit</button>
           <pre id="preReader"></pre>
         </form>

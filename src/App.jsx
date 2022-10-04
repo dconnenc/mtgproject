@@ -11,7 +11,6 @@ import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
 import { useAuth0 } from "@auth0/auth0-react";
 
 /*
-
 //KNOWN BUGS
 -Cards with "//" in their name are throwing out errors in mouseover.
 -Memory Leak when setting ComparisonCards to a Random Card during first load.
@@ -32,7 +31,6 @@ https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
 
 //Styling, styling, styling.cd
 -Set default background if query doesn't load
--Fix background to whole page, so there isn't whitespace at the bottom.
 -Set default preview to cardback
   -add some smoothing animation
 */
@@ -93,17 +91,10 @@ function App() {
               setUserDBCards={setUserDBCards}
               setComparisonCards={setComparisonCards}
               />
-            <Table setPreviewCard={setPreviewCard} cards={cards} />
-          </div>
-          <div className="col-3 .container" id="DBcontainer">
-            {/*
-              <DBContainer
+            <Table 
+              setPreviewCard={setPreviewCard} 
               cards={cards}
-              setCards={setCards}
-              userDBCards={userDBCards}
-              setUserDBCards={setUserDBCards}
-              />
-            */}
+              setCards={setCards} />
           </div>
         </div>
         <Footer />

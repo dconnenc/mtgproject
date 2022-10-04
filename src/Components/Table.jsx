@@ -1,12 +1,13 @@
+import { ClearCardsButton } from "./ClearCardsButton.jsx";
 import { TableRow } from "./TableRow.jsx";
 //
-export const Table = ({ cards, setPreviewCard }) => {
+export const Table = ({ cards, setPreviewCard, setCards }) => {
   if(!cards.length) {
     return <></>
   } else {
     return (
-        
         <table id="table-main">
+          <> <ClearCardsButton setCards={setCards}/></>
           <tbody>
             <tr id="table-header">
               <th id="card-number">#</th>

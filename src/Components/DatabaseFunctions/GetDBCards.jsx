@@ -18,9 +18,9 @@ export const GetDBCards = ({ setUserDBCards }) => {
         }
     }
 
-    /* useEffect(() => {
+    useEffect(() => {
         fetchDBCards()
-    }, []); */
+    }, []);
 
     return(
         <>
