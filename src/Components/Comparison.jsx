@@ -15,7 +15,7 @@ export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCard
     const randomCardNum1 = Math.floor(Math.random() * cards.length)
     setComparisonCards([cards[randomCardNum], cards[randomCardNum1]])
   }
-  if (!comparisonCards.length){
+  if (!comparisonCards?.length){
     return <div></div>
   };
     return (

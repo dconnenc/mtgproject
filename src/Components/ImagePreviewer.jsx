@@ -1,4 +1,4 @@
-function ImagePreviewer({ previewCard }) {
+function ImagePreviewer({ previewCard, cards }) {
   if(!previewCard?.length || !cards?.length){
     return <></>
   } else {
