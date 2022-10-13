@@ -1,8 +1,25 @@
 export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCards }) => {
 
+  const dbScoreUpdate = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`localhost:3001/usersCards/:id/:description`)
+    } catch (error) {
+      
+    }
+    //ping back end api
+        //write backend update
+    //find the corresponding list
+    //find the specific card
+    //update the specific card score
+
+
+  }
+
   const newComparison = (winner) => {
     //adjusts the cards ELO, and sorts table accordingly
-      //note: cards with equivalent score are being rearranged. Possible to maintain score tiers?
+    //note: cards with equivalent score are being rearranged. Possible to maintain score tiers?
     setCards(cards.map(obj => {
       if(obj.name === comparisonCards[winner].name){
         return {...obj, score: obj.score + 1}
@@ -15,6 +32,7 @@ export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCard
     const randomCardNum1 = Math.floor(Math.random() * cards.length)
     setComparisonCards([cards[randomCardNum], cards[randomCardNum1]])
   }
+
   if (!comparisonCards?.length){
     return <div></div>
   };

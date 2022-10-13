@@ -10,4 +10,5 @@ npm start
 Back end launches from BACKEND folder with:
 node node.js
 
-Database is run through Postgres. 
+Database is run through Postgres, coded through knex:
+npx knex migrate:latest

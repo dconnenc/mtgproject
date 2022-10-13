@@ -58,7 +58,14 @@ export const FileHandler = ({
 
       setCards(scoredCards);
       //this line should set to random cards instead of the first two in the array
-      setComparisonCards(scoredCards.slice(0,2))
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      let comparisonCard1 = getRandomInt(scoredCards.length);
+      let comparisonCard2 = getRandomInt(scoredCards.length);
+      
+      setComparisonCards([scoredCards[comparisonCard1], scoredCards[comparisonCard2]])
     }
   }, [cardInput, setCards, setComparisonCards]);  
 
@@ -75,10 +82,10 @@ export const FileHandler = ({
     return (
     <div className=".container" id="file-handler-container">
       <div className="file-handler">
-        <h1>Submit a .txt file of cards! </h1>
+        <h1>Submit a .txt file of cards! </h1>  
         <form target="_self" onSubmit={parseInput}>
           <input type="file" id="input" />
-          <button type="button" class="btn-close btn-danger" aria-label="Close"
+          <button type="button" className="btn-close btn-danger" aria-label="Close"
             onClick={()=> {setCardInput([])}}
           ></button>
           <button className="btn btn-success"id="submit">Submit</button>

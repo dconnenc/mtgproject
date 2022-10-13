@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useParams } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css'
 import { Auth0Provider, withAuthenticationRequired } from '@auth0/auth0-react';
+
 import { ProfilePage } from './Components/ProfilePage';
 import { Auth } from './Components/Auth0/Auth.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
-
 
 //should this be imported from another location?
 const postUser = async (user) => {
@@ -17,10 +17,15 @@ const postUser = async (user) => {
    const user_id =  user.sub;
 
    try {
-     await fetch("http://localhost:3001/users", {
+      await fetch("http://localhost:3001/users", {
        method: "POST",
        headers: { "Content-Type": "application/json",},
        body: JSON.stringify({ name: name, email: email, user_id: user_id })
+     }).then((response) => {
+        console.log(response);
+        response.json().then((data) => {
+          console.log(data)
+        })
      })
    } catch (error) {
      console.error(error.message)
@@ -36,7 +41,7 @@ const ProtectedRoute = ({ component, ...args }) => {
     postUser(user)
 
     return(
-      <Component />
+      <Component user={user}/>
     )
   } else {
     return(
@@ -59,17 +64,18 @@ const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
   );
 };
 
+
 ReactDOM.render(
   <BrowserRouter>
     <Auth0ProviderWithRedirectCallback
-    domain="dev-tcmbdivh.us.auth0.com"
-    clientId="ACNivhbUlhVwJWXBmQxKtcM4jFoNRlqO"
+    domain={process.env.REACT_APP_DOMAIN}
+    clientId={process.env.REACT_APP_CLIENT_ID}
     redirectUri={window.location.origin}
     >
       <Routes>
-        <Route path="/"           element={<ProtectedRoute component={App} />} />
+        <Route path="/"           element={<ProtectedRoute component={App}/>} />
+        <Route path="/:user.user_id" element={<ProtectedRoute component={ProfilePage}/>} />
         <Route path='/auth'       element={<Auth />} />
-        <Route path="profilepage" element={<ProtectedRoute component={ProfilePage} />} />
       </Routes>
     </Auth0ProviderWithRedirectCallback>
   </BrowserRouter>,

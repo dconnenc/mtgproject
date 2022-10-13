@@ -8,7 +8,6 @@ import { Table } from "./Components/Table";
 import { Background} from "./Components/Background"
 import { Footer } from "./Components/Footer";
 import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
-import { useAuth0 } from "@auth0/auth0-react";
 
 /*
 //KNOWN BUGS
@@ -35,15 +34,13 @@ https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
   -add some smoothing animation
 */
 
-function App() {
+function App({user}) {
   const [cardInput, setCardInput] = useState([]);
   const [cards, setCards] = useState([]);
   const [previewCard, setPreviewCard] = useState([]);
   const [comparisonCards, setComparisonCards] = useState([]);
   const [background, setBackground] = useState([]);
   const [userDBCards, setUserDBCards] = useState([]);
-
-  const { user } = useAuth0();
 
    //insert user token into database
 

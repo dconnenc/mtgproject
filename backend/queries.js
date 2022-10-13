@@ -28,8 +28,7 @@ const getUserById = (request, response) => {
 }
 
 const getUsersCardsById = (request, response) => {
-  const id = request.params.id
-  console.log(id)
+  const id = "1"
   database.select().from("cards").where('user_id', id)
     .then(cards => {
       response.status(200).json({cards})
@@ -59,15 +58,15 @@ const createUsersCards = (request, response) => {
 
 const createUser = (request, response) => {
   const { name, email, user_id } = request.body;
-
+  
   database('users').insert({
     name: name,
     email: email,
     user_id: user_id
-  }).onConflict('user_id').ignore()
-  .then(user => {
-    response.status(200).json({user})
   })
+  .onConflict('user_id').ignore()
+  .then(user=> {
+    response.status(200).json(user)})
 }
 
 const deleteUserCards = (request, response) => {
@@ -75,9 +74,20 @@ const deleteUserCards = (request, response) => {
   const description = request.params.description;
 
   database('cards').where('user_id', id).where('list', description).del()
-  .then(user => {
-    response.status(200).json({user})
+  .then(user => {response.status(200).json({user})
   });
+}
+
+const updateCardScores = (request, response) => {
+  const id = request.params.id;
+  const description = request.params.description;
+
+  database('cards').where('user_id', id).where('list', description).update({
+    //is it possible to find the score with my current data set?
+  })
+  .then(card => {
+    response.status(200).json({card})
+  })
 }
 
 module.exports = {
@@ -87,5 +97,6 @@ module.exports = {
   getUsersCards,
   getUsersCardsById,
   deleteUserCards,
-  createUsersCards
+  createUsersCards,
+  updateCardScores
 }
