@@ -33,7 +33,6 @@ https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
 */
 
 function App({user}) {
-
   const [cardInput, setCardInput] = useState([]);
   const [cards, setCards] = useState([]);
   const [previewCard, setPreviewCard] = useState([]);
@@ -58,18 +57,18 @@ function App({user}) {
           background={background}
           setBackground={setBackground}
         />
-        
+
         <Comparison
           cards={cards}
           setCards={setCards}
           comparisonCards={comparisonCards}
           setComparisonCards={setComparisonCards}
         />
-        
+
         <div className="row .container">
           <div className="col-3 .container" id="preview-container">
             <ImagePreviewer previewCard={previewCard} cards={cards} />
-            
+
           </div>
           <div className="col-6 .container" id="tableContainer">
             <FileHandler
@@ -88,8 +87,8 @@ function App({user}) {
               setUserDBCards={setUserDBCards}
               setComparisonCards={setComparisonCards}
               />
-            <Table 
-              setPreviewCard={setPreviewCard} 
+            <Table
+              setPreviewCard={setPreviewCard}
               cards={cards}
               setCards={setCards} />
           </div>

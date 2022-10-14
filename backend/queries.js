@@ -44,8 +44,8 @@ const getUsersCards = (request, response) => {
 }
 
 const createUsersCards = (request, response) => {
-  const { user_id, cards, listName } = request.body; 
-  
+  const { user_id, cards, listName } = request.body;
+
   database('cards').insert({
     user_id: user_id,
     cards: cards,
@@ -58,17 +58,18 @@ const createUsersCards = (request, response) => {
 
 const createUser = (request, response) => {
   const { name, email, user_id } = request.body;
-  
-  database('users')
-  .insert({
+
+  database('users').insert({
     name: name,
     email: email,
     user_id: user_id
   })
-  .onConflict('user_id').ignore()
-  .returning('*').then(([id]) => console.log(id))
-  .then(user=> {
-    response.status(200).json(user)})
+    .returning('*')
+    .onConflict('user_id')
+    .merge()
+    .then((user) => {
+      return response.status(200).json(user)
+    })
 }
 
 const deleteUserCards = (request, response) => {
