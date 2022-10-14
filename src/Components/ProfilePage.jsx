@@ -14,7 +14,7 @@ export const ProfilePage = ({background}) => {
             boxShadow: "inset 0 0 0 1000px rgba(0,0,0,.4)"
         }}>
             <Header />
-            <div clasName="row">
+            <div className="row">
                 <div className="col" style={{
                     paddingTop: "25%"
                 }}>

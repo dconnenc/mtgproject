@@ -16,7 +16,7 @@ export const Background = ({ setBackground }) => {
       })
       .catch(error => 
         console.log(error.message));
-}, []);
+},[setBackground]);
 
   return(
     <div>

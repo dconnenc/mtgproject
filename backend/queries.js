@@ -59,12 +59,14 @@ const createUsersCards = (request, response) => {
 const createUser = (request, response) => {
   const { name, email, user_id } = request.body;
   
-  database('users').insert({
+  database('users')
+  .insert({
     name: name,
     email: email,
     user_id: user_id
   })
   .onConflict('user_id').ignore()
+  .returning('*').then(([id]) => console.log(id))
   .then(user=> {
     response.status(200).json(user)})
 }

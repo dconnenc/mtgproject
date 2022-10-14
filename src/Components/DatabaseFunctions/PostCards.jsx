@@ -7,7 +7,7 @@ export const PostCards = ( {cards} ) => {
     const { user } = useAuth0();
     
     
-    const onSubmitForm = async e => {
+    const postDBCards = async e => {
         e.preventDefault();
         
         const userid = user.sub
@@ -28,7 +28,7 @@ export const PostCards = ( {cards} ) => {
 
     return (
         <div>
-            <form className="d-flex mt-5" onSubmit={onSubmitForm}>
+            <form className="d-flex mt-5" onSubmit={postDBCards}>
                 <input
                     type="text"
                     className="form-control"

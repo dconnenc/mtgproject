@@ -2,26 +2,34 @@ import { Authenticator} from "./Auth0/authenticatorbutton";
 import Profile from "./Auth0/profile";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import Logo from "./Logo.png"
 
 export const Header = ({user}) => {
   const { isAuthenticated, isLoading } = useAuth0();
-
+  
+  if (isAuthenticated && !isLoading) {
   return (
-    <div id="header" className=".container">
-      <div className="row">
+
+      <div id="header" className=".container">
+      <div className="row align-middle">
         <div className="col-3">
-          { isAuthenticated && !isLoading ? <Link to={`/profile/${user}`}><Profile /></Link> : <Profile /> }
+          <Link to={`/profile/${user}`}><Profile /></Link> 
         </div>
         <div className="col-6">
-          <h1>My P1P1</h1>
+          <img id="logo" src={Logo} alt="logo"/>
         </div>
         <div className="col-3">
           <Authenticator />
         </div>
       </div>
       <div className="row">
-        
+        <div className="col-12">
+          
+        </div>
       </div>
     </div>
   );
-};
+  } else {
+    return null
+  }
+}

@@ -22,15 +22,17 @@ const postUser = async (user) => {
        headers: { "Content-Type": "application/json",},
        body: JSON.stringify({ name: name, email: email, user_id: user_id })
      }).then((response) => {
-        console.log(response);
-        response.json().then((data) => {
-          console.log(data)
-        })
+      console.log(response);
+      response.json().then((data) => {
+        console.log(data)
+      })
      })
    } catch (error) {
      console.error(error.message)
    }
 }
+
+
 
 //Creates high order component with user data. 
 const ProtectedRoute = ({ component, ...args }) => {
@@ -75,7 +77,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/"              element={<ProtectedRoute component={App}/>} />
         <Route path="/profile/:id"   element={<ProtectedRoute component={ProfilePage}/>} />
-        <Route path='/auth'           element={<Auth />} />
+        <Route path='/auth'          element={<Auth />} />
       </Routes>
     </Auth0ProviderWithRedirectCallback>
   </BrowserRouter>,
