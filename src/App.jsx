@@ -35,6 +35,7 @@ https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
 */
 
 function App({user}) {
+  
   const [cardInput, setCardInput] = useState([]);
   const [cards, setCards] = useState([]);
   const [previewCard, setPreviewCard] = useState([]);
@@ -52,6 +53,7 @@ function App({user}) {
           background={background}
           setBackground={setBackground}
           cards={cards}
+          user={user}
         />
 
         <Background

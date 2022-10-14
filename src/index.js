@@ -5,12 +5,12 @@ import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css'
 import { Auth0Provider, withAuthenticationRequired } from '@auth0/auth0-react';
-
 import { ProfilePage } from './Components/ProfilePage';
 import { Auth } from './Components/Auth0/Auth.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
 
-//should this be imported from another location?
+//should lines 14-33 be imported from another location?
+//On Authentication posts user information to database
 const postUser = async (user) => {
    const name = `${user.given_name} ${user.family_name}`;
    const email = user.email;
@@ -32,6 +32,7 @@ const postUser = async (user) => {
    }
 }
 
+//Creates high order component with user data. 
 const ProtectedRoute = ({ component, ...args }) => {
   const Component = withAuthenticationRequired(component, args);
 
@@ -50,7 +51,7 @@ const ProtectedRoute = ({ component, ...args }) => {
   }
 };
 
-//rediscuss what this does?
+//?
 const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
   const navigate = useNavigate();
   const onRedirectCallback = (appState) => {
@@ -64,7 +65,6 @@ const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
   );
 };
 
-
 ReactDOM.render(
   <BrowserRouter>
     <Auth0ProviderWithRedirectCallback
@@ -73,9 +73,9 @@ ReactDOM.render(
     redirectUri={window.location.origin}
     >
       <Routes>
-        <Route path="/"           element={<ProtectedRoute component={App}/>} />
-        <Route path="/:user.user_id" element={<ProtectedRoute component={ProfilePage}/>} />
-        <Route path='/auth'       element={<Auth />} />
+        <Route path="/"              element={<ProtectedRoute component={App}/>} />
+        <Route path="/profile/:id"   element={<ProtectedRoute component={ProfilePage}/>} />
+        <Route path='/auth'           element={<Auth />} />
       </Routes>
     </Auth0ProviderWithRedirectCallback>
   </BrowserRouter>,

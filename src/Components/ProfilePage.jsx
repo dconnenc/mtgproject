@@ -1,9 +1,10 @@
 import { Footer } from "./Footer";
 import { Header } from "./Header";
-//import { PostCards } from "./PostCards";
-//import { useAuth0 } from "@auth0/auth0-react";
+import { useParams } from "react-router-dom";
 
-export const ProfilePage = ({background, setBackground, cards}) => {
+export const ProfilePage = ({background}) => {
+    let {id} = useParams();
+    
     return(
         <div id="master-div" className=".container " style={{
             backgroundImage: `url(${background})`,
@@ -14,15 +15,10 @@ export const ProfilePage = ({background, setBackground, cards}) => {
         }}>
             <Header />
             <div clasName="row">
-                <div className="col">
-                    <div className="d-flex align-items-center justify-content-center">
-                        <div>
-                            My lists
-                        </div>
-                        <button onClick={() => console.log(cards)}>Test Button</button>
-                        {/* <PostCards cards={cards}/> */}
-                        <button>Import Collection</button>
-                    </div>
+                <div className="col" style={{
+                    paddingTop: "25%"
+                }}>
+                    Profile page for {id}
                 </div>
             </div>
             <Footer />
