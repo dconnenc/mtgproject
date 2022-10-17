@@ -4,12 +4,8 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Logo from "./Logo.png"
 
-export const Header = ({user}) => {
-  const { isAuthenticated, isLoading } = useAuth0();
-  
-  if (isAuthenticated && !isLoading) {
+export const Header = ({user}) => { 
   return (
-
       <div id="header" className=".container">
       <div className="row align-middle">
         <div className="col-3">
@@ -29,7 +25,4 @@ export const Header = ({user}) => {
       </div>
     </div>
   );
-  } else {
-    return null
-  }
 }

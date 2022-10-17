@@ -16,7 +16,7 @@ exports.up = function(knex) {
     //defines cards table
     knex.schema.createTable('cards', function(table){
         table.increments(); 
-        table.string('cards').notNullable();
+        table.text('cards').notNullable();
         table.string('list').unique().notNullable();
         table.string('user_id').references('user_id').inTable('users').notNullable();
     })
