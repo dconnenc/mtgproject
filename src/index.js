@@ -23,16 +23,11 @@ const postUser = async (user) => {
        body: JSON.stringify({ name: name, email: email, user_id: user_id })
      }).then((response) => {
       console.log(response);
-      response.json().then((data) => {
-        console.log(data)
-      })
      })
    } catch (error) {
      console.error(error.message)
    }
 }
-
-
 
 //Creates high order component with user data. 
 const ProtectedRoute = ({ component, ...args }) => {
