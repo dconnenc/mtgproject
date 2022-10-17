@@ -39,6 +39,9 @@ const findOrCreateUser = async (externalUser, setUser) => {
 //
 // 1. It ensures a user is authenticated
 // 2. It finds or creates a user
+
+//Creates high order component with user data. 
+
 const ProtectedRoute = ({ component, ...args }) => {
   const Component = withAuthenticationRequired(component, args);
   const { isAuthenticated, isLoading, user: externalUser } = useAuth0();
@@ -82,7 +85,6 @@ const ProtectedRoute = ({ component, ...args }) => {
   }
 };
 
-//?
 const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
   const navigate = useNavigate();
   const onRedirectCallback = (appState) => {

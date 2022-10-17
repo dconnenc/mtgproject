@@ -18,7 +18,7 @@ exports.up = function(knex) {
         table.increments(); 
         table.string('cards').notNullable();
         table.string('list').unique().notNullable();
-        table.integer('user_id').references('id').inTable('users').notNullable();
+        table.string('user_id').references('user_id').inTable('users').notNullable();
     })
     ])
 };
