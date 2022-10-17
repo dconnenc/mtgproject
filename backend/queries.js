@@ -66,7 +66,7 @@ const createUser = (request, response) => {
     user_id: user_id
   })
   .onConflict('user_id').ignore()
-  .returning('*').then(([id]) => console.log(id))
+  .returning('id').then(([id]) => console.log(id))
   .then(user=> {
     response.status(200).json(user)})
 }
