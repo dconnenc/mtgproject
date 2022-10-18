@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { Routes, Route, useNavigate, useParams } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -11,6 +11,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 //should lines 14-33 be imported from another location?
 //On Authentication posts user information to database
+
 const findOrCreateUser = async (externalUser, setUser) => {
   const name    = `${externalUser.given_name} ${externalUser.family_name}`;
   const email   = externalUser.email;

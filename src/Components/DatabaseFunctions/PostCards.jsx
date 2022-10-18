@@ -9,8 +9,8 @@ export const PostCards = ( {cards} ) => {
     
     const postDBCards = async e => {
         e.preventDefault();
-        
-        const userid = user.sub
+
+        const userid = user.id
         
         const stringifiedCards = JSON.stringify(cards);
 
@@ -20,7 +20,6 @@ export const PostCards = ( {cards} ) => {
                 headers: { "Content-Type": "application/json",},
                 body: JSON.stringify({ user_id: userid, cards: stringifiedCards, listName: description })
             })
-            console.log(userid)
         } catch (err) {
             console.error(err.message);
         }

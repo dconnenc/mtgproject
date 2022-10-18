@@ -8,20 +8,11 @@ import { Table } from "./Components/Table";
 import { Background} from "./Components/Background"
 import { Footer } from "./Components/Footer";
 import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
-import { Authenticator } from "./Components/Auth0/authenticatorbutton";
 
 /*
 //KNOWN BUGS
 -Cards with "//" in their name are throwing out errors in mouseover.
 -Memory Leak when setting ComparisonCards to a Random Card during first load.
-
-//TO DO
-user authentication to database?
-https://auth0.com/blog/configuring-postgresql-as-auth0-custom-database/
-
--Login Management
-  •Set login management, and visibility for components based on that.
-
 -Pagination:
   •Set up profile 'page' using visibility.
   •User page that displays their list.
@@ -41,7 +32,6 @@ function App({user}) {
   const [userDBCards, setUserDBCards] = useState([]);
 
    //insert user token into database
-
   return (
     <div id="master-div" className=".container"  style={{
       backgroundImage: `url(${background})`,
@@ -81,6 +71,7 @@ function App({user}) {
               setComparisonCards={setComparisonCards}
             />
             <DBContainer
+              user={user}
               cards={cards}
               setCards={setCards}
               userDBCards={userDBCards}

@@ -1,3 +1,8 @@
+.wire-frame{
+  border: 3pt solid black;
+  text-align: center;
+}
+
 #header{
   display: inline-block;
   background-color: #333333;
@@ -13,11 +18,6 @@
   margin: auto auto auto auto;
   max-width: 40vw; 
   max-height: 6vh;
-}
-
-h1 {
- font-size: 16pt; 
- text-decoration: none;
 }
 
 #footer{
@@ -38,6 +38,7 @@ h1 {
   background-attachment: fixed;
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.4);
 }
+
 
 .App {
   justify-content: center;

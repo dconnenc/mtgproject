@@ -20,7 +20,6 @@ const getUsers = (_request, response) => {
 
 const getUserById = (request, response) => {
   const id = request.params.id
-
   database.select().from("users").where('user_id', id)
     .then(users => {
       response.status(200).json({users})
@@ -28,8 +27,8 @@ const getUserById = (request, response) => {
 }
 
 const getUsersCardsById = (request, response) => {
-  const id = "1"
-  database.select().from("cards").where('user_id', id)
+  const id = request.params.id;
+  database.select().from("cards").where('id', id)
     .then(cards => {
       response.status(200).json({cards})
     })

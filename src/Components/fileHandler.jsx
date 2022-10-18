@@ -45,7 +45,7 @@ export const FileHandler = ({
       const retrievedCards = retrievedBatch.flatMap((batch) => batch.data);
       const scoredCards = retrievedCards.map(obj => {
         return {...obj, score: 1000};
-      }).map(card => {
+      }).map(card => {  
         const { color_identity, image_uris, name, score, rarity } = card;
         return { 
           color_identity,

@@ -21,9 +21,14 @@ export const DBList = ({userDBCards, setCards, setComparisonCards}) => {
                                     <td><LoadDBCards   
                                             setCards={setCards} 
                                             setComparisonCards={setComparisonCards} 
-                                            cards={userDBCards.cards}/>
+                                            cards={userDBCards.cards}
+                                        />
                                     </td>
-                                    <td><DeleteDBCards id={userDBCards.user_id} description={userDBCards.list}/></td>
+                                    <td><DeleteDBCards 
+                                        id={userDBCards.user_id} 
+                                        description={userDBCards.list}
+                                        />
+                                    </td>
                                 </tr>
                                     
                     ): <tr></tr> }
