@@ -6,7 +6,8 @@ const Pool = require('pg').Pool
 
 if (process.env.NODE_ENV === "production") {
   const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
   });
 } else {
   const pool = new Pool({
