@@ -11,7 +11,6 @@ if (process.env.NODE_ENV === "production") {
   });
 } else {
   const pool = new Pool({
-    connectionString:
     user: 'postgres',
     host: 'localhost',
     database: 'api',
