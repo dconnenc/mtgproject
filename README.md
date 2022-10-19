@@ -1,8 +1,10 @@
-A companion application for Magic the Gathering. 
+# My p1p1
 
-Users can create their own lists for public evaluation in a classic P1P1 set-up. 
+A companion application for Magic the Gathering.
 
-See draftaholics.com for comparison. 
+Users can create their own lists for public evaluation in a classic P1P1 set-up.
+
+See draftaholics.com for comparison.
 
 Front end launches from MTGPROJECT folder with:
 npm start
