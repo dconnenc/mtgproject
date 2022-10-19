@@ -1,15 +1,23 @@
 const knex = require("knex")
-const config = require("../knexfile")["development"]
+const config = require("../knexfile")[process.env.NODE_ENV || "development"]
 const database = knex(config);
 
 const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'api',
-  password: 'password',
-  port: 5432,
-})
+
+if (process.env.NODE_ENV === "production") {
+  const pool = new Pool({
+    connectionString: process.env.DATABASE_URL
+  });
+} else {
+  const pool = new Pool({
+    connectionString:
+    user: 'postgres',
+    host: 'localhost',
+    database: 'api',
+    password: 'password',
+    port: 5432,
+  })
+}
 
 const getUsers = (_request, response) => {
   database.select().from("users")
