@@ -1,7 +1,7 @@
 import { Authenticator} from "./Auth0/authenticatorbutton";
 import Profile from "./Auth0/profile";
 import { Link } from "react-router-dom";
-import Logo from "./Logo.png"
+import Logo from "../Assets/Logo.png"
 
 export const Header = ({user}) => {
   return (
