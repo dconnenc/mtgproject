@@ -45,7 +45,6 @@ const getUsersCardsById = (request, response) => {
 }
 
 const getUsersCards = (request, response) => {
-
   database.select().from("cards")
     .then(cards => {
       response.status(200).json({cards})
@@ -85,7 +84,7 @@ const deleteUserCards = (request, response) => {
   const id = request.params.id;
   const description = request.params.description;
 
-  database('cards').where('user_id', id).where('list', description).del()
+  database('cards').where('user_id', id).andWhere('list', description).del()
   .then(user => {response.status(200).json({user})
   });
 }
@@ -93,10 +92,11 @@ const deleteUserCards = (request, response) => {
 const updateCardScores = (request, response) => {
   const id = request.params.id;
   const description = request.params.description;
+  const newCards = request.body;
+  console.log(newCards);
 
-  database('cards').where('user_id', id).where('list', description).update({
-    //is it possible to find the score with my current data set?
-  })
+  database('cards').where('user_id', id).andWhere('list', description)
+  .update({"cards": newCards}, ['id', 'cards'])
   .then(card => {
     response.status(200).json({card})
   })

@@ -22,6 +22,7 @@ app.get('/api', (req, res) => {
   res.sendFile(path.resolve('../public/index.html'))
 })*/
 
+
 app.get('/users', db.getUsers)
 app.get('/users/:id', db.getUserById)
 app.get('/usersCards', db.getUsersCards)
@@ -29,6 +30,7 @@ app.get('/usersCards/:id', db.getUsersCardsById)
 app.post('/usersCards', db.createUsersCards)
 app.post('/users/', db.createUser)
 app.delete('/usersCards/:id/:description', db.deleteUserCards)
+app.patch('/usersCards/:id/:description', db.updateCardScores)
 
 app.listen(port, () => {
   console.log(`MyP1P1 is listening on port ${port}`)

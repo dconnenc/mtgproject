@@ -6,7 +6,6 @@ export const DBContainer = ({ user, cards, setCards, setUserDBCards, userDBCards
 
     return(
         <div id="profile-container wire-frame">
-            <h1>Fetch a list here!</h1>
                 <div className=".container">
                     <div className="row">
                         <PostCards 

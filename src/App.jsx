@@ -49,6 +49,8 @@ function App({user}) {
         />
 
         <Comparison
+          user={user}
+          userDBCards={userDBCards}
           cards={cards}
           setCards={setCards}
           comparisonCards={comparisonCards}

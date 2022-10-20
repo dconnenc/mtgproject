@@ -6,7 +6,7 @@ export const PostCards = ( {cards} ) => {
     const [description, setDescription] = useState('')
     const { user } = useAuth0();
     
-    
+    //hits the node.js file on the backend
     const postDBCards = async e => {
         e.preventDefault();
 

@@ -1,19 +1,23 @@
-export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCards }) => {
+export const Comparison = ({ user, cards, setCards, setComparisonCards, comparisonCards, userDBCards }) => {
 
-  const dbScoreUpdate = async (e) => {
-    e.preventDefault();
+  //pathces db entry in the cards column of the cards table
+  //hits the node.js file on the backend
+  const dbScorePatch = async (scoredCards) => {
+    const id = user.id;
+    const description = userDBCards.cards[0].list;
+    const body = JSON.stringify({  cards: scoredCards })
 
     try {
-      const response = await fetch(`localhost:3001/usersCards/:id/:description`, )
+      await fetch(`http://localhost:3001/usersCards/${id}/${description}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json",},
+        body: body
+      })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
     } catch (error) {
-      
+        console.error(error.message)
     }
-    //ping back end api
-        //write backend update
-    //find the corresponding list
-    //find the specific card
-    //update the specific card score
-
   }
 
   const newComparison = (winner) => {
@@ -25,6 +29,9 @@ export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCard
       } else {
         return obj;
       }}).sort((a, b) => (a.score < b.score) ? 1 : -1))
+    
+    //update the DB with new values
+    dbScorePatch(cards)
 
     //sets the comparison cards to two random cards from the list
     const randomCardNum = Math.floor(Math.random() * cards.length)
