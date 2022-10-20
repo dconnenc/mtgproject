@@ -24,7 +24,7 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "npm install && cd backend && node node.js",
+    "start": "npm install && npm run build && cd backend && node node.js",
     "heroku-postbuild": "npm install && npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
