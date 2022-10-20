@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
 const cors = require('cors');
+const path = require('path');
 const port = process.env.PORT || 3001
 
 
@@ -16,7 +17,9 @@ app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:500
 app.get('/api', (req, res) => {
   res.send('Hello World!')
 })
-
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve('../src/index.js'))
+})
 app.get('/users', db.getUsers)
 app.get('/users/:id', db.getUserById)
 app.get('/usersCards', db.getUsersCards)
