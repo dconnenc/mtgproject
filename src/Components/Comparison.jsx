@@ -4,7 +4,7 @@ export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCard
     e.preventDefault();
 
     try {
-      const response = await fetch(`localhost:3001/usersCards/:id/:description`)
+      const response = await fetch(`localhost:3001/usersCards/:id/:description`, )
     } catch (error) {
       
     }
@@ -13,7 +13,6 @@ export const Comparison = ({ cards, setCards, setComparisonCards, comparisonCard
     //find the corresponding list
     //find the specific card
     //update the specific card score
-
 
   }
 

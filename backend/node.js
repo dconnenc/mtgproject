@@ -18,7 +18,7 @@ app.get('/api', (req, res) => {
   res.send('Hello World!')
 })
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve('../src/index.js'))
+  res.sendFile(path.resolve('../public/index.html'))
 })
 app.get('/users', db.getUsers)
 app.get('/users/:id', db.getUserById)
