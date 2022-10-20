@@ -24,10 +24,10 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "npm install && npm run build && cd backend && node node.js",
+    "start": "npm install && react-scripts start && cd backend && node node.js",
     "heroku-postbuild": "npm install && npm run build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test", 
     "eject": "react-scripts eject",
     "migrate": "knex.migrate"
   },
