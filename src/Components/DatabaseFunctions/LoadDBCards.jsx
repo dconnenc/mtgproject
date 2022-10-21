@@ -1,4 +1,4 @@
-export const LoadDBCards = ({setCards, setComparisonCards, cards}) => {
+export const LoadDBCards = ({setCards, setComparisonCards, userDBCards}) => {
     
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
@@ -6,15 +6,19 @@ export const LoadDBCards = ({setCards, setComparisonCards, cards}) => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        let parsedCards = JSON.parse(cards)
-        //loads cards to table
-        setCards(parsedCards);
+        console.log(userDBCards)
         
+        let parsedCards = JSON.parse(userDBCards.cards)
+        
+        let cards = parsedCards.cards
+        //loads cards to table by useEffect
+        setCards(cards);
+
         //sets comparison cards
-        let comparisonCard1 = getRandomInt(parsedCards.length);
-        let comparisonCard2 = getRandomInt(parsedCards.length);
+        let comparisonCard1 = getRandomInt(cards.length);
+        let comparisonCard2 = getRandomInt(cards.length);
         
-        setComparisonCards([parsedCards[comparisonCard1], parsedCards[comparisonCard2]])
+        setComparisonCards([cards[comparisonCard1], cards[comparisonCard2]])
     }
 
     return(

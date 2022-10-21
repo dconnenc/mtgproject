@@ -21,6 +21,7 @@ if (process.env.NODE_ENV === "production") {
   })
 }
 
+//dead end to trouble shoot backend
 const getUsers = (_request, response) => {
   database.select().from("users")
     .then(users => {
@@ -28,31 +29,29 @@ const getUsers = (_request, response) => {
     });
 }
 
+//api runs this after auth0 authentication and assigns identity
 const getUserById = (request, response) => {
   const id = request.params.id
   database.select().from("users").where('user_id', id)
-    .then(users => {
-      response.status(200).json({users})
+    .then(user => {
+      response.status(200).json({user})
     })
 }
+
 
 const getUsersCardsById = (request, response) => {
   const id = request.params.id;
-  database.select().from("cards").where('id', id)
-    .then(cards => {
-      response.status(200).json({cards})
-    })
-}
 
-const getUsersCards = (request, response) => {
-  database.select().from("cards")
+  database.select("*").from("cards").where('user_id', id)
     .then(cards => {
       response.status(200).json({cards})
     })
 }
 
 const createUsersCards = (request, response) => {
-  const { user_id, cards, listName } = request.body;
+  const user_id = request.params.id;
+  const listName = request.params.description;
+  const cards = request.body
 
   database('cards').insert({
     user_id: user_id,
@@ -92,21 +91,19 @@ const deleteUserCards = (request, response) => {
 const updateCardScores = (request, response) => {
   const id = request.params.id;
   const description = request.params.description;
-  const newCards = request.body;
-  console.log(newCards);
+  const cards = request.body;
 
   database('cards').where('user_id', id).andWhere('list', description)
-  .update({"cards": newCards}, ['id', 'cards'])
+  .update({"cards": cards}, ['id', 'cards'])
   .then(card => {
     response.status(200).json({card})
-  })
+  }).then(x => console.log(x))
 }
 
 module.exports = {
   getUsers,
   getUserById,
   createUser,
-  getUsersCards,
   getUsersCardsById,
   deleteUserCards,
   createUsersCards,

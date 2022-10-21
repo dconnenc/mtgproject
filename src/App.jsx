@@ -11,8 +11,8 @@ import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
 
 /*
 //KNOWN BUGS
--Cards with "//" in their name are throwing out errors in mouseover.
--Memory Leak when setting ComparisonCards to a Random Card during first load.
+
+//TO DO 
 -Pagination:
   •Set up profile 'page' using visibility.
   •User page that displays their list.

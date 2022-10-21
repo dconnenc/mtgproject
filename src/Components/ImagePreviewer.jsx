@@ -7,7 +7,7 @@ function ImagePreviewer({ previewCard, cards }) {
         maxWidth: "25vw"
       }}>
         <img id="preview"
-          className={`preview-card ${previewCard.isHorizontal ? 'horizontal' : ''}`}
+          className="preview-card"
           src={previewCard.img}
           alt="preview of highlighted card"
         />

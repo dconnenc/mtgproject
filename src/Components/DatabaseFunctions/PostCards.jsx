@@ -1,25 +1,20 @@
-//Currently getting a CORS error, and data being transfered is too large.  
-import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
 
-export const PostCards = ( {cards} ) => {
+export const PostCards = ( {cards, user} ) => {
     const [description, setDescription] = useState('')
-    const { user } = useAuth0();
     
     //hits the node.js file on the backend
     const postDBCards = async e => {
         e.preventDefault();
 
-        const userid = user.id
-        
-        const stringifiedCards = JSON.stringify(cards);
-
         try {
-            await fetch("http://localhost:3001/usersCards", {
+            await fetch(`http://localhost:3001/usersCards/${user.id}/${description}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json",},
-                body: JSON.stringify({ user_id: userid, cards: stringifiedCards, listName: description })
+                body: JSON.stringify({ cards })
             })
+            .then(response => response.json())
+            .then(json => console.log(json));
         } catch (err) {
             console.error(err.message);
         }

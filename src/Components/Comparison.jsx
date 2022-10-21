@@ -6,7 +6,8 @@ export const Comparison = ({ user, cards, setCards, setComparisonCards, comparis
     const id = user.id;
     const description = userDBCards.cards[0]?.list; // updated by cam
     const body = JSON.stringify({  cards: scoredCards })
-
+    console.log("body=", body)
+    
     try {
       await fetch(`http://localhost:3001/usersCards/${id}/${description}`, {
         method: "PATCH",
