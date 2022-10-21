@@ -8,7 +8,7 @@ export const GetDBCards = ({ user, setUserDBCards }) => {
             const response = await fetch(`http://localhost:3001/usersCards/${user_id}`,
                 { method: "GET" })
             const jsonData = await response.json();
-            console.log(jsonData)
+            
             setUserDBCards(jsonData)
         } catch (error) {
             console.error(error.message)

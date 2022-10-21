@@ -5,14 +5,12 @@ export const Comparison = ({ user, cards, setCards, setComparisonCards, comparis
   const dbScorePatch = async (scoredCards) => {
     const id = user.id;
     const description = userDBCards.cards[0]?.list; // updated by cam
-    const body = JSON.stringify({  cards: scoredCards })
-    console.log("body=", body)
     
     try {
       await fetch(`http://localhost:3001/usersCards/${id}/${description}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json",},
-        body: body
+        body: JSON.stringify({ scoredCards })
       })
       .then((response) => response.json())
       .then((json) => console.log(json));
@@ -37,6 +35,7 @@ export const Comparison = ({ user, cards, setCards, setComparisonCards, comparis
     //sets the comparison cards to two random cards from the list
     const randomCardNum = Math.floor(Math.random() * cards.length)
     const randomCardNum1 = Math.floor(Math.random() * cards.length)
+    
     setComparisonCards([cards[randomCardNum], cards[randomCardNum1]])
   }
 

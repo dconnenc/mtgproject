@@ -12,7 +12,7 @@ export const DBList = ({userDBCards, setCards, setComparisonCards}) => {
                     <th>Description</th>
                     <th>Load</th>
                     <th>Delete</th>
-                </tr>
+                </tr>   
                 </thead>
                 <tbody>
                    {cardsArray ? cardsArray.map(userDBCards => 

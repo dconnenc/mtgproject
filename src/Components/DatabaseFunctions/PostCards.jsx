@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const PostCards = ( {cards, user} ) => {
+export const PostCards = ({ cards, user }) => {
     const [description, setDescription] = useState('')
     
     //hits the node.js file on the backend
