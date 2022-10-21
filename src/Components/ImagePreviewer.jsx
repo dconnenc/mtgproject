@@ -1,5 +1,5 @@
 function ImagePreviewer({ previewCard, cards }) {
-  if(!previewCard?.length || !cards?.length){
+  if(!previewCard?.img || !cards?.length){
     return <></>
   } else {
     return (
@@ -7,7 +7,8 @@ function ImagePreviewer({ previewCard, cards }) {
         maxWidth: "25vw"
       }}>
         <img id="preview"
-          src={previewCard}
+          className={`preview-card ${previewCard.isHorizontal ? 'horizontal' : ''}`}
+          src={previewCard.img}
           alt="preview of highlighted card"
         />
       </div>

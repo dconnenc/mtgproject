@@ -4,7 +4,7 @@ export const Comparison = ({ user, cards, setCards, setComparisonCards, comparis
   //hits the node.js file on the backend
   const dbScorePatch = async (scoredCards) => {
     const id = user.id;
-    const description = userDBCards.cards[0].list;
+    const description = userDBCards.cards[0]?.list; // updated by cam
     const body = JSON.stringify({  cards: scoredCards })
 
     try {
@@ -29,7 +29,7 @@ export const Comparison = ({ user, cards, setCards, setComparisonCards, comparis
       } else {
         return obj;
       }}).sort((a, b) => (a.score < b.score) ? 1 : -1))
-    
+
     //update the DB with new values
     dbScorePatch(cards)
 
@@ -42,18 +42,13 @@ export const Comparison = ({ user, cards, setCards, setComparisonCards, comparis
   if (!comparisonCards?.length){
     return <div></div>
   };
+
+  const [firstCard, secondCard] = comparisonCards;
+
     return (
-    <div className=".container" id="comparison-card-container">
-      <div className="row">
-        <div className="col-3"></div>
-        <div className="col-3">
-          <img onClick={() => newComparison(0)} src={comparisonCards[0].image_uris} alt="" id="comparison-card"></img>
-        </div>
-        <div className="col-3">
-          <img onClick={() => newComparison(1)} src={comparisonCards[1].image_uris} alt="" id="comparison-card"></img>
-        </div>
-        <div className="col-3"></div>
-      </div>
+    <div className=".container comparison-card-container" id="comparison-card-container">
+      <img onClick={() => newComparison(0)} src={firstCard.image_uris} alt="" id="comparison-card" className={`comparison-card ${firstCard.name.includes('//') ? 'horizontal' : ''}`}></img>
+      <img onClick={() => newComparison(1)} src={secondCard.image_uris} alt="" id="comparison-card" className={`comparison-card ${secondCard.name.includes('//') ? 'horizontal' : ''}`}></img>
     </div>
   );
 };

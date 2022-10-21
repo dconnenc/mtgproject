@@ -1,3 +1,11 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .wire-frame{
   border: 3pt solid black;
 }
@@ -15,7 +23,7 @@
 
 #logo {
   margin: auto auto auto auto;
-  max-width: 40vw; 
+  max-width: 40vw;
   max-height: 6vh;
 }
 
@@ -31,7 +39,11 @@
 }
 
 #master-div{
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -88,32 +100,42 @@
  display: block;
 }
 
-#preview{
+.preview-card {
+  position: fixed;
+  left: 100px;
   display:block;
   max-width: 15vw;
   height: auto;
-  position: fixed;  
   border-radius: 11pt;
   box-shadow: 10px 10px 15px black;
 }
 
-#comparison-card {
-  overflow:hidden;
+.comparison-card {
+  overflow: hidden;
   margin: 0 auto 0 auto;
-  max-height: 34vh;
-  height: auto;
-  width: auto;
+  height: fit-content;
+  width: fit-content;
+  max-height: 450px;
+  max-width: 475px;
   border-radius: 8pt;
   box-shadow: 10px 10px 15px black;
 }
 
-#comparison-card-container {
-  padding-top: 7vh;
-  height: 35vh;
-  width: auto;
-  display: block;
+.horizontal {
+  transform: rotate(90deg);
+  margin: 30px 0;
+}
+
+.comparison-card-container {
+  margin-top: 100px;
+  padding: 25px;
+  max-height: 450px;
+  width: fit-content;
+
+  display: flex;
   justify-content: center;
   align-items: center;
+  gap: 165px;
 }
 
 #file-handler-container {
@@ -139,7 +161,7 @@
   display: block;
   background: rgba(256, 256, 256, .4);
   border: solid white 3px;
-  margin-top: 60px; 
+  margin-top: 60px;
   margin-right: auto;
   margin-left: auto;
   border-radius: 3pt;
@@ -160,7 +182,7 @@
   text-align: right;
   filter: alpha(opacity=0);
   opacity: 0;
-  outline: none;   
+  outline: none;
   cursor: inherit;
   display: block;
 }

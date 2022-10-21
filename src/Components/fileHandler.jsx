@@ -31,12 +31,16 @@ export const FileHandler = ({
       const queryArray = cardBatch
         .filter((cardName) => cardName !== "")
         .map((cardName) => {
+          // Expansion // Explosion -> split('//') -> [Expansion, Explosion]
+          // Skeletal Swarming -> [Skeletal Swarming, undefined] -> [Skeletal Swarming]
+          const [name, ]= cardName.split('//');
           return {
-            name: cardName,
+            name,
           };
         });
-      //queries scryfall api   
+      //queries scryfall api
       return ScryfallQuery({ identifiers: queryArray });
+
     });
 
     const retrievedBatch = await Promise.all(promisedBatch);
@@ -45,13 +49,13 @@ export const FileHandler = ({
       const retrievedCards = retrievedBatch.flatMap((batch) => batch.data);
       const scoredCards = retrievedCards.map(obj => {
         return {...obj, score: 1000};
-      }).map(card => {  
+      }).map(card => {
         const { color_identity, image_uris, name, score, rarity } = card;
-        return { 
+        return {
           color_identity,
-          image_uris: image_uris?.normal, 
-          name, 
-          score, 
+          image_uris: image_uris?.normal,
+          name,
+          score,
           rarity
         }
       });
@@ -64,10 +68,10 @@ export const FileHandler = ({
 
       let comparisonCard1 = getRandomInt(scoredCards.length);
       let comparisonCard2 = getRandomInt(scoredCards.length);
-      
+
       setComparisonCards([scoredCards[comparisonCard1], scoredCards[comparisonCard2]])
     }
-  }, [cardInput, setCards, setComparisonCards]);  
+  }, [cardInput, setCards, setComparisonCards]);
 
   //updates table when cards are changed
   useEffect(() => {
@@ -82,7 +86,7 @@ export const FileHandler = ({
     return (
     <div className=".container" id="file-handler-container">
       <div className="file-handler">
-        <h1>Submit a .txt file of cards! </h1>  
+        <h1>Submit a .txt file of cards! </h1>
         <form target="_self" onSubmit={parseInput}>
           <input type="file" id="input" />
           <button type="button" className="btn-close btn-danger" aria-label="Close"

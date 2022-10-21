@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles/App.css";
 import FileHandler from "./Components/fileHandler";
 import ImagePreviewer from "./Components/ImagePreviewer";
 import { Header } from "./Components/Header";
 import { Comparison } from "./Components/Comparison";
 import { Table } from "./Components/Table";
-import { Background} from "./Components/Background"
+import { backgroundQuery } from "./Components/backgroundQuery"
 import { Footer } from "./Components/Footer";
 import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
 
@@ -31,6 +31,15 @@ function App({user}) {
   const [background, setBackground] = useState([]);
   const [userDBCards, setUserDBCards] = useState([]);
 
+  useEffect(() => {
+    backgroundQuery()
+      .then(data => {
+          setBackground(data.image_uris.art_crop);
+      })
+      .catch(error =>
+        console.log(error.message));
+  }, [setBackground]);
+
    //insert user token into database
   return (
     <div id="master-div" className=".container"  style={{
@@ -43,19 +52,16 @@ function App({user}) {
           user={user}
         />
 
-        <Background
-          background={background}
-          setBackground={setBackground}
-        />
-
-        <Comparison
-          user={user}
-          userDBCards={userDBCards}
-          cards={cards}
-          setCards={setCards}
-          comparisonCards={comparisonCards}
-          setComparisonCards={setComparisonCards}
-        />
+        <div className="main-container">
+          <Comparison
+            user={user}
+            userDBCards={userDBCards}
+            cards={cards}
+            setCards={setCards}
+            comparisonCards={comparisonCards}
+            setComparisonCards={setComparisonCards}
+          />
+        </div>
 
         <div className="row .container">
           <div className="col-3 .container" id="preview-container">

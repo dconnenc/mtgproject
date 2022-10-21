@@ -1,5 +1,5 @@
 export const ScryfallQuery = async (query) => {
-  /*collection query function for more info read 
+  /*collection query function for more info read
     here: https://scryfall.com/docs/api/cards */
 
   const queryString = `https://api.scryfall.com/cards/collection`;
