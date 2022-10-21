@@ -4,7 +4,7 @@ export const Comparison = ({ user, cards, setCards, setComparisonCards, comparis
   //hits the node.js file on the backend
   const dbScorePatch = async (scoredCards) => {
     const id = user.id;
-    const description = userDBCards.cards[0]?.list; // updated by cam
+    const description = userDBCards.cards[0]?.list;
     
     try {
       await fetch(`http://localhost:3001/usersCards/${id}/${description}`, {
@@ -28,7 +28,7 @@ export const Comparison = ({ user, cards, setCards, setComparisonCards, comparis
       } else {
         return obj;
       }}).sort((a, b) => (a.score < b.score) ? 1 : -1))
-
+    
     //update the DB with new values
     dbScorePatch(cards)
 

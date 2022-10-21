@@ -7,7 +7,6 @@ export const LoadDBCards = ({setCards, setComparisonCards, userDBCards}) => {
     const handleClick = (e) => {
         e.preventDefault();
         let parsedCards = JSON.parse(userDBCards.cards)
-        
         let cards = parsedCards.scoredCards
        
         //loads cards to table by useEffect
