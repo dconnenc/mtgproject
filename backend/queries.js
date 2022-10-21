@@ -97,7 +97,7 @@ const updateCardScores = (request, response) => {
   .update({"cards": cards}, ['id', 'cards'])
   .then(card => {
     response.status(200).json({card})
-  }).then(x => console.log(x))
+  })
 }
 
 module.exports = {
