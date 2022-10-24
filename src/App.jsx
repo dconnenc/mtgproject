@@ -77,6 +77,7 @@ function App({user}) {
               cards={cards}
               setCards={setCards}
               setComparisonCards={setComparisonCards}
+              user={user}
             />
             <DBContainer
               user={user}
@@ -87,6 +88,7 @@ function App({user}) {
               setComparisonCards={setComparisonCards}
               />
             <Table
+              setComparisonCards={setComparisonCards}
               setPreviewCard={setPreviewCard}
               cards={cards}
               setCards={setCards} />

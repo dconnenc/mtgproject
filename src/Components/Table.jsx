@@ -1,6 +1,6 @@
 import { TableRow } from "./TableRow.jsx";
 
-export const Table = ({ cards, setPreviewCard, setCards }) => {
+export const Table = ({ cards, setPreviewCard, setCards, setComparisonCards }) => {
   if(!cards.length) {
     return <></>
   } else {
@@ -10,7 +10,10 @@ export const Table = ({ cards, setPreviewCard, setCards }) => {
             <tr id="table-header">
               <th id="card-number"> 
                 <button type="button" className="btn-close btn-danger" aria-label="Close"
-                   onClick={()=> {setCards([])}}
+                   onClick={()=> {
+                    setCards([]) 
+                    setComparisonCards([])
+                  }}
                 ></button>
               </th>
               <th id="card-name">Card Name</th>
