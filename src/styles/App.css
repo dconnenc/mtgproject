@@ -131,14 +131,13 @@
   padding: 25px;
   max-height: 450px;
   width: fit-content;
-
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 165px;
 }
 
-#file-handler-container {
+.file-handler-container {
   height: auto;
   width: auto;
   max-width: fit-content;

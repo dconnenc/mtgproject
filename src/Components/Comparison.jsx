@@ -47,8 +47,8 @@ export const Comparison = ({ user, cards, setCards, setComparisonCards, comparis
 
     return (
     <div className=".container comparison-card-container" id="comparison-card-container">
-      <img onClick={() => newComparison(0)} src={firstCard.image_uris} alt="" id="comparison-card" className={`comparison-card ${firstCard.name.includes('//') ? 'horizontal' : ''}`}></img>
-      <img onClick={() => newComparison(1)} src={secondCard.image_uris} alt="" id="comparison-card" className={`comparison-card ${secondCard.name.includes('//') ? 'horizontal' : ''}`}></img>
+      <img onClick={() => newComparison(0)} src={firstCard.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>
+      <img onClick={() => newComparison(1)} src={secondCard.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>
     </div>
   );
 };

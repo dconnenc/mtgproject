@@ -41,7 +41,11 @@ export const FileHandler = ({
   const parseInput = (e) => {
     e.preventDefault();
     setCardInput([]);
-    reader.readAsText(document.getElementById("input").files[0]);
+    let formInput = document.getElementById("input");
+    reader.readAsText(formInput.files[0]);
+    
+    formInput.reset();
+    document.getElementById("desciption-field").reset();
   };
 
   //triggered when file is submitted, updates cards from the submitted .txt
@@ -83,6 +87,7 @@ export const FileHandler = ({
 
       setCards(scoredCards);
       console.log(cards)
+      // WATCH THESE NEW LINES AND THE EDITS
       postDBCards();
       //The below lines set the comparison card for ELO evaluation 
       function getRandomInt(max) {return Math.floor(Math.random() * max);}
@@ -97,6 +102,7 @@ export const FileHandler = ({
   //updates table when cards are changed
   useEffect(() => {
     if (cardInput.length > 0 && cards.length === 0) {
+      console.log("update cards useeffect tried to run")
       updateCards();
     }
   }, [cardInput, cards.length]);
@@ -108,12 +114,12 @@ export const FileHandler = ({
     <div className=".container file-handler-container" id="file-handler-container">
       <div className="file-handler">
         <form target="_self" onSubmit={parseInput}>
-            <input type="file" className="custom-file-input" id="input" />
+            <input type="file" className="custom-file-input" id="file-input" />
             <button type="button" className="btn-close btn-danger" aria-label="Close"
               onClick={()=> {setCardInput([])}}
             ></button>
             <input type="text" className="form-control" value={description} required={true}
-                onChange={e => setDescription(e.target.value)}
+                onChange={e => setDescription(e.target.value)} id="desciption-field"
             />
             <button className="btn btn-success input-group-append"id="submit">Save</button>
           <pre id="preReader"></pre>

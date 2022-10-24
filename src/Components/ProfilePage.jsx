@@ -15,13 +15,13 @@ export const ProfilePage = ({background}) => {
         }}>
             <Header />
             
-            <div className="row">
+
                 <div className="col" style={{
                     paddingTop: "25%"
                 }}>
                     Profile page for {id}
                 </div>
-            </div>
+
             
             <Footer />
         </div>
