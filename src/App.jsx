@@ -51,7 +51,16 @@ function App({user}) {
           cards={cards}
           user={user}
         />
-
+        <FileHandler
+          cardInput={cardInput}
+          setCardInput={setCardInput}
+          previewCard={previewCard}
+          setPreviewCard={setPreviewCard}
+          cards={cards}
+          setCards={setCards}
+          setComparisonCards={setComparisonCards}
+          user={user}
+        />
         <div className="main-container">
           <Comparison
             user={user}
@@ -69,16 +78,7 @@ function App({user}) {
 
           </div>
           <div className="col-6 .container" id="tableContainer">
-            <FileHandler
-              cardInput={cardInput}
-              setCardInput={setCardInput}
-              previewCard={previewCard}
-              setPreviewCard={setPreviewCard}
-              cards={cards}
-              setCards={setCards}
-              setComparisonCards={setComparisonCards}
-              user={user}
-            />
+           
             <DBContainer
               user={user}
               cards={cards}

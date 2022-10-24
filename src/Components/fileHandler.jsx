@@ -112,13 +112,11 @@ export const FileHandler = ({
   } else{
     return (
     <div className=".container file-handler-container" id="file-handler-container">
-      <div className="file-handler">
+      <div className="file-handler-element">
         <form target="_self" onSubmit={parseInput}>
-            <input type="file" className="custom-file-input" id="file-input" />
-            <button type="button" className="btn-close btn-danger" aria-label="Close"
-              onClick={()=> {setCardInput([])}}
-            ></button>
-            <input type="text" className="form-control" value={description} required={true}
+            <input type="file" className="btn-file input" id="file-input" />
+            
+            <input type="text" className="" value={description} required={true}
                 onChange={e => setDescription(e.target.value)} id="desciption-field"
             />
             <button className="btn btn-success input-group-append"id="submit">Save</button>
