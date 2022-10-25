@@ -1,3 +1,7 @@
+a{
+  text-decoration: none;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -32,6 +36,18 @@
 
 .file-handler-element {
   padding-top: 10px;
+}
+
+.database-container {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 5pt #333333 solid;
+  border-radius: 2%;
+  background-color: rgba(255, 255, 255, .8);
 }
 
 #logo {
@@ -127,9 +143,14 @@
   box-shadow: 10px 10px 15px black;
 }
 
-.horizontal {
-  transform: rotate(90deg);
-  margin: 30px 0;
+.space-top {
+  padding-top: 5px;
+}
+
+.greeting-text{
+  color:whitesmoke;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 .comparison-card-container {

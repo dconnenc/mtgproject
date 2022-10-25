@@ -1,4 +1,3 @@
-import { GetDBCards } from "./GetDBCards"
 import { DBList } from "./DBList"
 import { useEffect, useCallback } from "react"
 
@@ -23,7 +22,7 @@ export const DBContainer = ({ user, setCards, setUserDBCards, userDBCards, setCo
 
 
     return(
-        <div id="profile-container wire-frame">
+        <div id="profile-container wire-frame" className="database-container">
             <DBList 
                 user={user}
                 userDBCards={userDBCards} 
