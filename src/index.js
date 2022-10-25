@@ -6,6 +6,7 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.css'
 import { Auth0Provider, withAuthenticationRequired } from '@auth0/auth0-react';
 import { ProfilePage } from './Components/ProfilePage';
+import { ListPage } from './Components '
 import { Auth } from './Components/Auth0/Auth.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -108,6 +109,8 @@ ReactDOM.render(
         <Route path="/"              element={<ProtectedRoute component={App}/>} />
         <Route path="/profile/:id"   element={<ProtectedRoute component={ProfilePage}/>} />
         <Route path='/auth'          element={<Auth />} />
+        {/* The below route should fire for upload list, rendering a page of thier cards. */}
+        <Route path='/profile/:description' element={<ProtectedRoute component={ListPage} />} />
       </Routes>
     </Auth0ProviderWithRedirectCallback>
   </BrowserRouter>,

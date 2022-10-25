@@ -114,9 +114,19 @@ export const FileHandler = ({
     <div className=".container file-handler-container" id="file-handler-container">
       <div className="file-handler-element">
         <form target="_self" onSubmit={parseInput}>
-            <input type="file" className="btn-file input" id="file-input" />
+            <div className="inline-padding tool-tip">UPLOAD YOUR LIST
+              <span className="tool-tip-text">
+                File should be .txt and only include card names:
+                <br></br>
+                City of Brass <br></br>
+                Llanowar Elves <br></br>
+                Skeletal Swarming <br></br>
+                CubeCubra offers an export "Card Name (.txt)"
+              </span>
+            </div>
+            <input type="file" className="btn-file input tool-tip" id="file-input" />
             
-            <input type="text" className="" value={description} required={true}
+            <input type="text" className="" value={description} required={true} placeholder="Your list name..."
                 onChange={e => setDescription(e.target.value)} id="desciption-field"
             />
             <button className="btn btn-success input-group-append"id="submit">Save</button>

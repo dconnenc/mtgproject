@@ -1,7 +1,7 @@
 import { DBList } from "./DBList"
 import { useEffect, useCallback } from "react"
 
-export const DBContainer = ({ user, setCards, setUserDBCards, userDBCards, setComparisonCards }) => {
+export const DBContainer = ({ user, cards, setCards, setUserDBCards, userDBCards, setComparisonCards }) => {
     
     const fetchDBCards = useCallback(async () => {
         try {
@@ -20,15 +20,19 @@ export const DBContainer = ({ user, setCards, setUserDBCards, userDBCards, setCo
         fetchDBCards()
     }, [fetchDBCards]);
 
-
-    return(
-        <div id="profile-container wire-frame" className="database-container">
-            <DBList 
-                user={user}
-                userDBCards={userDBCards} 
-                setCards={setCards} 
-                setComparisonCards={setComparisonCards}
-            />
-        </div>
-    )
+    if(cards.length > 0){
+        return(<div></div>)
+    } else{
+        return(
+            <div id="profile-container wire-frame" className="database-container">
+                <h2 className="text-center">Your Lists</h2> 
+                <DBList 
+                    user={user}
+                    userDBCards={userDBCards} 
+                    setCards={setCards} 
+                    setComparisonCards={setComparisonCards}
+                />
+            </div>
+        )
+    }
 }
