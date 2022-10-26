@@ -52,6 +52,7 @@ const createUsersCards = (request, response) => {
   const user_id = request.params.id;
   const listName = request.params.description;
   const cards = request.body
+  console.log(user_id)
 
   database('cards').insert({
     user_id: user_id,

@@ -2,7 +2,7 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { useParams } from "react-router-dom";
 
-export const ProfilePage = ({background}) => {
+export const ListPage = ({background}) => {
     let {description} = useParams();
     
     return(

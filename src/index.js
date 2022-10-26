@@ -6,7 +6,7 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.css'
 import { Auth0Provider, withAuthenticationRequired } from '@auth0/auth0-react';
 import { ProfilePage } from './Components/ProfilePage';
-import { ListPage } from './Components '
+import { ListPage } from './Components/ListPage'
 import { Auth } from './Components/Auth0/Auth.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
 

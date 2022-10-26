@@ -25,6 +25,7 @@ export const FileHandler = ({
   //Posts submitted list to the database. Called inside of updateCards() 
   const postDBCards = async () => {
     try {
+        console.log("frontend userid =", user.id)
         await fetch(`http://localhost:3001/usersCards/${user.id}/${description}`, {
             method: "POST",
             headers: { "Content-Type": "application/json",},
@@ -41,12 +42,9 @@ export const FileHandler = ({
   const parseInput = (e) => {
     e.preventDefault();
     setCardInput([]);
-    let formInput = document.getElementById("input");
-    reader.readAsText(formInput.files[0]);
-    
-    formInput.reset();
-    document.getElementById("desciption-field").reset();
-  };
+
+    reader.readAsText(document.getElementById("file-input").files[0]);
+    };
 
   //triggered when file is submitted, updates cards from the submitted .txt
   //scryfall API has 75 request limit, code below sends cards in acceptable batches
