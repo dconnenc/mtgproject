@@ -11,7 +11,7 @@ exports.up = function(knex) {
         table.increments(); 
         table.string('name').notNullable();
         table.string('email').unique().notNullable();
-        table.string('user_id').unique().notNullable();
+        table.string('external_id').unique().notNullable();
      }),
     //defines cards table
     knex.schema.createTable('cards', function(table){
