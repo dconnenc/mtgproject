@@ -90,6 +90,8 @@ const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
   const onRedirectCallback = (appState) => {
     navigate((appState && appState.returnTo) || window.location.pathname);
   };
+
+  return(
     <Auth0Provider onRedirectCallback={onRedirectCallback} {...props}>
       {children}
     </Auth0Provider>
