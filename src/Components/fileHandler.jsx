@@ -12,7 +12,7 @@ export const FileHandler = ({
 }) => {
 
   const [description, setDescription] = useState('')
-  
+
   //accepts a .txt file of MTG cards, visit cubecobra.com to generate.
   //setCardInput triggers updateCards() useEffect
   const reader = new FileReader();
@@ -22,14 +22,14 @@ export const FileHandler = ({
   });
 
 
-  //Posts submitted list to the database. Called inside of updateCards() 
-  const postDBCards = async () => {
+  //Posts submitted list to the database. Called inside of updateCards()
+  const postDBCards = async (scoredCards) => {
     try {
         console.log("frontend userid =", user.id)
         await fetch(`http://localhost:3001/usersCards/${user.id}/${description}`, {
             method: "POST",
             headers: { "Content-Type": "application/json",},
-            body: JSON.stringify({ cards })
+            body: JSON.stringify({ cards: scoredCards })
         })
         .then(response => response.json())
         .then(json => console.log(json));
@@ -38,7 +38,7 @@ export const FileHandler = ({
     }
   }
 
-  //Consequence of form submission 
+  //Consequence of form submission
   const parseInput = (e) => {
     e.preventDefault();
     setCardInput([]);
@@ -84,10 +84,11 @@ export const FileHandler = ({
       });
 
       setCards(scoredCards);
-      console.log(cards)
+      console.log(scoredCards)
       // WATCH THESE NEW LINES AND THE EDITS
-      postDBCards();
-      //The below lines set the comparison card for ELO evaluation 
+      console.log("saving cards");
+      postDBCards(scoredCards);
+      //The below lines set the comparison card for ELO evaluation
       function getRandomInt(max) {return Math.floor(Math.random() * max);}
 
       let comparisonCard1 = getRandomInt(scoredCards.length);
@@ -123,7 +124,7 @@ export const FileHandler = ({
               </span>
             </div>
             <input type="file" className="btn-file input tool-tip" id="file-input" />
-            
+
             <input type="text" className="" value={description} required={true} placeholder="Your list name..."
                 onChange={e => setDescription(e.target.value)} id="desciption-field"
             />

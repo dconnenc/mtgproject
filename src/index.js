@@ -16,13 +16,13 @@ import { useAuth0 } from "@auth0/auth0-react";
 const findOrCreateUser = async (externalUser, setUser) => {
   const name    = `${externalUser.given_name} ${externalUser.family_name}`;
   const email   = externalUser.email;
-  const user_id =  externalUser.sub;
+  const external_id =  externalUser.sub;
 
   try {
     await fetch("http://localhost:3001/users", {
       method: "POST",
       headers: { "Content-Type": "application/json",},
-      body: JSON.stringify({ name: name, email: email, user_id: user_id })
+      body: JSON.stringify({ name, email, external_id })
     })
       .then(response => response.json())
       .then((data) => {
@@ -90,8 +90,6 @@ const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
   const onRedirectCallback = (appState) => {
     navigate((appState && appState.returnTo) || window.location.pathname);
   };
-
-  return (
     <Auth0Provider onRedirectCallback={onRedirectCallback} {...props}>
       {children}
     </Auth0Provider>
@@ -110,7 +108,7 @@ ReactDOM.render(
         <Route path="/profile/:id"   element={<ProtectedRoute component={ProfilePage}/>} />
         <Route path='/auth'          element={<Auth />} />
         {/* The below route should fire for upload list, rendering a page of thier cards. */}
-        <Route path='/profile/:description' element={<ProtectedRoute component={ListPage} />} />
+        <Route path='/profile/:id/:list' element={<ListPage />} />
       </Routes>
     </Auth0ProviderWithRedirectCallback>
   </BrowserRouter>,

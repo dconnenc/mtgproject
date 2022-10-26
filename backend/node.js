@@ -22,6 +22,9 @@ app.get('/users', db.getUsers)
 app.post('/users/', db.createUser)
 app.get('/users/:id', db.getUserById)
 app.get('/usersCards/:id', db.getUsersCardsById)
+
+app.get('/usersCards/:id/:list', db.getUsersCardsByIdAndList)
+
 app.post('/usersCards/:id/:description', db.createUsersCards)
 app.delete('/usersCards/:id/:description', db.deleteUserCards)
 app.patch('/usersCards/:id/:description', db.updateCardScores)

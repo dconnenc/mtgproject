@@ -32,7 +32,7 @@ const getUsers = (_request, response) => {
 //api runs this after auth0 authentication and assigns identity
 const getUserById = (request, response) => {
   const id = request.params.id
-  database.select().from("users").where('user_id', id)
+  database.select().from("users").where('external_id', id)
     .then(user => {
       response.status(200).json({user})
     })
@@ -44,6 +44,17 @@ const getUsersCardsById = (request, response) => {
 
   database.select("*").from("cards").where('user_id', id)
     .then(cards => {
+      response.status(200).json({cards})
+    })
+}
+
+const getUsersCardsByIdAndList = (request, response) => {
+  const user_id = request.params.id;
+  const list = request.params.list;
+
+  database.select("*").from("cards").where({ user_id, list })
+    .then(cards => {
+      console.log(cards);
       response.status(200).json({cards})
     })
 }
@@ -65,15 +76,15 @@ const createUsersCards = (request, response) => {
 }
 
 const createUser = (request, response) => {
-  const { name, email, user_id } = request.body;
+  const { name, email, external_id } = request.body;
 
   database('users').insert({
     name: name,
     email: email,
-    user_id: user_id
+    external_id: external_id
   })
     .returning('*')
-    .onConflict('user_id')
+    .onConflict('external_id')
     .merge()
     .then((user) => {
       return response.status(200).json(user)
@@ -108,5 +119,6 @@ module.exports = {
   getUsersCardsById,
   deleteUserCards,
   createUsersCards,
-  updateCardScores
+  updateCardScores,
+  getUsersCardsByIdAndList
 }
