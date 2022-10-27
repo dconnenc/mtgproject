@@ -54,7 +54,6 @@ const getUsersCardsByIdAndList = (request, response) => {
 
   database.select("*").from("cards").where({ user_id, list })
     .then(cards => {
-      console.log(cards);
       response.status(200).json({cards})
     })
 }
@@ -63,7 +62,6 @@ const createUsersCards = (request, response) => {
   const user_id = request.params.id;
   const listName = request.params.description;
   const cards = request.body
-  console.log(user_id)
 
   database('cards').insert({
     user_id: user_id,
