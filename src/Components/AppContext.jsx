@@ -1,15 +1,16 @@
 import { createContext, useState } from "react";
 
-const CardsContext = createContext();
-const BackgroundContext = createContext();
+export const CardsContext = createContext();
+export const BackgroundContext = createContext();
 
-const UserContextProvider = ({children}) => {
+const AppContextProvider = ({children}) => {
     const [cardInput, setCardInput] = useState([]);
     const [cards, setCards] = useState([]);
     const [previewCard, setPreviewCard] = useState([]);
     const [comparisonCards, setComparisonCards] = useState([]);
-    const [background, setBackground] = useState([]);
     const [userDBCards, setUserDBCards] = useState([]);
+    
+    const [background, setBackground] = useState([]);
 
     return(
         <CardsContext.Provider value={{
@@ -25,3 +26,5 @@ const UserContextProvider = ({children}) => {
         </CardsContext.Provider>
     )
 }
+
+export default AppContextProvider

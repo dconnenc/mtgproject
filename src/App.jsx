@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./styles/App.css";
 import FileHandler from "./Components/fileHandler";
 import ImagePreviewer from "./Components/ImagePreviewer";
@@ -8,7 +8,7 @@ import { Table } from "./Components/Table";
 import { backgroundQuery } from "./Components/backgroundQuery"
 import { Footer } from "./Components/Footer";
 import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
-
+import { CardsContext } from "./Components/AppContext"
 /*
 //KNOWN BUGS
 
@@ -24,12 +24,15 @@ import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
 */
 
 function App({user}) {
-  const [cardInput, setCardInput] = useState([]);
-  const [cards, setCards] = useState([]);
-  const [previewCard, setPreviewCard] = useState([]);
-  const [comparisonCards, setComparisonCards] = useState([]);
+  const context = useContext(CardsContext);
+  
+  const [cards, setCards] = context["cards"]
+  const [previewCard, setPreviewCard] = context["previewCard"]
+  const [comparisonCards, setComparisonCards] = context["comparisonCards"]
+  const [userDBCards, setUserDBCards] = context["userDBCards"];
+  const [cardInput, setCardInput] = context["cardInput"]
+
   const [background, setBackground] = useState([]);
-  const [userDBCards, setUserDBCards] = useState([]);
 
   useEffect(() => {
     backgroundQuery()

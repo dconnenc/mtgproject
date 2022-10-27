@@ -8,8 +8,8 @@ export const LoadDBCards = ({setCards, setComparisonCards, userDBCards}) => {
         e.preventDefault();
         let parsedCards = JSON.parse(userDBCards.cards)
         console.log(parsedCards)
-        let cards = parsedCards.scoredCards
-       
+        let cards = parsedCards.cards
+        
         //loads cards to table by useEffect
         setCards(cards);
 

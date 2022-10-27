@@ -9,10 +9,10 @@ import { ProfilePage } from './Components/ProfilePage';
 import { ListPage } from './Components/ListPage'
 import { Auth } from './Components/Auth0/Auth.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
+import AppContextProvider from './Components/AppContext';
 
-//should lines 14-33 be imported from another location?
-//On Authentication posts user information to database
-
+// On Authentication posts user information to database, or
+// retrieves relevant user credentials based on external id.
 const findOrCreateUser = async (externalUser, setUser) => {
   const name    = `${externalUser.given_name} ${externalUser.family_name}`;
   const email   = externalUser.email;
@@ -105,13 +105,15 @@ ReactDOM.render(
       clientId={process.env.REACT_APP_CLIENT_ID}
       redirectUri={window.location.origin}
     >
-      <Routes>
-        <Route path="/"              element={<ProtectedRoute component={App}/>} />
-        <Route path="/profile/:id"   element={<ProtectedRoute component={ProfilePage}/>} />
-        <Route path='/auth'          element={<Auth />} />
-        {/* The below route should fire for upload list, rendering a page of thier cards. */}
-        <Route path='/profile/:id/:list' element={<ListPage />} />
-      </Routes>
+      <AppContextProvider>
+        <Routes>
+          <Route path="/"              element={<ProtectedRoute component={App}/>} />
+          <Route path="/profile/:id"   element={<ProtectedRoute component={ProfilePage}/>} />
+          <Route path='/auth'          element={<Auth />} />
+          {/* The below route should fire for upload list, rendering a page of thier cards. */}
+          <Route path='/profile/:id/:list' element={<ListPage />} />
+        </Routes>
+      </AppContextProvider>
     </Auth0ProviderWithRedirectCallback>
   </BrowserRouter>,
   document.getElementById('root')
