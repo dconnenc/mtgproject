@@ -1,4 +1,12 @@
-export const Comparison = ({ user, cards, setCards, setComparisonCards, comparisonCards, userDBCards }) => {
+import { useContext } from "react";
+import { CardsContext } from "./AppContext"
+
+export const Comparison = ({ user, userDBCards }) => {
+
+  const context = useContext(CardsContext);
+
+  const [cards, setCards] = context["cards"]
+  const [comparisonCards, setComparisonCards] = context["comparisonCards"]
 
   //pathces db entry in the cards column of the cards table
   //hits the node.js file on the backend

@@ -11,6 +11,8 @@ import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
 import { CardsContext } from "./Components/AppContext"
 /*
 //KNOWN BUGS
+Examine the value of description in Comparison components
+dbScorePatch function. Uncertain if its the correct target. 
 
 //TO DO 
 -Pagination:
