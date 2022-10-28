@@ -1,12 +1,15 @@
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from 'react';
-import { Table } from './Table';
+import { useEffect, useContext } from 'react';
+import { ListManager } from "./ListManager";
+import { CardsContext } from "./AppContext";
 
 export const ListPage = ({background}) => {
   const { id, list } = useParams();
-  const [cards, setCards] = useState([]);
+  const context = useContext(CardsContext);
+  
+  const [cards, setCards] = context["cards"]
 
   const fetchDBCardsByIdAndList = async () => {
     try {
@@ -38,8 +41,8 @@ export const ListPage = ({background}) => {
           }}>
               Profile page for {list}
           </div>
+          <ListManager />
           <Footer />
-          <Table cards={cards} />
       </div>
     )
 }

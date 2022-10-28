@@ -1,4 +1,6 @@
+import { Table } from "react-bootstrap"
 import { Comparison } from "./Comparison"
+import ImagePreviewer from "./ImagePreviewer"
 
 export const ListManager = () => {
     return(

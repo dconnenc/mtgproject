@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const LoadDBCards = ({setCards, setComparisonCards, userDBCards}) => {
     
     function getRandomInt(max) {
@@ -22,7 +24,8 @@ export const LoadDBCards = ({setCards, setComparisonCards, userDBCards}) => {
 
     return(
     <>
-        <button className="btn btn-success" onClick={handleClick}>Load</button>
+        {/*<button type="btn btn-success" onClick="location.href='https://google.com';" value="Go to Google" />*/}
+        <Link to={`/profile/${user.id}/${userDBCards.list}`}><button className="btn btn-success">Load</button></Link>
     </>
     )
 }
