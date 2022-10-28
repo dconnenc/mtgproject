@@ -1,4 +1,12 @@
-function ImagePreviewer({ previewCard, cards }) {
+import { CardsContext } from "./AppContext"
+import {useContext} from "react";
+
+function ImagePreviewer() {
+  const context = useContext(CardsContext);
+   
+  const [cards, setCards] = context["cards"]
+  const [previewCard, setPreviewCard] = context["previewCard"]
+
   if(!previewCard?.img || !cards?.length){
     return <></>
   } else {

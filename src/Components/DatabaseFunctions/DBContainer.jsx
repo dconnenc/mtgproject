@@ -1,8 +1,16 @@
 import { DBList } from "./DBList"
-import { useEffect, useCallback } from "react"
+import { useEffect, useCallback, useContext } from "react"
+import { DeleteDBCards } from "./DeleteDBCards";
+import { CardsContext } from "../AppContext"
 
-export const DBContainer = ({ user, cards, setCards, setUserDBCards, userDBCards, setComparisonCards }) => {
-    
+export const DBContainer = ({ user }) => {
+    const context = useContext(CardsContext);
+  
+    const [cards, setCards] = context["cards"]
+    const [comparisonCards, setComparisonCards] = context["comparisonCards"]
+    const [userDBCards, setUserDBCards] = context["userDBCards"];
+
+
     const fetchDBCards = useCallback(async () => {
         try {
             const user_id = user.id;
@@ -18,7 +26,7 @@ export const DBContainer = ({ user, cards, setCards, setUserDBCards, userDBCards
 
     useEffect(() => {
         fetchDBCards()
-    }, [fetchDBCards]);
+    }, [fetchDBCards, DeleteDBCards]);
 
     if(cards.length > 0){
         return(<div></div>)

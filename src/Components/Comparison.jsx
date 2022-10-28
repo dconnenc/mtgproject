@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import { CardsContext } from "./AppContext"
 
-export const Comparison = ({ user, userDBCards }) => {
+export const Comparison = ({ user }) => {
 
   const context = useContext(CardsContext);
 
   const [cards, setCards] = context["cards"]
   const [comparisonCards, setComparisonCards] = context["comparisonCards"]
+  const [userDBCards, setUserDBCards] = context["userDBCards"]
 
-  //pathces db entry in the cards column of the cards table
+  //patches db entry in the cards column of the cards table
   //hits the node.js file on the backend
   const dbScorePatch = async (scoredCards) => {
     const id = user.id;

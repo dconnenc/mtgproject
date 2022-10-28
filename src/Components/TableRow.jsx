@@ -44,8 +44,6 @@ export const TableRow = ({ card, setPreviewCard, index }) => {
       onClick={() => console.log(card)}
       onMouseEnter={() => {
         console.log(card)
-        //setPreviewcard(card)
-        //
         setPreviewCard({img: card.image_uris, isHorizontal: card.name.includes('//')})
       }}
     >

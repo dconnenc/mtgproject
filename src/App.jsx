@@ -9,6 +9,7 @@ import { backgroundQuery } from "./Components/backgroundQuery"
 import { Footer } from "./Components/Footer";
 import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
 import { CardsContext } from "./Components/AppContext"
+
 /*
 //KNOWN BUGS
 Examine the value of description in Comparison components
@@ -50,53 +51,18 @@ function App({user}) {
     <div id="master-div" className=".container"  style={{
       backgroundImage: `url(${background})`,
     }}>
-        <Header
-          background={background}
-          setBackground={setBackground}
-          cards={cards}
-          user={user}
-        />
-        <FileHandler
-          cardInput={cardInput}
-          setCardInput={setCardInput}
-          previewCard={previewCard}
-          setPreviewCard={setPreviewCard}
-          cards={cards}
-          setCards={setCards}
-          setComparisonCards={setComparisonCards}
-          user={user}
-        />
+        <Header user={user} />
+        <FileHandler user={user} />
         <div className="main-container">
-          <Comparison
-            user={user}
-            userDBCards={userDBCards}
-            cards={cards}
-            setCards={setCards}
-            comparisonCards={comparisonCards}
-            setComparisonCards={setComparisonCards}
-          />
+          <Comparison user={user} />
         </div>
-
         <div className="row .container">
           <div className="col-3 .container" id="preview-container">
-            <ImagePreviewer previewCard={previewCard} cards={cards} />
-
+            <ImagePreviewer />
           </div>
           <div className="col-6 .container" id="tableContainer">
-           
-            <DBContainer
-              user={user}
-              cards={cards}
-              setCards={setCards}
-              userDBCards={userDBCards}
-              setUserDBCards={setUserDBCards}
-              setComparisonCards={setComparisonCards}
-              />
-            <Table
-              setComparisonCards={setComparisonCards}
-              setPreviewCard={setPreviewCard}
-              cards={cards}
-              setCards={setCards} />
+            <DBContainer user={user} />
+            <Table />
           </div>
         </div>
         <Footer />

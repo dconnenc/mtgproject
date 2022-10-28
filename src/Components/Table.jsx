@@ -1,6 +1,15 @@
 import { TableRow } from "./TableRow.jsx";
+import { CardsContext } from "./AppContext"
+import { useContext } from "react";
 
-export const Table = ({ cards, setPreviewCard, setCards, setComparisonCards }) => {
+export const Table = () => {
+  
+  const context = useContext(CardsContext);
+  
+  const [cards, setCards] = context["cards"]
+  const [previewCard, setPreviewCard] = context["previewCard"]
+  const [comparisonCards, setComparisonCards] = context["comparisonCards"]
+
   if(!cards.length) {
     return <></>
   } else {
