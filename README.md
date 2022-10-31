@@ -4,6 +4,7 @@ A companion application for Magic the Gathering.
 
 Users can create their own lists for public evaluation in a classic P1P1 set-up. See draftaholics.com for comparison.
 
+//To Launch
 Front end launches from MTGPROJECT folder with:
 npm start 
 
@@ -13,6 +14,9 @@ node node.js
 
 Database is run through Postgres, coded through knex:
 npx knex migrate:latest
+
+//Interface
+There is a seed file located in the src/Assets folder containing an example of file for submission. 
 
 //The Stack//
 Most async functions live in the DatabaseFunctions folder.

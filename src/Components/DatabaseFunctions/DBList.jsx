@@ -3,6 +3,7 @@ import { DeleteDBCards } from './DeleteDBCards';
 import { LoadDBCards } from './LoadDBCards';
 
 export const DBList = ({userDBCards, setCards, setComparisonCards, user}) => {
+    
     let cardsArray = userDBCards.cards
     return (
         <div className=".container">
@@ -27,7 +28,7 @@ export const DBList = ({userDBCards, setCards, setComparisonCards, user}) => {
                                     </td>
                                     <td><DeleteDBCards 
                                         id={userDBCards.user_id} 
-                                        description={userDBCards.list}
+                                        list={userDBCards.list}
                                         />
                                     </td>
                                 </tr>

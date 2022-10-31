@@ -10,36 +10,38 @@ export const FileHandler = ({user}) => {
   const [comparisonCards, setComparisonCards] = context["comparisonCards"]
   const [cardInput, setCardInput] = context["cardInput"]
 
-  const [description, setDescription] = useState('')
+  const [list, setList] = useState('')
 
   //accepts a .txt file of MTG cards, visit cubecobra.com to generate.
   //setCardInput triggers updateCards() useEffect
   const reader = new FileReader();
   reader.addEventListener("load", function () {
     const allCards = this.result.split(/\r?\n/g);
+
     setCardInput(allCards);
   });
 
 
   //Posts submitted list to the database. Called inside of updateCards()
   const postDBCards = async (scoredCards) => {
+    console.log(user.id, list)
     try {
-        await fetch(`http://localhost:3001/usersCards/${user.id}/${description}`, {
+        await fetch(`http://localhost:3001/usersCards/${user.id}/${list}`, {
             method: "POST",
             headers: { "Content-Type": "application/json",},
             body: JSON.stringify({ cards: scoredCards })
         })
         .then(response => response.json())
-        //.then(json => console.log(json));
     } catch (err) {
         console.error(err.message);
     }
   }
 
-  //Consequence of form submission
+  //Triggered by Form Submission
   const parseInput = (e) => {
     e.preventDefault();
     setCardInput([]);
+    setCards([]);
 
     reader.readAsText(document.getElementById("file-input").files[0]);
     };
@@ -124,10 +126,10 @@ export const FileHandler = ({user}) => {
                 CubeCubra offers an export "Card Name (.txt)"
               </span>
             </div>
-            <input type="file" className="btn-file input tool-tip" id="file-input" />
+            <input type="file" className="btn-file input tool-tip" required={true} id="file-input" />
 
-            <input type="text" className="" value={description} required={true} placeholder="Your list name..."
-                onChange={e => setDescription(e.target.value)} id="desciption-field"
+            <input type="text" className="" value={list} required={true} placeholder="Your list name..."
+                onChange={e => setList(e.target.value)} id="desciption-field"
             />
             <button className="btn btn-success input-group-append"id="submit">Save</button>
           <pre id="preReader"></pre>

@@ -39,7 +39,6 @@ const getUserById = (request, response) => {
     })
 }
 
-
 const createUser = (request, response) => {
   const { name, email, external_id } = request.body;
 
@@ -77,13 +76,13 @@ const getUsersCardsByIdAndList = (request, response) => {
 
 const createUsersCards = (request, response) => {
   const user_id = request.params.id;
-  const listName = request.params.description;
+  const list= request.params.list;
   const cards = request.body
 
   database('cards').insert({
     user_id: user_id,
     cards: cards,
-    list: listName
+    list: list
   })
   .then(cards => {
     response.status(200).json({cards})
