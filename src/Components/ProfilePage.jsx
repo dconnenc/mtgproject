@@ -1,8 +1,10 @@
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { useParams } from "react-router-dom";
+import FileHandler from "./fileHandler";
+import { DBContainer } from "./DatabaseFunctions/DBContainer";
 
-export const ProfilePage = ({background}) => {
+export const ProfilePage = ({background, user}) => {
     let {id} = useParams();
     
     return(
@@ -14,15 +16,8 @@ export const ProfilePage = ({background}) => {
             boxShadow: "inset 0 0 0 1000px rgba(0,0,0,.4)"
         }}>
             <Header />
-            
-
-                <div className="col" style={{
-                    paddingTop: "25%"
-                }}>
-                    Profile page for {id}
-                </div>
-
-            
+                <FileHandler user={user}/>
+                <DBContainer user={user}/>
             <Footer />
         </div>
     )

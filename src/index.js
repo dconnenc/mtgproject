@@ -6,23 +6,24 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.css'
 import { Auth0Provider, withAuthenticationRequired } from '@auth0/auth0-react';
 import { ProfilePage } from './Components/ProfilePage';
-import { ListPage } from './Components/ListPage'
+import { ListPage } from './Components/ListPage.jsx'
 import { Auth } from './Components/Auth0/Auth.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
 import AppContextProvider from './Components/AppContext';
 
-// On Authentication posts user information to database, or
-// retrieves relevant user credentials based on external id.
+//should lines 14-33 be imported from another location?
+//On Authentication posts user information to database
+
 const findOrCreateUser = async (externalUser, setUser) => {
-  const name    = `${externalUser.given_name} ${externalUser.family_name}`;
-  const email   = externalUser.email;
-  const external_id =  externalUser.sub;
+  const name    =       `${externalUser.given_name} ${externalUser.family_name}`;
+  const email   =       externalUser.email;
+  const external_id =   externalUser.sub;
 
   try {
     await fetch("http://localhost:3001/users", {
       method: "POST",
       headers: { "Content-Type": "application/json",},
-      body: JSON.stringify({ name, email, external_id })
+      body: JSON.stringify({ name: name, email: email, external_id: external_id })
     })
       .then(response => response.json())
       .then((data) => {
@@ -91,7 +92,7 @@ const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
     navigate((appState && appState.returnTo) || window.location.pathname);
   };
 
-  return(
+  return (
     <Auth0Provider onRedirectCallback={onRedirectCallback} {...props}>
       {children}
     </Auth0Provider>
@@ -111,7 +112,7 @@ ReactDOM.render(
           <Route path="/profile/:id"   element={<ProtectedRoute component={ProfilePage}/>} />
           <Route path='/auth'          element={<Auth />} />
           {/* The below route should fire for upload list, rendering a page of thier cards. */}
-          <Route path='/profile/:id/:list' element={<ListPage />} />
+          <Route path='/profile/:id/:description' element={<ProtectedRoute component={ListPage} />} />
         </Routes>
       </AppContextProvider>
     </Auth0ProviderWithRedirectCallback>

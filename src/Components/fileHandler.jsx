@@ -24,14 +24,13 @@ export const FileHandler = ({user}) => {
   //Posts submitted list to the database. Called inside of updateCards()
   const postDBCards = async (scoredCards) => {
     try {
-        console.log("frontend userid =", user.id)
         await fetch(`http://localhost:3001/usersCards/${user.id}/${description}`, {
             method: "POST",
             headers: { "Content-Type": "application/json",},
             body: JSON.stringify({ cards: scoredCards })
         })
         .then(response => response.json())
-        .then(json => console.log(json));
+        //.then(json => console.log(json));
     } catch (err) {
         console.error(err.message);
     }
@@ -83,7 +82,6 @@ export const FileHandler = ({user}) => {
       });
 
       setCards(scoredCards);
-      console.log(scoredCards)
       // WATCH THESE NEW LINES AND THE EDITS
       console.log("saving cards");
       postDBCards(scoredCards);

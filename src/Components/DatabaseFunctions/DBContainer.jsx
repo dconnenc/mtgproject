@@ -10,10 +10,10 @@ export const DBContainer = ({ user }) => {
     const [comparisonCards, setComparisonCards] = context["comparisonCards"]
     const [userDBCards, setUserDBCards] = context["userDBCards"];
 
-
     const fetchDBCards = useCallback(async () => {
         try {
             const user_id = user.id;
+            
             const response = await fetch(`http://localhost:3001/usersCards/${user_id}`,
                 { method: "GET" })
             const jsonData = await response.json();

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const LoadDBCards = ({setCards, setComparisonCards, userDBCards}) => {
+export const LoadDBCards = ({setCards, setComparisonCards, userDBCards, user}) => {
     
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);

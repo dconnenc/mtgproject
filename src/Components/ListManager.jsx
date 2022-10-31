@@ -2,7 +2,7 @@ import { Table } from "react-bootstrap"
 import { Comparison } from "./Comparison"
 import ImagePreviewer from "./ImagePreviewer"
 
-export const ListManager = () => {
+export const ListManager = ({user}) => {
     return(
         <>
             <div className="main-container">

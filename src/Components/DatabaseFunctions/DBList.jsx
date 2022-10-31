@@ -2,7 +2,7 @@ import React from 'react';
 import { DeleteDBCards } from './DeleteDBCards';
 import { LoadDBCards } from './LoadDBCards';
 
-export const DBList = ({userDBCards, setCards, setComparisonCards}) => {
+export const DBList = ({userDBCards, setCards, setComparisonCards, user}) => {
     let cardsArray = userDBCards.cards
     return (
         <div className=".container">
@@ -18,7 +18,8 @@ export const DBList = ({userDBCards, setCards, setComparisonCards}) => {
                    {cardsArray ? cardsArray.map(userDBCards => 
                                 <tr key={userDBCards.id}>
                                     <td>{userDBCards.list}</td>
-                                    <td><LoadDBCards   
+                                    <td><LoadDBCards
+                                            user={user}   
                                             setCards={setCards} 
                                             setComparisonCards={setComparisonCards} 
                                             userDBCards={userDBCards}

@@ -19,4 +19,10 @@ Most async functions live in the DatabaseFunctions folder.
 
 Functions fired from here will target an API, the <node> file in the Backend folder.
 
-The routes are defined the node file, and import the specific database queries from the <queiries> file. 
+The routes are defined the node file, and import the specific database queries from the <queries> file. 
+
+
+//Known Bugs
+-Some double cards ie "Expansion // Explosion" are not rendering images
+
+-UpdateCardScores() appears to be saving additional instances of the data to the database. 

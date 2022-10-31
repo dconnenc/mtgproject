@@ -18,16 +18,14 @@ app.get('/api', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/users', db.getUsers)
-app.post('/users/', db.createUser)
-app.get('/users/:id', db.getUserById)
+//app.get('/users', db.getUsers)
+app.post('/users', db.createUser)
+//app.get('/users/:id', db.getUserById)
 app.get('/usersCards/:id', db.getUsersCardsById)
-
 app.get('/usersCards/:id/:list', db.getUsersCardsByIdAndList)
-
-app.post('/usersCards/:id/:description', db.createUsersCards)
-app.delete('/usersCards/:id/:description', db.deleteUserCards)
-app.patch('/usersCards/:id/:description', db.updateCardScores)
+app.post('/usersCards/:id/:list', db.createUsersCards)
+app.delete('/usersCards/:id/:list', db.deleteUserCards)
+app.patch('/usersCards/:id/:list', db.updateCardScores)
 
 app.listen(port, () => {
   console.log(`MyP1P1 is listening on port ${port}`)

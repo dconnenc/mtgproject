@@ -21,13 +21,14 @@ if (process.env.NODE_ENV === "production") {
   })
 }
 
+
 //dead end to trouble shoot backend
 const getUsers = (_request, response) => {
   database.select().from("users")
     .then(users => {
       response.status(200).json({users})
     });
-}
+} 
 
 //api runs this after auth0 authentication and assigns identity
 const getUserById = (request, response) => {
@@ -38,6 +39,22 @@ const getUserById = (request, response) => {
     })
 }
 
+
+const createUser = (request, response) => {
+  const { name, email, external_id } = request.body;
+
+  database('users').insert({
+    name: name,
+    email: email,
+    external_id: external_id
+  })
+    .returning('*')
+    .onConflict('external_id')
+    .merge()
+    .then((user) => {
+      return response.status(200).json(user)
+    })
+}
 
 const getUsersCardsById = (request, response) => {
   const id = request.params.id;
@@ -73,21 +90,7 @@ const createUsersCards = (request, response) => {
   })
 }
 
-const createUser = (request, response) => {
-  const { name, email, external_id } = request.body;
 
-  database('users').insert({
-    name: name,
-    email: email,
-    external_id: external_id
-  })
-    .returning('*')
-    .onConflict('external_id')
-    .merge()
-    .then((user) => {
-      return response.status(200).json(user)
-    })
-}
 
 const deleteUserCards = (request, response) => {
   const id = request.params.id;
@@ -111,7 +114,7 @@ const updateCardScores = (request, response) => {
 }
 
 module.exports = {
-  getUsers,
+  //getUsers,
   getUserById,
   createUser,
   getUsersCardsById,

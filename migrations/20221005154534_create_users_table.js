@@ -7,12 +7,14 @@ const { takeCoverage } = require("v8");
 exports.up = function(knex) {
   return Promise.all([
     //defines user table with command line call
+    //npx knex migrate:latest >> creates database
     knex.schema.createTable('users', function(table){
         table.increments(); 
         table.string('name').notNullable();
         table.string('email').unique().notNullable();
         table.string('external_id').unique().notNullable();
      }),
+
     //defines cards table
     knex.schema.createTable('cards', function(table){
         table.increments(); 
