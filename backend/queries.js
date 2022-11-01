@@ -93,19 +93,19 @@ const createUsersCards = (request, response) => {
 
 const deleteUserCards = (request, response) => {
   const id = request.params.id;
-  const description = request.params.description;
+  const list = request.params.list;
 
-  database('cards').where('user_id', id).andWhere('list', description).del()
+  database('cards').where('user_id', id).andWhere('list', list).del()
   .then(user => {response.status(200).json({user})
   });
 }
 
 const updateCardScores = (request, response) => {
   const id = request.params.id;
-  const description = request.params.description;
+  const list = request.params.list;
   const cards = request.body;
 
-  database('cards').where('user_id', id).andWhere('list', description)
+  database('cards').where('user_id', id).andWhere('list', list)
   .update({"cards": cards}, ['id', 'cards'])
   .then(card => {
     response.status(200).json({card})

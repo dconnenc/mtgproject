@@ -11,18 +11,17 @@ export const Comparison = ({ user }) => {
 
   //patches db entry in the cards column of the cards table
   //hits the node.js file on the backend
-  const dbScorePatch = async (scoredCards) => {
+  const dbScorePatch = async (cards) => {
     const id = user.id;
-    const description = userDBCards.cards[0]?.list;
+    const list = userDBCards.cards[0]?.list;
     
-    try {
-      await fetch(`http://localhost:3001/usersCards/${id}/${description}`, {
+    try {   
+      await fetch(`http://localhost:3001/usersCards/${id}/${list}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json",},
-        body: JSON.stringify({ scoredCards })
+        body: JSON.stringify({ cards})
       })
       .then((response) => response.json())
-      .then((json) => console.log(json));
     } catch (error) {
         console.error(error.message)
     }
@@ -47,7 +46,7 @@ export const Comparison = ({ user }) => {
     
     setComparisonCards([cards[randomCardNum], cards[randomCardNum1]])
   }
-
+  
   if (!comparisonCards?.length){
     return <div></div>
   };
@@ -56,8 +55,8 @@ export const Comparison = ({ user }) => {
 
     return (
     <div className=".container comparison-card-container" id="comparison-card-container">
-      <img onClick={() => newComparison(0)} src={firstCard.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>
-      <img onClick={() => newComparison(1)} src={secondCard.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>
+      <img onClick={() => newComparison(0)} src={firstCard?.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>
+      <img onClick={() => newComparison(1)} src={secondCard?.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>
     </div>
   );
 };

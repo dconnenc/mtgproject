@@ -1,39 +1,14 @@
 import { useState, useEffect, useContext } from "react";
 import "./styles/App.css";
-import FileHandler from "./Components/fileHandler";
+
 import ImagePreviewer from "./Components/ImagePreviewer";
 import { Header } from "./Components/Header";
 import { Comparison } from "./Components/Comparison";
 import { Table } from "./Components/Table";
 import { backgroundQuery } from "./Components/backgroundQuery"
 import { Footer } from "./Components/Footer";
-import { DBContainer } from "./Components/DatabaseFunctions/DBContainer";
-import { CardsContext } from "./Components/AppContext"
-
-/*
-//KNOWN BUGS
-Examine the value of description in Comparison components
-dbScorePatch function. Uncertain if its the correct target. 
-
-//TO DO 
--Pagination:
-  •Set up profile 'page' using visibility.
-  •User page that displays their list.
-
-//Styling, styling, styling.cd
--Set default background if query doesn't load
--Set default preview to cardback
-  -add some smoothing animation
-*/
 
 function App({user}) {
-  const context = useContext(CardsContext);
-  
-  const [cards, setCards] = context["cards"]
-  const [previewCard, setPreviewCard] = context["previewCard"]
-  const [comparisonCards, setComparisonCards] = context["comparisonCards"]
-  const [userDBCards, setUserDBCards] = context["userDBCards"];
-  const [cardInput, setCardInput] = context["cardInput"]
 
   const [background, setBackground] = useState([]);
 
@@ -52,7 +27,6 @@ function App({user}) {
       backgroundImage: `url(${background})`,
     }}>
         <Header user={user} />
-        <FileHandler user={user} />
         <div className="main-container">
           <Comparison user={user} />
         </div>
@@ -61,7 +35,6 @@ function App({user}) {
             <ImagePreviewer />
           </div>
           <div className="col-6 .container" id="tableContainer">
-            <DBContainer user={user} />
             <Table />
           </div>
         </div>

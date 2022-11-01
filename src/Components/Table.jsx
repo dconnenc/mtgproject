@@ -6,12 +6,14 @@ export const Table = () => {
   
   const context = useContext(CardsContext);
   
+  const [userDBCards, setUserDBCards] = context["userDBCards"]
   const [cards, setCards] = context["cards"]
   const [previewCard, setPreviewCard] = context["previewCard"]
   const [comparisonCards, setComparisonCards] = context["comparisonCards"]
-
-  if(!cards.length) {
-    return <></>
+  const [cardInput, setCardInput] = context["cardInput"]
+  
+  if(!cards?.length) {
+    return <div></div>
   } else {
     return (
         <table id="table-main">
@@ -20,8 +22,11 @@ export const Table = () => {
               <th id="card-number"> 
                 <button type="button" className="btn-close btn-danger" aria-label="Close"
                    onClick={()=> {
-                    setCards([]) 
-                    setComparisonCards([])
+                    setUserDBCards([]);
+                    setCards([]);
+                    setComparisonCards([]);
+                    setPreviewCard([]);
+                    setCardInput([]);
                   }}
                 ></button>
               </th>

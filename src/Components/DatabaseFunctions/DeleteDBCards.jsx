@@ -13,7 +13,7 @@ export const DeleteDBCards = ({id, list}) => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        deleteDBCards(id)
+        deleteDBCards()
     }
     
     return(

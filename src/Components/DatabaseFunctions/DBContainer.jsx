@@ -1,6 +1,5 @@
 import { DBList } from "./DBList"
 import { useEffect, useCallback, useContext } from "react"
-import { DeleteDBCards } from "./DeleteDBCards";
 import { CardsContext } from "../AppContext"
 
 export const DBContainer = ({ user }) => {
@@ -25,22 +24,19 @@ export const DBContainer = ({ user }) => {
     }, [setUserDBCards, user.id])
 
     useEffect(() => {
-        fetchDBCards()
-    }, [fetchDBCards, DeleteDBCards]);
+        fetchDBCards();
 
-    if(cards.length > 0){
-        return(<div></div>)
-    } else{
-        return(
-            <div id="profile-container wire-frame" className="database-container">
-                <h2 className="text-center">Your Lists</h2> 
-                <DBList 
-                    user={user}
-                    userDBCards={userDBCards} 
-                    setCards={setCards} 
-                    setComparisonCards={setComparisonCards}
-                />
-            </div>
-        )
-    }
+    }, [fetchDBCards, cards]);
+
+    return(
+        <div id="profile-container wire-frame" className="database-container">
+            <h2 className="text-center">Your Lists</h2> 
+            <DBList 
+                user={user}
+                userDBCards={userDBCards} 
+                setCards={setCards} 
+                setComparisonCards={setComparisonCards}
+            />
+        </div>
+    )
 }
