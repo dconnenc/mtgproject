@@ -112,7 +112,7 @@ ReactDOM.render(
           <Route path="/profile/:id"   element={<ProtectedRoute component={ProfilePage}/>} />
           <Route path='/auth'          element={<Auth />} />
           {/* The below route should fire for upload list, rendering a page of thier cards. */}
-          <Route path='/profile/:id/:description' element={<ProtectedRoute component={ListPage} />} />
+          <Route path='/profile/:id/:list' element={<ProtectedRoute component={ListPage} />} />
         </Routes>
       </AppContextProvider>
     </Auth0ProviderWithRedirectCallback>
