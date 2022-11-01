@@ -120,10 +120,7 @@ a{
   border: 5pt solid white;
   border-radius: 3pt;
   box-shadow: 10px 10px 15px black;
-  max-height: 40vh;
   max-width: 800px;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 #table-header{
@@ -172,7 +169,7 @@ a{
   margin: 0 auto 0 auto;
   height: fit-content;
   width: fit-content;
-  max-height: 450px;
+  max-height: 350px;
   max-width: 475px;
   border-radius: 8pt;
   box-shadow: 10px 10px 15px black;
@@ -189,9 +186,9 @@ a{
 }
 
 .comparison-card-container {
-  margin-top: 100px;
-  padding: 25px;
-  max-height: 450px;
+  margin-top: 65px;
+  padding: 20px;
+  max-height: 400px;
   width: fit-content;
   display: flex;
   justify-content: center;

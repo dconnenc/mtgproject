@@ -41,12 +41,10 @@ export const ListPage = ({ user }) => {
 
     useEffect(() => {
         fetchDBCardsByIdDescription();
-        console.log("cards=", cards.length, cards)
 
     }, [fetchDBCardsByIdDescription])
 
     useEffect(() => { 
-        console.log("in scope of comparison", cards)
         //sets the comparison cards to two random cards from the list
         const randomCardNum = Math.floor(Math.random() * cards.length)
         const randomCardNum1 = Math.floor(Math.random() * cards.length)

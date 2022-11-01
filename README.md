@@ -32,7 +32,6 @@ The routes are defined the node file, and import the specific database queries f
 
 
 //Known Bugs & ToDo List//
-
 -Some double cards ie "Expansion // Explosion" are not rendering images
 
 -DBList is not updating when DeleteDBCards runs. 
