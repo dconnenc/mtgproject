@@ -16,17 +16,17 @@ export const DBContainer = ({ user }) => {
             const response = await fetch(`http://localhost:3001/usersCards/${user_id}`,
                 { method: "GET" })
             const jsonData = await response.json();
-            console.log(jsonData)
+           
             setUserDBCards(jsonData)
         } catch (error) {
             console.error(error.message)
         }
     }, [setUserDBCards, user.id])
 
-    useEffect(() => {
-        fetchDBCards();
+        useEffect(() => {
+            fetchDBCards();
 
-    }, [fetchDBCards, cards]);
+        }, [cards]);
 
     return(
         <div id="profile-container wire-frame" className="database-container">

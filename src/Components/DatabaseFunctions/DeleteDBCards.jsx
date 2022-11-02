@@ -1,11 +1,18 @@
+import { useNavigate } from "react-router-dom"
+
 export const DeleteDBCards = ({id, list}) => {
-    
+    const navigate = useNavigate();
+
     const deleteDBCards = async () => {
         try {
             console.log(id, list)
             await fetch(`http://localhost:3001/usersCards/${id}/${list}`, 
                 { method: 'DELETE' }
             )
+            .then(()=> {
+                console.log("tried to navigate")
+                navigate(`/profile/${id}`)
+            })
         } catch (error) {
             console.error(error.message)
         }

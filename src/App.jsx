@@ -7,10 +7,29 @@ import { Comparison } from "./Components/Comparison";
 import { Table } from "./Components/Table";
 import { backgroundQuery } from "./Components/backgroundQuery"
 import { Footer } from "./Components/Footer";
+import { CardsContext } from "./Components/AppContext"
 
 function App({user}) {
 
+  const contextCards = useContext(CardsContext);
+  const [cards, setCards] = contextCards["cards"];
+
   const [background, setBackground] = useState([]);
+
+  const fetchDefaultCards = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/usersCards/-1",
+        { method: "GET" })
+      const jsonData = await response.json();
+
+      let parsedCards = JSON.parse(jsonData.cards[0].cards)
+      console.log("parsed cards=", parsedCards)
+      setCards(parsedCards.cards)
+  
+    } catch (error) {
+      console.error(error.message)
+    }
+  }
 
   useEffect(() => {
     backgroundQuery()
@@ -21,6 +40,9 @@ function App({user}) {
         console.log(error.message));
   }, [setBackground]);
 
+  useEffect(()=> {
+    fetchDefaultCards();
+  }, []) 
    //insert user token into database
   return (
     <div id="master-div" className=".container"  style={{

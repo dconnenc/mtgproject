@@ -1,8 +1,13 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { DeleteDBCards } from './DeleteDBCards';
 import { LoadDBCards } from './LoadDBCards';
 
 export const DBList = ({userDBCards, setCards, setComparisonCards, user}) => {
+   
+    useEffect(()=> {
+
+    }, [])
     
     let cardsArray = userDBCards.cards
     return (
