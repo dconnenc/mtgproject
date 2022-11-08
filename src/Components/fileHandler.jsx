@@ -3,6 +3,14 @@ import { ScryfallQuery } from "./Functions/ScryfallQuery";
 import { Batcher } from "./Functions/Batcher";
 import { CardsContext } from "./AppContext"
 
+//This file is admittedly a jungle.
+//FileHandler component handles files by:
+// • posting submitted list to Scryfall Api to populate
+//   card images, colors, and data
+// • adds a 'score' quality to the card object
+// • posts the updated card object to the datbase
+
+
 export const FileHandler = ({user}) => {
   const context = useContext(CardsContext);
   
@@ -105,10 +113,8 @@ export const FileHandler = ({user}) => {
     }
   }, [cardInput, cards.length]);
 
-  if(cards.length > 0){
-    return(<div></div>)
-  } else{
-    return (
+  
+  return (
     <div className=".container file-handler-container" id="file-handler-container">
       <div className="file-handler-element">
         <form target="_self" onSubmit={parseInput}>
@@ -137,6 +143,6 @@ export const FileHandler = ({user}) => {
       </div>
     </div>
   );
-  };
-}
+};
+
 export default FileHandler;

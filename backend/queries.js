@@ -76,7 +76,7 @@ const getUsersCardsByIdAndList = (request, response) => {
 
 const createUsersCards = (request, response) => {
   const user_id = request.params.id;
-  const list= request.params.list;
+  const list = request.params.list;
   const cards = request.body
 
   database('cards').insert({

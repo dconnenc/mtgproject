@@ -5,13 +5,15 @@
 
 const fs = require("fs");
 const { json } = require("stream/consumers");
+const path = require("path");
 
 exports.seed = async function(knex) {
   console.log("trying to load")
   const json = fs.readFileSync(
-    "/Users/dilloncassidy/Documents/GitHub/mtgproject/seeds/MTGOVintageCube.json",
+    path.resolve(__dirname, "MTGOVintageCube.json"),
     "utf8"
   );
+  console.log("finished loading")
   
   // Deletes ALL existing entries
   await knex('cards').del()
