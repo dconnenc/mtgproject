@@ -46,11 +46,12 @@ export const TableRow = ({ card, setPreviewCard, index }) => {
         console.log(card)
         setPreviewCard({img: card.image_uris, isHorizontal: card.name.includes('//')})
       }}
+      
     >
       <td id="card-number">{index + 1}</td>
-      <td id="card-name">{card.name}</td>
       <td id="card-data">{color(card.color_identity)}</td>
       <td id="card-data">{rarity[card.rarity]}</td>
+      <td id="card-name">{card.name}</td>
       <td id="card-data">{card.score}</td>
     </tr>
   );

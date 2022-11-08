@@ -30,9 +30,9 @@ export const Table = () => {
                   }}
                 ></button>
               </th>
-              <th id="card-name">Card Name</th>
               <th id="card-data">Colors</th>
               <th id="card-data">Rarity</th>
+              <th id="card-name">Card Name</th>
               <th id="card-data">ELO</th>
             </tr>
             {cards &&

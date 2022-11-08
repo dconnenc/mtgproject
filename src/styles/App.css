@@ -1,5 +1,5 @@
-a{
-  text-decoration: none;
+a.greeting-text {
+  text-decoration: none;  
 }
 
 .main-container {
@@ -14,7 +14,8 @@ a{
   border: 3pt solid black;
 }
 
-#header{
+.header{
+  z-index: 10;
   display: inline-block;
   background-color: #333333;
   color:whitesmoke;
@@ -41,6 +42,7 @@ a{
 .text-center{
   text-align: center;
 }
+
 .inline-padding {
   display: inline;
   padding-right: 25px;
@@ -72,6 +74,9 @@ a{
   font-weight: 100;
 }
 
+.below-header {
+  margin-top: 65px;
+}
 
 .database-container {
   margin: 0;
@@ -113,7 +118,9 @@ a{
   background-attachment: fixed;
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.4);
 }
-
+.whitesmoke{
+  color: whitesmoke;  
+}
 #table-main{
   margin-top: 5vh;
   display: block;
@@ -146,19 +153,15 @@ a{
 }
 
 #card-data{
-  width: 10vw;
-}
-
-#preview-container{
- top: 30%;
- display: block;
+  width: 8vw;
 }
 
 .preview-card {
   position: fixed;
-  left: 100px;
+  top: 270px;
+  left: 20px;
   display:block;
-  max-width: 15vw;
+  max-width: 240px;
   height: auto;
   border-radius: 11pt;
   box-shadow: 10px 10px 15px black;
@@ -183,10 +186,10 @@ a{
   color:whitesmoke;
   font-weight: 500;
   text-decoration: none;
+  
 }
 
 .comparison-card-container {
-  margin-top: 65px;
   padding: 20px;
   max-height: 400px;
   width: fit-content;

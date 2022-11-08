@@ -11,7 +11,7 @@ const Profile = () => {
   return (
     isAuthenticated && (
       <div>
-        <p className="greeting-text">Welcome {user.name}!</p>
+        <p className="greeting-text"> Manage {user.name}'s List!</p>
       </div>
     )
   );

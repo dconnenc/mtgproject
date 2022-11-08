@@ -14,12 +14,13 @@ export const Comparison = ({ user }) => {
   const dbScorePatch = async (cards) => {
     const id = user.id;
     const list = userDBCards.cards[0]?.list;
-    
+
+    console.log(id, list)
     try {   
       await fetch(`http://localhost:3001/usersCards/${id}/${list}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json",},
-        body: JSON.stringify({ cards})
+        body: JSON.stringify({cards})
       })
       .then((response) => response.json())
     } catch (error) {
@@ -54,9 +55,13 @@ export const Comparison = ({ user }) => {
   const [firstCard, secondCard] = comparisonCards;
 
     return (
+    <div className="text-center whitesmoke below-header">
+      <h1>P1P1 - $LIST NAME</h1>
+      <h2>Pick 1 Pack 1 <br /> Which would you choose? </h2>
     <div className=".container comparison-card-container" id="comparison-card-container">
       <img onClick={() => newComparison(0)} src={firstCard?.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>
       <img onClick={() => newComparison(1)} src={secondCard?.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>
+    </div>
     </div>
   );
 };

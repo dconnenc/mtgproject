@@ -34,14 +34,27 @@ The routes are defined the node file, and import the specific database queries f
 //Known Bugs & ToDo List//
 -Some double cards ie "Expansion // Explosion" are not rendering images
 
--DBList is not updating when DeleteDBCards runs. 
+-DBPatch for Comparison on landing page. Currently it is fed ID from logged in user, and a list from... where? This function should be agnostic
 
--UpdateCardScores() appears to be saving additional instances of the data to the database.
+-Smarts for rendering list name in the Comparison Heading
 
 -Review GetCardsByIDandList() in the ListPage component. Cards.cards.cards seems supsicious?
 
+-Create <Loading /> component to render during load times
+  •On usercreation or fetch
+  •On Filehandler submission
+
+-Restructure
+  •"App.jsx" >>> LandingPage
+  •"Index.jsx" >>> App
+  • Create "Pages" folder.
+
+-Add Profile Editing
+-Add List Name Editing
+
 //Styling, styling, styling//
--Set default background if query doesn't load
--Set default preview to cardback
-  -add some smoothing animation
--Create <Loading /> component to render during load times. 
+-Image Preview location needs to be set
+-Typeface's need be updated
+-Why can't I get rid of the underline in the profile
+
+

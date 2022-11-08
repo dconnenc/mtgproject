@@ -8,11 +8,11 @@ export const ListManager = ({user}) => {
             <div className="main-container">
                 <Comparison user={user} />
             </div>
-            <div className="row .container">
-                <div className="col-3 .container" id="preview-container">
+            <div className="row .container wire-frame   ">
+                <div className="col-4 .container" id="preview-container">
                     <ImagePreviewer />
                 </div>
-                <div className="col-6 .container" id="tableContainer">
+                <div className="col-8 .container" id="table-container">
                     <Table />
                 </div>
             </div>

@@ -13,7 +13,7 @@ function App({user}) {
 
   const contextCards = useContext(CardsContext);
   const [cards, setCards] = contextCards["cards"];
-
+  const [comparisonCards, setComparisonCards] = contextCards["comparisonCards"];
   const [background, setBackground] = useState([]);
 
   const fetchDefaultCards = async () => {
@@ -21,9 +21,9 @@ function App({user}) {
       const response = await fetch("http://localhost:3001/usersCards/-1",
         { method: "GET" })
       const jsonData = await response.json();
-
+      
       let parsedCards = JSON.parse(jsonData.cards[0].cards)
-      console.log("parsed cards=", parsedCards)
+      
       setCards(parsedCards.cards)
   
     } catch (error) {
@@ -41,9 +41,20 @@ function App({user}) {
   }, [setBackground]);
 
   useEffect(()=> {
+    setCards([]);
+    setComparisonCards([]);
     fetchDefaultCards();
   }, []) 
-   //insert user token into database
+
+  useEffect(() => { 
+    //sets the comparison cards to two random cards from the list
+    const randomCardNum = Math.floor(Math.random() * cards.length)
+    const randomCardNum1 = Math.floor(Math.random() * cards.length)
+
+    setComparisonCards([cards[randomCardNum], cards[randomCardNum1]])
+
+}, [cards])
+  
   return (
     <div id="master-div" className=".container"  style={{
       backgroundImage: `url(${background})`,
