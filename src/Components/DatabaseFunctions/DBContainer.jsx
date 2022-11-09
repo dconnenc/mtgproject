@@ -13,7 +13,7 @@ export const DBContainer = ({ user }) => {
         try {
             const user_id = user.id;
             
-            const response = await fetch(`http://localhost:3001/usersCards/${user_id}`,
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${user_id}`,
                 { method: "GET" })
             const jsonData = await response.json();
            

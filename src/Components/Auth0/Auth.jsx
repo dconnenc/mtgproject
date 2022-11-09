@@ -8,7 +8,7 @@ export const Auth = () => {
   var background = "https://preview.redd.it/qnnotlcehu731.jpg?auto=webp&s=55d9e57e829608fc8e632eb2e4165d816288177c"
 
     if(isAuthenticated && !isLoading ) {
-
+      //TODO: navigate hook back to app.js
       window.location.href = "http://localhost:3000/"
 
     } else {

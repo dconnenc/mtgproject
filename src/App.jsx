@@ -18,7 +18,7 @@ function App({user}) {
 
   const fetchDefaultCards = async () => {
     try {
-      const response = await fetch("http://localhost:3001/usersCards/-1",
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/usersCards/-1`,
         { method: "GET" })
       const jsonData = await response.json();
       

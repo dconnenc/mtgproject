@@ -18,7 +18,7 @@ export const ListPage = ({ user }) => {
 
     const fetchDBCardsByIdDescription = useCallback(async () => {
         try {
-            const response = await fetch(`http://localhost:3001/usersCards/${id}/${list}`,
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${id}/${list}`,
                 { method: "GET" })
             const jsonData = await response.json();
 

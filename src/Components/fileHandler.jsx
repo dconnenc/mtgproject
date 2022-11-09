@@ -34,7 +34,7 @@ export const FileHandler = ({user}) => {
   const postDBCards = async (scoredCards) => {
     console.log(user.id, list)
     try {
-        await fetch(`http://localhost:3001/usersCards/${user.id}/${list}`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${user.id}/${list}`, {
             method: "POST",
             headers: { "Content-Type": "application/json",},
             body: JSON.stringify({ cards: scoredCards })

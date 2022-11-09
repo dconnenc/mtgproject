@@ -19,8 +19,9 @@ const findOrCreateUser = async (externalUser, setUser) => {
   const email   =       externalUser.email;
   const external_id =   externalUser.sub;
 
+  console.log(process.env.API_)
   try {
-    await fetch("http://localhost:3001/users", {
+    await fetch(`${process.env.REACT_APP_API_URL}/users`, {
       method: "POST",
       headers: { "Content-Type": "application/json",},
       body: JSON.stringify({ name: name, email: email, external_id: external_id })
