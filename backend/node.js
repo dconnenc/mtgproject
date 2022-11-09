@@ -6,6 +6,8 @@ const cors = require('cors');
 const path = require('path');
 const port = process.env.PORT || 3001
 
+app.use(express.static(path.join(__dirname, '..', 'build')));
+
 app.use(cors({
   origin: '*'
 }));
@@ -17,7 +19,10 @@ app.get('/api', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/')
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'))
+})
+
 //app.get('/users', db.getUsers)
 app.post('/users', db.createUser)
 //app.get('/users/:id', db.getUserById)
