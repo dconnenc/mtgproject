@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import "./styles/App.css";
+import "./styles/App.scss";
 
 import ImagePreviewer from "./Components/ImagePreviewer";
 import { Header } from "./Components/Header";
