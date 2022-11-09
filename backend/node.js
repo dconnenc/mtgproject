@@ -6,7 +6,6 @@ const cors = require('cors');
 const path = require('path');
 const port = process.env.PORT || 3001
 
-
 app.use(cors({
   origin: '*'
 }));
