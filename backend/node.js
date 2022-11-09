@@ -17,6 +17,7 @@ app.get('/api', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/')
 //app.get('/users', db.getUsers)
 app.post('/users', db.createUser)
 //app.get('/users/:id', db.getUserById)
