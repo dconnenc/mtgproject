@@ -19,9 +19,7 @@ app.get('/api', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'))
-})
+
 
 //app.get('/users', db.getUsers)
 app.post('/users', db.createUser)
@@ -31,6 +29,10 @@ app.get('/usersCards/:id/:list', db.getUsersCardsByIdAndList)
 app.post('/usersCards/:id/:list', db.createUsersCards)
 app.delete('/usersCards/:id/:list', db.deleteUserCards)
 app.patch('/usersCards/:id/:list', db.updateCardScores)
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'))
+})
 
 app.listen(port, () => {
   console.log(`MyP1P1 is listening on port ${port}`)
