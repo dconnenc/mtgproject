@@ -8,7 +8,7 @@ export const ListManager = ({user}) => {
             <div className="main-container">
                 <Comparison user={user} />
             </div>
-            <div className="row .container">
+            <div className=".container container-mat">
                 <div className="col-4 .container" id="preview-container">
                     <ImagePreviewer />
                 </div>

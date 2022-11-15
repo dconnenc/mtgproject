@@ -1,5 +1,4 @@
 #table-main{
-  margin-top: 5vh;
   display: block;
   border: 5pt solid white;
   border-radius: 3pt;
@@ -26,7 +25,8 @@
 }
 
 #card-name{
-  width: 30vw;
+  width: auto;
+  max-width: 300px;
 }
 
 #card-data{
