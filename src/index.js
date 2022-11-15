@@ -19,7 +19,6 @@ const findOrCreateUser = async (externalUser, setUser) => {
   const email   =       externalUser.email;
   const external_id =   externalUser.sub;
 
-  console.log(process.env.API_URL)
   try {
     await fetch(`${process.env.REACT_APP_API_URL}/users`, {
       method: "POST",

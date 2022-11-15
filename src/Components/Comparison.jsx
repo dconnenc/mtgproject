@@ -5,6 +5,7 @@ export const Comparison = ({ user }) => {
 
   const context = useContext(CardsContext);
 
+  const [listName, setListName] = context["listName"]
   const [cards, setCards] = context["cards"]
   const [comparisonCards, setComparisonCards] = context["comparisonCards"]
   const [userDBCards, setUserDBCards] = context["userDBCards"]
@@ -15,7 +16,6 @@ export const Comparison = ({ user }) => {
     const id = user.id;
     const list = userDBCards.cards[0]?.list;
 
-    console.log(id, list)
     try {   
       await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${id}/${list}`, {
         method: "PATCH",
@@ -53,11 +53,11 @@ export const Comparison = ({ user }) => {
   };
 
   const [firstCard, secondCard] = comparisonCards;
-
+  
     return (
     <div className="text-center whitesmoke below-header">
-      <h1>P1P1 - $LIST NAME</h1>
-      <h2>Pick 1 Pack 1 <br /> Which would you choose? </h2>
+      <h1>P1P1 - {listName}</h1>
+      <h2>Pack 1 Pick 1 <br /> Which would you choose? </h2>
     <div className=".container comparison-card-container" id="comparison-card-container">
       <img onClick={() => newComparison(0)} src={firstCard?.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>
       <img onClick={() => newComparison(1)} src={secondCard?.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>

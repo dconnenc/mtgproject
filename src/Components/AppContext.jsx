@@ -9,7 +9,8 @@ const AppContextProvider = ({children}) => {
     const [previewCard, setPreviewCard] = useState([]);
     const [comparisonCards, setComparisonCards] = useState([]);
     const [userDBCards, setUserDBCards] = useState([]);
-    
+    const [listName, setListName] = useState(["MTGO Vintage Cube"]);
+
     const [background, setBackground] = useState([]);
 
     return(
@@ -18,7 +19,8 @@ const AppContextProvider = ({children}) => {
             cardInput: [cardInput, setCardInput],
             previewCard: [previewCard, setPreviewCard],
             comparisonCards: [comparisonCards, setComparisonCards],
-            userDBCards: [userDBCards, setUserDBCards]
+            userDBCards: [userDBCards, setUserDBCards],
+            listName: [listName, setListName]
             }}>
                 <BackgroundContext.Provider value={[background, setBackground]}>
                     {children}

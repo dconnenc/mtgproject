@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
 import "./styles/App.scss";
-
 import ImagePreviewer from "./Components/ImagePreviewer";
 import { Header } from "./Components/Header";
 import { Comparison } from "./Components/Comparison";
