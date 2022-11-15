@@ -1,0 +1,50 @@
+.file-handler-container {
+    text-align: center;
+    background-color: #444444;
+    margin-top: 6vh;
+    color: whitesmoke;
+    height: 7vh;
+    width: 100vw;
+}
+  
+.file-handler-element {
+    padding-top: 10px;
+}
+
+.tool-tip {
+    position: relative;
+    display: inline-block;
+}
+
+.tool-tip .tool-tip-text {
+    visibility: hidden;
+    width: 150px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1;
+    top: 25px;
+    right: 20%;
+}
+
+.tool-tip:hover .tool-tip-text {
+    visibility: visible;
+    font-weight: 100;
+}
+
+
+.database-container {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 5pt #333333 solid;
+    border-radius: 2%;
+    background-color: rgba(255, 255, 255, .8);
+}

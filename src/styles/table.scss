@@ -1,23 +1,34 @@
 #table-main{
-    margin-top: 5vh;
-    display: block;
-    border: 5pt solid white;
-    border-radius: 3pt;
-    box-shadow: 10px 10px 15px black;
-    max-width: 800px;
-  }
-  
-  #table-header{
-    color: white;
-    background-color: rgb(61, 61, 61);
-    display: table-header-group;
-    border-bottom: 3pt rgb(255, 255, 255) solid;
-  }
-  
-  .table-row{
-    color: white;
-    display: table-row-group;
-    background-color: darkgray;
-    border-bottom: 1pt white solid;
-  }
-  
+  margin-top: 5vh;
+  display: block;
+  border: 5pt solid white;
+  border-radius: 3pt;
+  box-shadow: 10px 10px 15px black;
+  max-width: 800px;
+}
+
+#table-header{
+  color: white;
+  background-color: rgb(61, 61, 61);
+  display: table-header-group;
+  border-bottom: 3pt rgb(255, 255, 255) solid;
+}
+
+.table-row{
+  color: white;
+  display: table-row-group;
+  background-color: darkgray;
+  border-bottom: 1pt white solid;
+}
+
+#card-number{
+  width: 8vw;
+}
+
+#card-name{
+  width: 30vw;
+}
+
+#card-data{
+  width: 8vw;
+}

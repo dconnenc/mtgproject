@@ -23,9 +23,9 @@ export const ListPage = ({ user }) => {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${id}/${list}`,
                 { method: "GET" })
             const jsonData = await response.json();
-            console.log(jsonData)
+            
             let parsedCards = JSON.parse(jsonData.cards[0].cards)
-            console.log("parsed cards=", parsedCards)
+            
             setCards(parsedCards.cards)
 
         } catch (error) {
