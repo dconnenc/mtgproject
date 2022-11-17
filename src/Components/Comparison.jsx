@@ -53,14 +53,14 @@ export const Comparison = ({ user }) => {
   };
 
   const [firstCard, secondCard] = comparisonCards;
-  
+
     return (
     <div className="text-center whitesmoke below-header">
       <h1>P1P1 - {listName}</h1>
       <h2>Pack 1 Pick 1 <br /> Which would you choose? </h2>
     <div className=".container comparison-card-container" id="comparison-card-container">
-      <img onClick={() => newComparison(0)} src={firstCard?.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>
-      <img onClick={() => newComparison(1)} src={secondCard?.image_uris} alt="" id="comparison-card" className={`comparison-card`}></img>
+      <img onClick={() => newComparison(0)} src={firstCard?.image_uris ? firstCard?.image_uris : firstCard?.card_faces[0].image_uris.normal } alt="" id="comparison-card" className={`comparison-card`}></img>
+      <img onClick={() => newComparison(1)} src={secondCard?.image_uris ? secondCard?.image_uris : secondCard?.card_faces[0].image_uris.normal } alt="" id="comparison-card" className={`comparison-card`}></img>
     </div>
     </div>
   );

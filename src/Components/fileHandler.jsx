@@ -4,18 +4,18 @@ import { Batcher } from "./Functions/Batcher";
 import { CardsContext } from "./AppContext"
 
 //This file is admittedly a jungle.
-//FileHandler component handles files by:
-// • posting submitted list to Scryfall Api to populate
-//   card images, colors, and data
+// FileHandler component handles files by:
+// • intakes list name from client
+// • reads text input from client on form submission
+// • posts submitted list to Scryfall Api to populate
+//   card images, colors, and other data
 // • adds a 'score' quality to the card object
 // • posts the updated card object to the datbase
-
+// • generates a URL that renders the list for evaluation
 
 export const FileHandler = ({user}) => {
   const context = useContext(CardsContext);
-  
   const [cards, setCards] = context["cards"]
-  const [comparisonCards, setComparisonCards] = context["comparisonCards"]
   const [cardInput, setCardInput] = context["cardInput"]
 
   const [list, setList] = useState('')
@@ -29,10 +29,17 @@ export const FileHandler = ({user}) => {
     setCardInput(allCards);
   });
 
+  //Triggered by Form Submission
+  const parseInput = (e) => {
+    e.preventDefault();
+    setCardInput([]);
+    setCards([]);
+
+    reader.readAsText(document.getElementById("file-input").files[0]);
+  };
 
   //Posts submitted list to the database. Called inside of updateCards()
   const postDBCards = async (scoredCards) => {
-    console.log(user.id, list)
     try {
         await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${user.id}/${list}`, {
             method: "POST",
@@ -45,15 +52,6 @@ export const FileHandler = ({user}) => {
     }
   }
 
-  //Triggered by Form Submission
-  const parseInput = (e) => {
-    e.preventDefault();
-    setCardInput([]);
-    setCards([]);
-
-    reader.readAsText(document.getElementById("file-input").files[0]);
-    };
-
   //triggered when file is submitted, updates cards from the submitted .txt
   //scryfall API has 75 request limit, code below sends cards in acceptable batches
   const updateCards = useCallback(async () => {
@@ -63,6 +61,7 @@ export const FileHandler = ({user}) => {
       const queryArray = cardBatch
         .filter((cardName) => cardName !== "")
         .map((cardName) => {
+          //These lines of code dont do anything but for some reason everything breaks when I try to refactor them. 
           // Expansion // Explosion -> split('//') -> [Expansion, Explosion]
           // Skeletal Swarming -> [Skeletal Swarming, undefined] -> [Skeletal Swarming]
           const [name, ]= cardName.split('//');
@@ -73,42 +72,32 @@ export const FileHandler = ({user}) => {
       //queries scryfall api, check util folder
       return ScryfallQuery({ identifiers: queryArray });
     });
-
+    
     const retrievedBatch = await Promise.all(promisedBatch);
-
+    
     if (retrievedBatch.length) {
       const retrievedCards = retrievedBatch.flatMap((batch) => batch.data);
-      const scoredCards = retrievedCards.map(obj => {
-        return {...obj, score: 1000};
-      }).map(card => {
-        const { color_identity, image_uris, name, score, rarity } = card;
+      const scoredCards = retrievedCards.map(card => {
+        const { color_identity, image_uris, card_faces, name, score, rarity } = card;
         return {
           color_identity,
           image_uris: image_uris?.normal,
           name,
           score,
-          rarity
+          rarity,
+          card_faces,
+          score: 1000
         }
       });
 
-      setCards(scoredCards);
-      // WATCH THESE NEW LINES AND THE EDITS
-      console.log("saving cards");
+      console.log("predatabase post=", scoredCards)
       postDBCards(scoredCards);
-      //The below lines set the comparison card for ELO evaluation
-      function getRandomInt(max) {return Math.floor(Math.random() * max);}
-
-      let comparisonCard1 = getRandomInt(scoredCards.length);
-      let comparisonCard2 = getRandomInt(scoredCards.length);
-
-      setComparisonCards([scoredCards[comparisonCard1], scoredCards[comparisonCard2]])
     }
-  }, [cardInput, setCards, setComparisonCards]);
+  });
 
   //updates table when cards are changed
   useEffect(() => {
     if (cardInput.length > 0 && cards.length === 0) {
-      console.log("update cards useeffect tried to run")
       updateCards();
     }
   }, [cardInput, cards.length]);
@@ -125,10 +114,10 @@ export const FileHandler = ({user}) => {
             <div className="inline-padding tool-tip">UPLOAD YOUR LIST
               <span className="tool-tip-text">
                 File should be .txt and only include card names:
-                <br></br>
-                City of Brass <br></br>
-                Llanowar Elves <br></br>
-                Skeletal Swarming <br></br>
+                <br />
+                City of Brass <br />
+                Llanowar Elves <br />
+                Skeletal Swarming <br />
                 CubeCubra offers an export "Card Name (.txt)"
               </span>
             </div>

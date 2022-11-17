@@ -32,7 +32,7 @@ The routes are defined the node file, and import the specific database queries f
 
 
 //Known Bugs & ToDo List//
--Some double cards ie "Expansion // Explosion" are not rendering images
+-Implement Logic to dualfaced cards to be flipped
 
 -DBPatch for Comparison on landing page. Currently it is fed ID from logged in user, and a list from... where? This function should be agnostic
 

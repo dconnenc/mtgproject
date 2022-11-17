@@ -37,16 +37,13 @@ export const TableRow = ({ card, setPreviewCard, index }) => {
 
     return circle
 }
-
   return (
     <tr
       id={card} className="table-row"
       onClick={() => console.log(card)}
       onMouseEnter={() => {
-        console.log(card)
-        setPreviewCard({img: card.image_uris, isHorizontal: card.name.includes('//')})
+        setPreviewCard({img: card.image_uris ? card.image_uris : card.card_faces[0].image_uris.normal})
       }}
-      
     >
       <td id="card-number">{index + 1}</td>
       <td id="card-data">{color(card.color_identity)}</td>

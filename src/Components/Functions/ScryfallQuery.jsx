@@ -1,7 +1,7 @@
 export const ScryfallQuery = async (query) => {
   /*collection query function for more info read
     here: https://scryfall.com/docs/api/cards */
-
+  console.log("scryfallquery=", query)
   const queryString = `https://api.scryfall.com/cards/collection`;
   const queryStringified = JSON.stringify(query);
 
@@ -15,6 +15,4 @@ export const ScryfallQuery = async (query) => {
   if (res) {
     return res.json();
   }
-  /* if (err)
-        return new Error("Error: ", err); */
 };
