@@ -10,6 +10,7 @@ import { ListPage } from './Components/ListPage.jsx'
 import { Auth } from './Components/Auth0/Auth.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
 import AppContextProvider from './Components/AppContext';
+import { Loading } from './Components/Loading';
 
 //should findOrCreateUser() (lines 14-33) be imported from another location  -- FETCHES?
 
@@ -55,7 +56,7 @@ const ProtectedRoute = ({ component, ...args }) => {
   if (isAuthenticated && !isLoading) {
     if (user.fetching === true) {
       return(
-        <div>Fetching user</div>
+        <Loading />
       )
     } else {
       return(

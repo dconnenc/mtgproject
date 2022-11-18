@@ -5,7 +5,6 @@ export const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
   const clickHandler = () => {
-    console.log(loginWithRedirect())
     loginWithRedirect()
   }
   

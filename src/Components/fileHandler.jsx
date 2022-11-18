@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useContext } from "react";
 import { ScryfallQuery } from "./Functions/ScryfallQuery";
 import { Batcher } from "./Functions/Batcher";
-import { CardsContext } from "./AppContext"
+import { CardsContext } from "./AppContext";
 
 //This file is admittedly a jungle.
 // FileHandler component handles files by:
@@ -15,10 +15,11 @@ import { CardsContext } from "./AppContext"
 
 export const FileHandler = ({user}) => {
   const context = useContext(CardsContext);
-  const [cards, setCards] = context["cards"]
-  const [cardInput, setCardInput] = context["cardInput"]
+  const [cards, setCards] = context["cards"];
+  const [cardInput, setCardInput] = context["cardInput"];
+  const [isLoading, setIsLoading] = context["isLoading"];
 
-  const [list, setList] = useState('')
+  const [list, setList] = useState('');
 
   //accepts a .txt file of MTG cards, visit cubecobra.com to generate.
   //setCardInput triggers updateCards() useEffect
@@ -34,7 +35,7 @@ export const FileHandler = ({user}) => {
     e.preventDefault();
     setCardInput([]);
     setCards([]);
-
+    setIsLoading(true);
     reader.readAsText(document.getElementById("file-input").files[0]);
   };
 
@@ -46,10 +47,14 @@ export const FileHandler = ({user}) => {
             headers: { "Content-Type": "application/json",},
             body: JSON.stringify({ cards: scoredCards })
         })
-        .then(response => response.json())
+        .then(response => {
+          response.json()
+          
+        })
     } catch (err) {
         console.error(err.message);
     }
+    setIsLoading(false);
   }
 
   //triggered when file is submitted, updates cards from the submitted .txt
@@ -90,7 +95,6 @@ export const FileHandler = ({user}) => {
         }
       });
 
-      console.log("predatabase post=", scoredCards)
       postDBCards(scoredCards);
     }
   });

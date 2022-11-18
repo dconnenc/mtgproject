@@ -1,5 +1,6 @@
 import { CardsContext } from "./AppContext"
 import {useContext} from "react";
+import  mtgcardback  from "../Assets/mtgcardback.jpg";
 
 function ImagePreviewer() {
   const context = useContext(CardsContext);
@@ -7,20 +8,18 @@ function ImagePreviewer() {
   const [cards, setCards] = context["cards"]
   const [previewCard, setPreviewCard] = context["previewCard"]
 
-  if(!previewCard?.img || !cards?.length){
-    return <></>
-  } else {
+
     return (
       <div id="preview-container" style={{
         maxWidth: "25vw"
       }}>
         <img id="preview"
           className="preview-card"
-          src={previewCard.img}
+          src={previewCard.img ? previewCard.img : mtgcardback}
           alt="preview of highlighted card"
         />
       </div>
     );
   }
-}
+  
 export default ImagePreviewer;

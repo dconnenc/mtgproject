@@ -9,12 +9,8 @@ export const ListManager = ({user}) => {
                 <Comparison user={user} />
             </div>
             <div className=".container container-mat">
-                <div className="col-4 .container" id="preview-container">
-                    <ImagePreviewer />
-                </div>
-                <div className="col-8 .container" id="table-container">
-                    <Table />
-                </div>
+                <ImagePreviewer />
+                <Table />
             </div>
         </>
     )
