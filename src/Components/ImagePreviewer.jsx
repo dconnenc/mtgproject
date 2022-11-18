@@ -10,16 +10,12 @@ function ImagePreviewer() {
 
 
     return (
-      <div id="preview-container" style={{
-        maxWidth: "25vw"
-      }}>
         <img id="preview"
           className="preview-card"
           src={previewCard.img ? previewCard.img : mtgcardback}
           alt="preview of highlighted card"
         />
-      </div>
     );
   }
-  
+
 export default ImagePreviewer;
