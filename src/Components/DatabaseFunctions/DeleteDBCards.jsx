@@ -2,7 +2,6 @@ export const DeleteDBCards = ({id, list}) => {
 
     const deleteDBCards = async () => {
         try {
-
             await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${id}/${list}`, 
                 { method: 'DELETE' }
             )
