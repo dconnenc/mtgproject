@@ -7,16 +7,23 @@ Users can create their own lists for public evaluation in a classic P1P1 set-up.
 
 //To Launch//
 
-Front end launches from MTGPROJECT folder with:
-•npm develop
+##Front end launches from MTGPROJECT folder with:
+  •npm run develop
 
-Back end launches from BACKEND folder with:
-•cd backend
-•node node.js
+##Back end launches from BACKEND folder with:
+  •cd backend
+  •node node.js
+
+##Database
+Download and install Postgres
+  •https://www.postgresql.org/download/
+  •run the psql terminal
+    •on windows: "psql" in search should find
+  •once connected to postgres run "CREATE DATABASE api"
 
 Database is run through Postgres, coded through knex:
-•npx knex seed:run
-•npx knex migrate:latest
+  •npx knex migrate:latest
+  •npx knex seed:run
 
 
 //Interface//
@@ -24,6 +31,8 @@ There is a seed file located in the src/Assets folder containing an example of f
 
 
 //The Stack//
+Verification is handled through Auth0.
+
 Most async functions live in the DatabaseFunctions folder.
 
 Functions fired from here will target an API, the <node> file in the Backend folder.

@@ -6,6 +6,8 @@
     border-radius: 11pt;
     box-shadow: 10px 10px 15px black;
     margin-right: 20px;
+    position: sticky;
+    top: 0px;
 }
   
 .comparison-card {
@@ -20,13 +22,12 @@
 }
 
 .container-mat{
-  max-width: fit-content;
+  max-width: fit-content; 
   background: rgba(255, 255, 255, .4);
   margin: 0 auto 0 auto;
-  padding: 10pt;
-  border-radius: 5pt;
+  padding: 10px;
+  border-radius: 8px;
   display: flex;
-  flex-wrap: wrap;
 }
 
 .comparison-card-container {
