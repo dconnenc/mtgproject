@@ -18,7 +18,6 @@ a.greeting-text {
   width: 100%;
   min-height: 100vh;
   min-width: 100vw;
-  overflow: hidden;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -40,9 +39,9 @@ a.greeting-text {
   color:whitesmoke;
   width: 100vw;
   height: 8vh;
-  max-height: 50px;
+  max-height: 60px;
   text-align: center;
-  position: fixed;
+  position: absolute;
 }
 
 .text-center{
@@ -59,11 +58,10 @@ a.greeting-text {
   margin-top: 65px;
 }
 
-
 #logo {
   margin: auto auto auto auto;
   max-width: 40vw;
-  max-height: 6vh;
+  max-height: 50px;
 }
 
 #footer{

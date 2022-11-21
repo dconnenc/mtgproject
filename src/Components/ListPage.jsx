@@ -13,21 +13,18 @@ export const ListPage = ({ user }) => {
     const contextCards = useContext(CardsContext);
     const [cards, setCards] = contextCards["cards"]
     const [comparisonCards, setComparisonCards] = contextCards["comparisonCards"];
-    const [listName, setListName] = contextCards["listName"];
 
     const [background, setBackground] = useState([]);
-    
-    setListName(list)
+
     const fetchDBCardsByIdDescription = useCallback(async () => {
         try {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${id}/${list}`,
                 { method: "GET" })
             const jsonData = await response.json();
-            
-            let parsedCards = JSON.parse(jsonData.cards[0].cards)
-            
-            setCards(parsedCards.cards)
 
+            let parsedCards = JSON.parse(jsonData.cards[0].cards)
+            console.log("parsed cards=", parsedCards)
+            setCards(parsedCards.cards)
         } catch (error) {
             console.error(error.message)
         }

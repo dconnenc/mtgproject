@@ -8,7 +8,8 @@ export const DBContainer = ({ user }) => {
     const [cards, setCards] = context["cards"]
     const [comparisonCards, setComparisonCards] = context["comparisonCards"]
     const [userDBCards, setUserDBCards] = context["userDBCards"];
-
+    const [isLoading, setIsLoading] = context["isLoading"];
+    
     const fetchDBCards = useCallback(async () => {
         try {
             const user_id = user.id;
@@ -23,10 +24,10 @@ export const DBContainer = ({ user }) => {
         }
     }, [setUserDBCards, user.id])
 
-        useEffect(() => {
-            fetchDBCards();
-
-        }, [cards]);
+            useEffect(() => {
+                fetchDBCards();
+                
+            }, [cards, isLoading]);
 
     return(
         <div id="profile-container" className="database-container profile-container">
