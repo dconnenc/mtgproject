@@ -14,12 +14,11 @@ export const Auth = () => {
     } else {
 
       return(
-        <div id="master-div" className=".container"  style={{
-          color: "#FFFFFF",
+        <div className="background-image"  style={{
           backgroundImage: `url(${background})`,
         }}>
           <Header />
-          <h1 style={{"paddingTop": "25%", "textAlign": "center"}}>Please login!</h1>
+            <h1 className="greeting-text center">Please login!</h1>
           <Footer />
         </div>
       )

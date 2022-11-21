@@ -11,7 +11,7 @@ export const Header = ({user}) => {
           <Link className="greeting-text" to={`/profile/${user?.id}`}><Profile /></Link>
         </div>
         <div className="col-6">
-          <Link to={"/"}><img id="logo" src={Logo} alt="logo"/></Link>
+          <Link to={"/"}><img id="logo" className="logo" src={Logo} alt="logo"/></Link>
         </div>
         <div className="col-3 space-top">
           <Authenticator />

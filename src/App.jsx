@@ -53,12 +53,8 @@ function App({user}) {
 }, [cards])
   
   return (
-    <div id="master-div" className=".container " style={{
+    <div className="background-image" style={{
       backgroundImage: `url(${background})`,
-      backgroundRepeat:"no-repeat",
-      backgroundSize: "cover",
-      backgroundAttachment: "fixed",
-      boxShadow: "inset 0 0 0 1000px rgba(0,0,0,.4)"
   }}>
       <Header user={user}/>
 

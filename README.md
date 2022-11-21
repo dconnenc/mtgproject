@@ -37,7 +37,9 @@ Most async functions live in the DatabaseFunctions folder.
 
 Functions fired from here will target an API, the <node> file in the Backend folder.
 
-The routes are defined the node file, and import the specific database queries from the <queries> file. 
+The routes are defined in the node file, and import the specific database queries from the <queries> file. 
+
+The front end files are still in need of refactoring, and a are disorganized. 
 
 
 //Known Bugs & ToDo List//

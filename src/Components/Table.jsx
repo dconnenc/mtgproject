@@ -16,10 +16,10 @@ export const Table = () => {
     return <div></div>
   } else {
     return (
-        <table id="table-main">
+        <table className="table-main">
           <tbody>
-            <tr id="table-header">
-              <th id="card-number"> 
+            <tr className="table-header">
+              <th className="card-number"> 
                 <button type="button" className="btn-close btn-danger" aria-label="Close"
                    onClick={()=> {
                     setUserDBCards([]);
@@ -30,10 +30,10 @@ export const Table = () => {
                   }}
                 ></button>
               </th>
-              <th id="card-data">Colors</th>
-              <th id="card-data">Rarity</th>
-              <th id="card-name">Card Name</th>
-              <th id="card-data">ELO</th>
+              <th className="card-data">Colors</th>
+              <th className="card-data">Rarity</th>
+              <th className="card-name">Card Name</th>
+              <th className="card-data">ELO</th>
             </tr>
             {cards &&
               cards.map((card, index) => (

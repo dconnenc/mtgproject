@@ -1,4 +1,4 @@
-#table-main{
+.table-main{
   display: block;
   border: 5pt solid white;
   border-radius: 3pt;
@@ -6,7 +6,7 @@
   max-width: 800px;
 }
 
-#table-header{
+.table-header{
   color: white;
   background-color: rgb(61, 61, 61);
   display: table-header-group;
@@ -20,15 +20,15 @@
   border-bottom: 1pt white solid;
 }
 
-#card-number{
+.card-number{
   width: 8vw;
 }
 
-#card-name{
+.card-name{
   width: auto;
   max-width: 300px;
 }
 
-#card-data{
+.card-data{
   width: 8vw;
 }

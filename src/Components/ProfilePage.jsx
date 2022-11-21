@@ -26,12 +26,8 @@ export const ProfilePage = ({ user }) => {
     }, [setBackground]);
 
     return(
-        <div id="master-div" className=".container " style={{
-            backgroundImage: `url(${background})`,
-            backgroundRepeat:"no-repeat",
-            backgroundSize: "cover",
-            backgroundAttachment: "fixed",
-            boxShadow: "inset 0 0 0 1000px rgba(0,0,0,.4)"
+        <div className="background-image" style={{
+            backgroundImage: `url(${background})`
         }}>
             <Header user={user}/>
                 
