@@ -8,5 +8,9 @@ export const LoginButton = () => {
     loginWithRedirect()
   }
   
-  return <div className="greeting-text underline right" onClick={clickHandler}>Log In</div>;
+  return  <div className="greeting-text underline right" 
+            onClick={clickHandler}
+          >
+            Log In
+          </div>;
 };

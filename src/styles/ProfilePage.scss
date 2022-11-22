@@ -2,6 +2,7 @@
     text-align: center;
     background-color: #444444;
     margin-top: 60px;
+    padding-top: 5px;
     color: whitesmoke;
     height: 50px;
     width: 100vw;
@@ -16,7 +17,7 @@
 .tool-tip .tool-tip-text {
     visibility: hidden;
     width: 150px;
-    background-color: black;
+    background-color: #212529;
     color: #fff;
     text-align: center;
     padding: 5px 0;
@@ -35,25 +36,16 @@
 
 
 .database-container {
-    margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    border: 5pt #333333 solid;
-    border-radius: 2%;
-    background-color: rgba(255, 255, 255, .8);
     height: auto;
     width: auto;
-    max-width: fit-content;
-    max-height: fit-content;
     display: block;
     background: rgba(256, 256, 256, .4);
-    border: solid white 3px;
-    margin-top: 60px;
-    margin-right: auto;
-    margin-left: auto;
-    border-radius: 3pt;
+    border: solid #212529 3px;
+    border-radius: 5px;
     padding: 5pt 5pt 5pt 5pt;
 }

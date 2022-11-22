@@ -16,7 +16,7 @@ export const DeleteDBCards = ({id, list}) => {
     
     return(
         <>
-            <button className="btn btn-danger" onClick={handleClick}>Delete</button>
+            <button className="button button-bad" onClick={handleClick}>Delete</button>
         </>
     )
 }
