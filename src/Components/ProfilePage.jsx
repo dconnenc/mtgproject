@@ -15,7 +15,7 @@ export const ProfilePage = ({ user }) => {
     const contextCards = useContext(CardsContext);
     const [isLoading, setIsLoading] = contextCards["isLoading"];
 
-    console.log(isLoading)
+    
     useEffect(() => {
         backgroundQuery()
         .then(data => {
@@ -23,6 +23,7 @@ export const ProfilePage = ({ user }) => {
         })
         .catch(error =>
             console.log(error.message));
+        setIsLoading(false);
     }, [setBackground]);
 
     return(
@@ -32,7 +33,7 @@ export const ProfilePage = ({ user }) => {
             <Header user={user}/>
                 
                 <FileHandler user={user}/>
-                { !isLoading ?  <Loading /> : <DBContainer user={user}/>}
+                { isLoading ?  <Loading /> : <DBContainer user={user}/>}
 
             <Footer />
         </div>

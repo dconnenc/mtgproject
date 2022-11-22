@@ -1,15 +1,11 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { DeleteDBCards } from './DeleteDBCards';
 import { LoadDBCards } from './LoadDBCards';
 
-export const DBList = ({userDBCards, setCards, setComparisonCards, user}) => {
-   
-    useEffect(()=> {
-
-    }, [])
+export const DBList = ({userDBCards, user}) => {
     
     let cardsArray = userDBCards.cards
+    
     return (
         <div className=".container">
             <table className="table">
@@ -26,8 +22,6 @@ export const DBList = ({userDBCards, setCards, setComparisonCards, user}) => {
                                     <td>{userDBCards.list}</td>
                                     <td><LoadDBCards
                                             user={user}   
-                                            setCards={setCards} 
-                                            setComparisonCards={setComparisonCards} 
                                             userDBCards={userDBCards}
                                         />
                                     </td>

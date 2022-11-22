@@ -1,22 +1,19 @@
 import { Authenticator} from "./Auth0/authenticatorbutton";
-import Profile from "./Auth0/profile";
 import { Link } from "react-router-dom";
 import Logo from "../Assets/Logo.png"
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 export const Header = ({user}) => {
+  const { isAuthenticated } = useAuth0();
+
   return (
-      <div id="header" className="header .container">
-      <div className="row">
-        <div className="col-3 space-top">
-          <Link className="greeting-text" to={`/profile/${user?.id}`}><Profile /></Link>
-        </div>
-        <div className="col-6">
-          <Link to={"/"}><img id="logo" className="logo" src={Logo} alt="logo"/></Link>
-        </div>
-        <div className="col-3 space-top">
-          <Authenticator />
-        </div>
-      </div>
+      <div id="header" className="header">
+          <Link to={"/"}><img id="logo" className="logo left" src={Logo} alt="logo"/></Link>
+          <div className="right greeting-text underline">
+            {isAuthenticated ? <Link className="greeting-text left" to={`/profile/${user?.id}`}>{user?.name}'s Lists</Link> : <div></div>}
+            <Authenticator />
+          </div>
     </div>
   );
 }

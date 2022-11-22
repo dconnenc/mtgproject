@@ -6,7 +6,6 @@ export const DBContainer = ({ user }) => {
     const context = useContext(CardsContext);
   
     const [cards, setCards] = context["cards"]
-    const [comparisonCards, setComparisonCards] = context["comparisonCards"]
     const [userDBCards, setUserDBCards] = context["userDBCards"];
     const [isLoading, setIsLoading] = context["isLoading"];
     
@@ -35,8 +34,6 @@ export const DBContainer = ({ user }) => {
             <DBList 
                 user={user}
                 userDBCards={userDBCards} 
-                setCards={setCards} 
-                setComparisonCards={setComparisonCards}
             />
         </div>
     )

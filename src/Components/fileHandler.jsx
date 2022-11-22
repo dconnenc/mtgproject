@@ -36,6 +36,7 @@ export const FileHandler = ({user}) => {
     setCardInput([]);
     setCards([]);
     setIsLoading(true);
+    
     reader.readAsText(document.getElementById("file-input").files[0]);
   };
 
@@ -109,7 +110,6 @@ export const FileHandler = ({user}) => {
   
   return (
     <div className=".container file-handler-container" id="file-handler-container">
-      <div className="file-handler-element">
         <form target="_self" onSubmit={parseInput}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-question-circle tool-tip" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
@@ -134,7 +134,6 @@ export const FileHandler = ({user}) => {
           <pre id="preReader"></pre>
         </form>
       </div>
-    </div>
   );
 };
 

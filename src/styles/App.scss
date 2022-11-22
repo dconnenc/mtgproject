@@ -2,20 +2,17 @@
 @import 'ProfilePage';
 @import 'ListPage';
 
-
-a.greeting-text {
-  text-decoration: none;  
-}
-
 .greeting-text{
   color:whitesmoke;
   font-weight: 500;
-  text-decoration: none;
+  padding: 10pt 10pt 10pt 10pt;
 }
+
 .center{
   padding-top: 25%; 
   text-align: center;
 }
+
 .background-image{
   min-height: 100vh;
   min-width: 100vw;
@@ -35,14 +32,27 @@ a.greeting-text {
 
 .header{
   z-index: 10;
-  display: inline-block;
   background-color: #333333;
   color:whitesmoke;
   width: 100vw;
-  height: 8vh;
-  max-height: 60px;
-  text-align: center;
+  height: 60px;
   position: absolute;
+  padding: 5px 5px 5px 5px;
+}
+
+.left {
+  float:left;
+  padding-left: 10px;
+}
+
+
+.right{
+  float:right;
+  padding-right: 10px;
+}
+
+.underline{
+  text-decoration: underline;
 }
 
 .text-center{
@@ -60,8 +70,7 @@ a.greeting-text {
 }
 
 .logo {
-  margin: auto auto auto auto;
-  max-width: 40vw;
+  max-width: 20vw;
   max-height: 50px;
 }
 
