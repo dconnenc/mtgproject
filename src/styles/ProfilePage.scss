@@ -34,6 +34,9 @@
     font-weight: 100;
 }
 
+.text-middle{
+    vertical-align: middle;
+}
 
 .database-container {
     position: absolute;
@@ -42,8 +45,7 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     height: auto;
-    width: auto;
-    display: block;
+    width: auto;    
     background: rgba(256, 256, 256, .4);
     border: solid #212529 3px;
     border-radius: 5px;

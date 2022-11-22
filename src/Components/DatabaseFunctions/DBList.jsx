@@ -18,7 +18,7 @@ export const DBList = ({userDBCards, user}) => {
                 </thead>
                 <tbody>
                    {cardsArray ? cardsArray.map(userDBCards => 
-                                <tr key={userDBCards.id}>
+                                <tr key={userDBCards.id} className="text-middle">
                                     <td>{userDBCards.list}</td>
                                     <td><LoadDBCards
                                             user={user}   

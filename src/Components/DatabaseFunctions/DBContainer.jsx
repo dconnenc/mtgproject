@@ -29,7 +29,7 @@ export const DBContainer = ({ user }) => {
             }, [cards, isLoading]);
 
     return(
-        <div id="profile-container" className="database-container profile-container">
+        <div className="database-container">
             <h2 className="text-center">Your Lists</h2> 
             <DBList 
                 user={user}

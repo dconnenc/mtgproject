@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CardsContext } from "./AppContext"
+import { UpdateCardScore } from "./Functions/UpdateCardScore";
 
 export const Comparison = ({ user }) => {
 
@@ -12,21 +13,6 @@ export const Comparison = ({ user }) => {
 
   //patches db entry in the cards column of the cards table
   //hits the node.js file on the backend
-  const dbScorePatch = async (cards) => {
-    const id = user.id;
-    const list = userDBCards.cards[0]?.list;
-
-    try {   
-      await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${id}/${list}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json",},
-        body: JSON.stringify({cards})
-      })
-      .then((response) => response.json())
-    } catch (error) {
-        console.error(error.message)
-    }
-  }
 
   const newComparison = (winner) => {
     //adjusts the cards ELO, and sorts table accordingly
@@ -39,8 +25,8 @@ export const Comparison = ({ user }) => {
       }}).sort((a, b) => (a.score < b.score) ? 1 : -1))
     
     //update the DB with new values
-    dbScorePatch(cards)
-
+    UpdateCardScore(cards, user.id, userDBCards.cards[0]?.list)
+      
     //sets the comparison cards to two random cards from the list
     const randomCardNum = Math.floor(Math.random() * cards.length)
     const randomCardNum1 = Math.floor(Math.random() * cards.length)

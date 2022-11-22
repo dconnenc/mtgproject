@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useContext } from "react";
 import { ScryfallQuery } from "./Functions/ScryfallQuery";
 import { Batcher } from "./Functions/Batcher";
 import { CardsContext } from "./AppContext";
+import { postDBCards } from "./Functions/PostDBCard";
 
 //This file is admittedly a jungle.
 // FileHandler component handles files by:
@@ -39,24 +40,6 @@ export const FileHandler = ({user}) => {
     
     reader.readAsText(document.getElementById("file-input").files[0]);
   };
-
-  //Posts submitted list to the database. Called inside of updateCards()
-  const postDBCards = async (scoredCards) => {
-    try {
-        await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${user.id}/${list}`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json",},
-            body: JSON.stringify({ cards: scoredCards })
-        })
-        .then(response => {
-          response.json()
-          
-        })
-    } catch (err) {
-        console.error(err.message);
-    }
-    setIsLoading(false);
-  }
 
   //triggered when file is submitted, updates cards from the submitted .txt
   //scryfall API has 75 request limit, code below sends cards in acceptable batches
@@ -96,7 +79,8 @@ export const FileHandler = ({user}) => {
         }
       });
 
-      postDBCards(scoredCards);
+      postDBCards(scoredCards, user.id, list);
+      setIsLoading(false)
     }
   });
 
