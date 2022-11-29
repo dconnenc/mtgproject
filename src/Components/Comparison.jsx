@@ -42,7 +42,7 @@ export const Comparison = ({ user }) => {
 
     return (
     <div className="text-center whitesmoke below-header">
-      <div>P1P1 - {listName}</div>
+      <div className="">P1P1 - {listName}</div>
       <div>Pack 1 Pick 1 <br /> Which would you choose? </div>
     <div className=".container comparison-card-container" id="comparison-card-container">
       <img onClick={() => newComparison(0)} src={firstCard?.image_uris ? firstCard?.image_uris : firstCard?.card_faces[0].image_uris.normal } alt="" id="comparison-card" className={`comparison-card`}></img>

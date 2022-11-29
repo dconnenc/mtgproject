@@ -47,8 +47,6 @@ The front end files are still in need of refactoring, and a are disorganized.
 
 -DBPatch for Comparison on landing page. Currently it is fed ID from logged in user, and a list from... where? This function should be agnostic
 
--Smarts for rendering list name in the Comparison Heading
-
 -Review GetCardsByIDandList() in the ListPage component. Cards.cards.cards seems supsicious?
 
 -Create <Loading /> component to render during load times
@@ -64,8 +62,5 @@ The front end files are still in need of refactoring, and a are disorganized.
 -Add List Name Editing
 
 //Styling, styling, styling//
--Image Preview location needs to be set
--Typeface's need be updated
--Why can't I get rid of the underline in the profile
 
 

@@ -33,7 +33,8 @@ export const ListPage = ({ user }) => {
     useEffect(() => {
         backgroundQuery()
         .then(data => {
-            setBackground(data.image_uris.art_crop);
+            const backgroundImage = data.image_uris.art_crop ? data.image_uris.art_crop : data.card_faces.image_uris.art_crop;
+            setBackground(backgroundImage);
         })
         .catch(error =>
             console.log(error.message));
