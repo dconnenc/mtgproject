@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import "./styles/App.scss";
 import { Header } from "./Components/Header";
-import { backgroundQuery } from "./Components/backgroundQuery"
+import { backgroundQuery } from "./Components/Functions/backgroundQuery"
 import { Footer } from "./Components/Footer";
 import { CardsContext } from "./Components/AppContext"
 import { ListManager } from "./Components/ListManager"

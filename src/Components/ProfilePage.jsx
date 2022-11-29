@@ -3,7 +3,7 @@ import { Header } from "./Header";
 import { useParams } from "react-router-dom";
 import FileHandler from "./fileHandler";
 import { DBContainer } from "./DatabaseFunctions/DBContainer";
-import { backgroundQuery } from "./backgroundQuery"
+import { backgroundQuery } from "./Functions/backgroundQuery"
 import { useState, useEffect, useContext } from "react";
 import { Loading } from "./Loading";
 import { CardsContext } from "./AppContext";

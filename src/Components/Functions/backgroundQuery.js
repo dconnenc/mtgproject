@@ -4,7 +4,5 @@ export const backgroundQuery = async () => {
   const response = await fetch(query);
   const data = await response.json()
 
-  //this console is here to help track down when there is no art_crop
-  console.log(data);
   return data;
 }

@@ -109,12 +109,12 @@ export const FileHandler = ({user}) => {
                 CubeCubra offers an export "Card Name (.txt)"
               </span>
             </div>
-            <input type="file" className="btn-file input tool-tip" required={true} id="file-input" />
+            <input type="file" className="btn-file input" required={true} id="file-input" />
 
             <input type="text" className="" value={list} required={true} placeholder="Your list name..."
                 onChange={e => setList(e.target.value)} id="desciption-field"
             />
-            <button className="button button-good input-group-append"id="submit">Save</button>
+            <button className="button button-green input-group-append"id="submit">Save</button>
           <pre id="preReader"></pre>
         </form>
       </div>

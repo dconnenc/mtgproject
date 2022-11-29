@@ -4,7 +4,7 @@ import { ListManager } from "./ListManager"
 import { useParams } from "react-router-dom";
 import { CardsContext } from "./AppContext";
 import { useContext, useEffect, useCallback, useState } from "react";
-import { backgroundQuery } from "./backgroundQuery"
+import { backgroundQuery } from "./Functions/backgroundQuery"
 
 export const ListPage = ({ user }) => {
     const {id} = useParams();
@@ -23,7 +23,6 @@ export const ListPage = ({ user }) => {
             const jsonData = await response.json();
 
             let parsedCards = JSON.parse(jsonData.cards[0].cards)
-            console.log("parsed cards=", parsedCards)
             setCards(parsedCards.cards)
         } catch (error) {
             console.error(error.message)
