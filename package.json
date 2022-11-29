@@ -2,7 +2,7 @@
   "name": "mtgproject",
   "description": "a custom MTG card evaluation tool",
   "engines": {
-    "node": "^18.5.0"
+    "node": "16.15.0"
   },
   "version": "0.7.0",
   "private": true,
