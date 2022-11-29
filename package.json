@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "node ./backend/node.js",
-    "heroku-postbuild": "npm install && npm run build",
+    "heroku-postbuild": "npm run build",
     "develop": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
