@@ -1,6 +1,10 @@
 {
   "name": "mtgproject",
-  "version": "0.1.0",
+  "description": "a custom MTG card evaluation tool",
+  "engines": {
+    "node": "^18.5.0"
+  },
+  "version": "0.7.0",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.10.2",
@@ -22,6 +26,7 @@
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.0",
+    "sass": "^1.56.1",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
