@@ -1,9 +1,17 @@
 @import 'Table';
 @import 'ProfilePage';
 @import 'ListPage';
+@import 'Button';
+
+@font-face {
+  font-family: "MTG";
+  src:  local("mtg.woff"), 
+        url("mtg.woff") format("woff");
+}
 
 .greeting-text{
   color:whitesmoke;
+  font-family: "MTG";
   font-size: 18px;
   font-weight: 500;
   padding: 10pt 10pt 10pt 10pt;
@@ -77,6 +85,8 @@
 .logo {
   max-width: 20vw;
   max-height: 50px;
+  bottom: 3px;
+  position: absolute;
 }
 
 .footer{
@@ -91,35 +101,26 @@
 }
 
 .whitesmoke{
-  color: whitesmoke;  
+  color: whitesmoke;
+  font-family: "MTG";
+  font-size: 32px;
 }
 
 .space-top {
   padding-top: 5px;
 }
 
-.button {
-  color: whitesmoke;
-  background-color: whitesmoke;
-  border: 1px #212529;
-  display: inline-block;
-  font-weight: 400;
-  text-decoration: none;
-  vertical-align: middle;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-} 
-
-.button:hover {
-  background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
-}
-.button-good {
-  background-color: #4f2fff;
+.center-box{
+  position: absolute;
+  background: rgba(250, 250, 250, .4);
+  width: fit-content;
+  top: 45%;
+  left: 33%;
+  border: 3pt solid white;
+  border-radius: 5pt;
 }
 
-.button-bad {
-  background-color: #dc3545;
-  border-color: #dc3545;
+.huge{
+  font-size: 72px;
+  color: white;
 }
