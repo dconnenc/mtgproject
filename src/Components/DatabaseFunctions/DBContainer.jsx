@@ -23,10 +23,10 @@ export const DBContainer = ({ user }) => {
         }
     }, [setUserDBCards, user.id])
 
-            useEffect(() => {
-                fetchDBCards();
-                
-            }, [cards, isLoading]);
+    useEffect(() => {
+        fetchDBCards();
+        
+    }, [cards, isLoading]);
 
     return(
         <div className="database-container">
