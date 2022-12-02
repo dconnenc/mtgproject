@@ -1,0 +1,148 @@
+.comparison-card-container {
+    padding: 20px;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stacked-cards-first{
+    float: left;
+    position:relative;
+    width: 48%;
+    height: 100%;
+  }
+
+.first-comparison-card {
+    right: 0;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    max-height: 350px;
+    max-width: 475px;
+    border-radius: 8pt;
+    box-shadow: 10px 10px 15px black;
+    z-index: 10;
+    transition: all 2s ease-in-out;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+  
+  .first-comparison-card-1{
+    @extend .first-comparison-card; 
+    z-index: 9;
+    transition: transform 1s ease;
+    transform: translate(-100px, 0px) scale(0.9);
+    &:hover{
+      transform: translate(-100px, 0px) scale(.95);
+    }
+  }
+  
+  .first-comparison-card-2{
+    @extend .first-comparison-card; 
+    z-index: 8;
+    transform: translate(-160px, 0px) scale(0.8);
+    transition: transform 1s ease;
+    &:hover{
+      transform: translate(-160px, 0px) scale(.85);
+    }
+  }
+
+  .first-comparison-card-3{
+    @extend .first-comparison-card; 
+    z-index: 7;
+    transform: translate(-210px, 0px) scale(0.7);
+    transition: transform 1s ease;
+    &:hover{
+      transform: translate(-210px, 0px) scale(.75);
+    }
+  }
+
+  .first-comparison-card-4{
+    @extend .first-comparison-card; 
+    z-index: 6;
+    transform: translate(-245px, 0px) scale(0.6);
+    transition: transform 1s ease;
+    &:hover{
+      transform: translate(-245px, 0px) scale(.65);
+    }
+  }
+
+  .stacked-cards-second{
+    height:100%;
+    width: 48%;
+    float: right;
+    position:relative;
+  }
+
+
+  .second-comparison-card {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    max-height: 350px;
+    max-width: 475px;
+    border-radius: 8pt;
+    box-shadow: 10px 10px 15px black;
+    z-index: 10;
+    transition: all 2s ease-in-out;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+  
+  .second-comparison-card-1{
+    @extend .second-comparison-card; 
+    z-index: 9;
+    transition: transform 1s ease;
+    transform: translate(100px, 0px) scale(0.9);
+    &:hover{
+      transform: translate(100px, 0px) scale(.95);
+    }
+  }
+  
+  .second-comparison-card-2{
+    @extend .second-comparison-card; 
+    z-index: 8;
+    transform: translate(160px, 0px) scale(0.8);
+    transition: transform 3s ease;
+    &:hover{
+      transform: translate(160px, 0px) scale(.85);
+    }
+  }
+  
+  .second-comparison-card-3{
+    @extend .second-comparison-card; 
+    z-index: 7;
+    transform: translate(210px, 0px) scale(0.7);
+    transition: transform 3s ease;
+    &:hover{
+      transform: translate(210px, 0px) scale(.75);
+    }
+  }
+
+  .second-comparison-card-4{
+    @extend .second-comparison-card; 
+    z-index: 6;
+    transform: translate(245px, 0px) scale(0.6);
+    transition: transform 3s ease;
+    &:hover{
+      transform: translate(245px, 0px) scale(.65);
+    }
+  }
+
+  .roller-card-background{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: #000;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all .5s ease;
+    color: #FFF;
+    text-align: center;
+  }

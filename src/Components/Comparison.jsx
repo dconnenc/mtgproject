@@ -32,8 +32,7 @@ export const Comparison = ({ user }) => {
     const randomCardNum1 = Math.floor(Math.random() * cards.length)
 
     const [first, second] = comparisonCards
-    console.log("first & second=",first.slice(0,2), second.slice(0,2))
-    setComparisonCards([...first.slice(0,2), cards[randomCardNum]], [cards[randomCardNum1], ...second.slice(0,2)])
+    setComparisonCards([[cards[randomCardNum], ...first.slice(0, 4)], [cards[randomCardNum1], ...second.slice(0,4)]])
   } 
 
   useEffect(() => { 
@@ -48,7 +47,6 @@ export const Comparison = ({ user }) => {
 
   const [firstList, secondList] = comparisonCards;
 
-  
   if(!firstList?.length){
       return (
         <div>No Comparison Cards</div>
@@ -56,33 +54,50 @@ export const Comparison = ({ user }) => {
   } else {
     console.log("comparisonCards=")
     console.log(comparisonCards)
-    console.log(typeof firstList, typeof secondList)
+    console.log("typecheck,", typeof firstList, typeof secondList)
     return (
-    <div className="text-center whitesmoke below-header">
-      <div className="">P1P1 - {listName}</div>
-      <div>Pack 1 Pick 1 <br /> Which would you choose? </div>
-    <div className=".container comparison-card-container" id="comparison-card-container">
-      <div className="stacked-cards">
-        {
-          firstList.map((card, index) => {
-            if(index === 0){
-              return <img key={card.name} onClick={() => newComparison(0, 1)} src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal } alt="" id="first-comparison-card" className={`first-comparison-card`}></img>
-            } else {
-              return <img key={card.name} src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal } alt="" id="comparison-card" className={`first-comparison-card-${index}`}></img>
-            }
-        })}
+    <> 
+      <div className="text-center whitesmoke below-header">
+        <div className="">P1P1 - {listName}</div>
+        <div>Pack 1 Pick 1 <br /> Which would you choose? </div>
       </div>
-      <div className="stacked-cards">
-        {
-          secondList.map((card, index) => {
-            if(index === 0){
-              return <img key={card.name} onClick={() => newComparison(1, 0)} src={card?.image_uris ? card?.image_uris : card?.card_faces[0].image_uris.normal } alt="" id="comparison-card" className={`second-comparison-card`}></img>
-            } else {
-              return <img key={card.name} src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal } alt="" id="comparison-card" className={`second-comparison-card-${index}`}></img>
-            }
-        })} 
+      <div className="comparison-card-container" id="comparison-card-container">
+        <div className="stacked-cards-first">
+          {
+            firstList.map((card, index) => {
+              if(index === 0){
+                return  <div className="_roller-card-background">
+                          <img  key={card.name} onClick={() => newComparison(0, 1)} 
+                                src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal } 
+                                alt="" id="first-comparison-card" className={`first-comparison-card`}/>
+                        </div>
+              } else {
+                return  <div className="_roller-card-background">
+                          <img  key={card.name} 
+                                src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal }
+                                alt="" id="comparison-card" className={`first-comparison-card-${index}`}/>
+                        </div>
+              }
+          })}
+        </div>
+        <div className="stacked-cards-second">
+          {
+            secondList.map((card, index) => {
+              if(index === 0){
+                return  <div className="_roller-card-background">
+                          <img  key={card.name} onClick={() => newComparison(1, 0)} 
+                                src={card?.image_uris ? card?.image_uris : card?.card_faces[0].image_uris.normal }
+                                alt="" id="comparison-card" className={`second-comparison-card`} />
+                        </div>
+              } else {
+                return  <div className="_roller-card-background">
+                          <img  key={card.name} src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal } 
+                                alt="" id="comparison-card" className={`second-comparison-card-${index}`} />
+                        </div>
+              }
+          })} 
         </div>
       </div>
-    </div>
+    </>
   );
 }};
