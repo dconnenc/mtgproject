@@ -29,15 +29,16 @@
     background-color: #dc3545;
     border-color: #dc3545;
   }
-  
+
 @media (min-width: 320px) and (max-width: 999px) {
-
   // Mobile and tablet CSS
-
+  .button-green{
+    width: 11%;
+    font-size: 12px;
+  }
 }
 
+
 @media (min-width: 1000px) {
-
-  // Laptop/desktop CSS
-
+  // Desktop CSS
 }

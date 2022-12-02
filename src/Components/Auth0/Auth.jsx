@@ -11,10 +11,6 @@ export const Auth = () => {
     loginWithRedirect()
   }
 
-    if(isAuthenticated && !isLoading ) {
-      window.location.href = "http://localhost:3000/"
-    } else {
-
       return(
         <div className="background-image"  style={{
           backgroundImage: `url(${background})`,
@@ -25,4 +21,4 @@ export const Auth = () => {
         </div>
       )
   }
-}
+

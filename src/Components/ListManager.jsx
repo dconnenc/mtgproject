@@ -5,11 +5,9 @@ import { Table } from "./Table"
 export const ListManager = ({user}) => {
     return(
         <>
-            <div className="main-container">
                 <Comparison user={user} />
-            </div>
-            <div className=".container container-mat">
-                <ImagePreviewer />
+            <div className="container-mat">
+                {window.innerWidth > 800 ? <ImagePreviewer /> : <div></div>}
                 <Table />
             </div>
         </>

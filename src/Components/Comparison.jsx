@@ -54,7 +54,7 @@ export const Comparison = ({ user }) => {
   } else {
       return (
     <> 
-      <div className="text-center whitesmoke below-header">
+      <div className="instruction-wrapper whitesmoke below-header">
         <div className="">P1P1 - {listName}</div>
         <div>Pack 1 Pick 1 <br /> Which would you choose? </div>
       </div>

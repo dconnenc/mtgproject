@@ -6,6 +6,10 @@
     overflow: hidden;
 }
 
+.instruction-wrapper{
+    text-align: center;
+}
+
 .stacked-cards-first{
     float: left;
     position:relative;
@@ -82,7 +86,6 @@
     position:relative;
   }
 
-
   .second-comparison-card {
     display: inline-block;
     padding: 0;
@@ -145,11 +148,17 @@
   }
 
 @media (min-width: 320px) and (max-width: 999px) {
+    .first-comparison-card {
+        max-width: 180px;
+    }
+    .second-comparison-card {
+        max-width: 180px;
+    }
 
-// Mobile and tablet CSS
-
-}
-
+    .comparison-card-container {
+        height: 300px;
+    }
+}   
 @media (min-width: 1000px) {
 
 // Laptop/desktop CSS
