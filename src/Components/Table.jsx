@@ -24,7 +24,7 @@ export const Table = () => {
                    onClick={()=> {
                     setUserDBCards([]);
                     setCards([]);
-                    setComparisonCards([]);
+                    setComparisonCards([[],[]]);
                     setPreviewCard([]);
                     setCardInput([]);
                   }}

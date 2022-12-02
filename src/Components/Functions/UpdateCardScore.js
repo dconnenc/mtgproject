@@ -1,5 +1,5 @@
 export const UpdateCardScore = async (cards, id, list) => {
-    console.log(cards, id, list)
+    
     try {   
       await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${id}/${list}`, {
         method: "PATCH",

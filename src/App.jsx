@@ -39,18 +39,8 @@ function App({user}) {
 
   useEffect(()=> {
     setCards([]);
-    setComparisonCards([]);
     fetchDefaultCards();
-  }, []) 
-
-  useEffect(() => { 
-    //sets the comparison cards to two random cards from the list
-    const randomCardNum = Math.floor(Math.random() * cards.length)
-    const randomCardNum1 = Math.floor(Math.random() * cards.length)
-
-    setComparisonCards([cards[randomCardNum], cards[randomCardNum1]])
-
-}, [cards])
+  }, [])
   
   return (
     <div className="background-image" style={{

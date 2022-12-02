@@ -7,7 +7,7 @@ const AppContextProvider = ({children}) => {
     const [cardInput, setCardInput] = useState([]);
     const [cards, setCards] = useState([]);
     const [previewCard, setPreviewCard] = useState([]);
-    const [comparisonCards, setComparisonCards] = useState([]);
+    const [comparisonCards, setComparisonCards] = useState([[],[]]);
     const [userDBCards, setUserDBCards] = useState([]);
     const [listName, setListName] = useState(["MTGO Vintage Cube"]);
     const [isLoading, setIsLoading] = useState([false])
