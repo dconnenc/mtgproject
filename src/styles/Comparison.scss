@@ -24,9 +24,10 @@
     border-radius: 8pt;
     box-shadow: 10px 10px 15px black;
     z-index: 10;
-    transition: all 2s ease-in-out;
+    transition: all 1s ease-in-out;
     &:hover{
       transform: scale(1.1);
+      cursor:pointer;
     }
   }
   
@@ -35,6 +36,7 @@
     z-index: 9;
     transition: transform 1s ease;
     transform: translate(-100px, 0px) scale(0.9);
+    filter: brightness(0.8);
     &:hover{
       transform: translate(-100px, 0px) scale(.95);
     }
@@ -45,6 +47,7 @@
     z-index: 8;
     transform: translate(-160px, 0px) scale(0.8);
     transition: transform 1s ease;
+    filter: brightness(0.7);
     &:hover{
       transform: translate(-160px, 0px) scale(.85);
     }
@@ -55,6 +58,7 @@
     z-index: 7;
     transform: translate(-210px, 0px) scale(0.7);
     transition: transform 1s ease;
+    filter: brightness(0.65);
     &:hover{
       transform: translate(-210px, 0px) scale(.75);
     }
@@ -65,6 +69,7 @@
     z-index: 6;
     transform: translate(-245px, 0px) scale(0.6);
     transition: transform 1s ease;
+    filter: brightness(0.65);
     &:hover{
       transform: translate(-245px, 0px) scale(.65);
     }
@@ -88,9 +93,10 @@
     border-radius: 8pt;
     box-shadow: 10px 10px 15px black;
     z-index: 10;
-    transition: all 2s ease-in-out;
+    transition: all 1s ease-in-out;
     &:hover{
       transform: scale(1.1);
+      cursor:pointer;
     }
   }
   
@@ -99,6 +105,7 @@
     z-index: 9;
     transition: transform 1s ease;
     transform: translate(100px, 0px) scale(0.9);
+    filter: brightness(0.8);
     &:hover{
       transform: translate(100px, 0px) scale(.95);
     }
@@ -109,6 +116,7 @@
     z-index: 8;
     transform: translate(160px, 0px) scale(0.8);
     transition: transform 3s ease;
+    filter: brightness(0.7);
     &:hover{
       transform: translate(160px, 0px) scale(.85);
     }
@@ -119,6 +127,7 @@
     z-index: 7;
     transform: translate(210px, 0px) scale(0.7);
     transition: transform 3s ease;
+    filter: brightness(0.65);
     &:hover{
       transform: translate(210px, 0px) scale(.75);
     }
@@ -129,20 +138,20 @@
     z-index: 6;
     transform: translate(245px, 0px) scale(0.6);
     transition: transform 3s ease;
+    filter: brightness(0.65);
     &:hover{
       transform: translate(245px, 0px) scale(.65);
     }
   }
 
-  .roller-card-background{
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    background-color: #000;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all .5s ease;
-    color: #FFF;
-    text-align: center;
-  }
+@media (min-width: 320px) and (max-width: 999px) {
+
+// Mobile and tablet CSS
+
+}
+
+@media (min-width: 1000px) {
+
+// Laptop/desktop CSS
+
+}

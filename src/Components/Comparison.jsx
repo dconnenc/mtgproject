@@ -52,10 +52,7 @@ export const Comparison = ({ user }) => {
         <div>No Comparison Cards</div>
       )
   } else {
-    console.log("comparisonCards=")
-    console.log(comparisonCards)
-    console.log("typecheck,", typeof firstList, typeof secondList)
-    return (
+      return (
     <> 
       <div className="text-center whitesmoke below-header">
         <div className="">P1P1 - {listName}</div>
@@ -66,17 +63,13 @@ export const Comparison = ({ user }) => {
           {
             firstList.map((card, index) => {
               if(index === 0){
-                return  <div className="_roller-card-background">
-                          <img  key={card.name} onClick={() => newComparison(0, 1)} 
-                                src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal } 
-                                alt="" id="first-comparison-card" className={`first-comparison-card`}/>
-                        </div>
+                return <img key={card.name} onClick={() => newComparison(0, 1)} 
+                            src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal } 
+                            alt="" id="first-comparison-card" className={`first-comparison-card`}/>
               } else {
-                return  <div className="_roller-card-background">
-                          <img  key={card.name} 
-                                src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal }
-                                alt="" id="comparison-card" className={`first-comparison-card-${index}`}/>
-                        </div>
+                return <img key={card.name} 
+                            src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal }
+                            alt="" id="comparison-card" className={`first-comparison-card-${index}`}/>
               }
           })}
         </div>
@@ -84,16 +77,12 @@ export const Comparison = ({ user }) => {
           {
             secondList.map((card, index) => {
               if(index === 0){
-                return  <div className="_roller-card-background">
-                          <img  key={card.name} onClick={() => newComparison(1, 0)} 
+                return  <img  key={card.name} onClick={() => newComparison(1, 0)} 
                                 src={card?.image_uris ? card?.image_uris : card?.card_faces[0].image_uris.normal }
                                 alt="" id="comparison-card" className={`second-comparison-card`} />
-                        </div>
               } else {
-                return  <div className="_roller-card-background">
-                          <img  key={card.name} src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal } 
+                return  <img  key={card.name} src={card?.image_uris ? card?.image_uris : card.card_faces[0].image_uris.normal } 
                                 alt="" id="comparison-card" className={`second-comparison-card-${index}`} />
-                        </div>
               }
           })} 
         </div>
