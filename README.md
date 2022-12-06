@@ -49,10 +49,6 @@ The front end files are still in need of refactoring, and a are disorganized.
 
 -Review GetCardsByIDandList() in the ListPage component. Cards.cards.cards seems supsicious?
 
--Create <Loading /> component to render during load times
-  •On usercreation or fetch
-  •On Filehandler submission
-
 -Restructure
   •"App.jsx" >>> LandingPage
   •"Index.jsx" >>> App
@@ -60,6 +56,8 @@ The front end files are still in need of refactoring, and a are disorganized.
 
 -Add Profile Editing
 -Add List Name Editing
+
+-Implement Shuffle instead of Random Card
 
 //Styling, styling, styling//
 

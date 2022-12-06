@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { CardsContext } from "../AppContext";
+
 export const DeleteDBCards = ({id, list}) => {
+    
+    const context = useContext(CardsContext);
+    const [deleted, setDeleted] = context["deleted"]
 
     const deleteDBCards = async () => {
         try {
@@ -12,6 +18,7 @@ export const DeleteDBCards = ({id, list}) => {
 
     const handleClick = (e) => {
         deleteDBCards();
+        setDeleted([...deleted, list])
     }
     
     return(
