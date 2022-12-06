@@ -20,7 +20,10 @@
 }
 
 @media (min-width: 320px) and (max-width: 999px) {
-
+  .preview-card{
+    display: none;
+    visibility: hidden;
+  }
   // Mobile and tablet CSS
 
 }

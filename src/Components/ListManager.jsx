@@ -7,7 +7,7 @@ export const ListManager = ({user}) => {
         <>
                 <Comparison user={user} />
             <div className="container-mat">
-                {window.innerWidth > 800 ? <ImagePreviewer /> : <div></div>}
+                <ImagePreviewer />
                 <Table />
             </div>
         </>

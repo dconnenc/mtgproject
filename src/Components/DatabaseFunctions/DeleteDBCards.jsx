@@ -11,7 +11,7 @@ export const DeleteDBCards = ({id, list}) => {
     }
 
     const handleClick = (e) => {
-        deleteDBCards()
+        deleteDBCards();
     }
     
     return(

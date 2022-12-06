@@ -9,9 +9,9 @@ import { Loading } from "./Loading";
 import { CardsContext } from "./AppContext";
 
 export const ProfilePage = ({ user }) => {
-    let {id} = useParams();
     
     const [background, setBackground] = useState([]);
+    
     const contextCards = useContext(CardsContext);
     const [isLoading, setIsLoading] = contextCards["isLoading"];
 
@@ -24,9 +24,9 @@ export const ProfilePage = ({ user }) => {
         })
         .catch(error =>
             console.log(error.message));
-        setIsLoading(false);
     }, [setBackground]);
 
+    console.log(isLoading)
     return(
         <div className="background-image" style={{
             backgroundImage: `url(${background})`

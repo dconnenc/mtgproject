@@ -4,7 +4,7 @@ import { CardsContext } from "../AppContext"
 
 export const DBContainer = ({ user }) => {
     const context = useContext(CardsContext);
-  
+
     const [cards, setCards] = context["cards"]
     const [userDBCards, setUserDBCards] = context["userDBCards"];
     const [isLoading, setIsLoading] = context["isLoading"];
@@ -16,7 +16,7 @@ export const DBContainer = ({ user }) => {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/usersCards/${user_id}`,
                 { method: "GET" })
             const jsonData = await response.json();
-           
+
             setUserDBCards(jsonData)
         } catch (error) {
             console.error(error.message)
@@ -25,7 +25,6 @@ export const DBContainer = ({ user }) => {
 
     useEffect(() => {
         fetchDBCards();
-        
     }, [cards, isLoading]);
 
     return(

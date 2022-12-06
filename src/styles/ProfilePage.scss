@@ -1,37 +1,19 @@
 .file-handler-container {
+    background: rgba(255, 255, 255, 0.4);
+    border: solid #212529 3px;
+    border-radius: 5px;
+    padding: 5pt 5pt 5pt 5pt;
+    margin: 10vh auto 0 auto;
+    color: #212529;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
+
+.input-title{
+    font-size: 30px;
+    font-weight: bold;
     text-align: center;
-    background-color: #444444;
-    margin-top: 60px;
-    padding-top: 5px;
-    color: whitesmoke;
-    height: 50px;
-    width: 100vw;
-    position:absolute;
-    vertical-align: middle;
-}
-
-.tool-tip {
-    position: relative;
-    display: inline-block;
-}
-
-.tool-tip .tool-tip-text {
-    visibility: hidden;
-    width: 150px;
-    background-color: #212529;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 1;
-    top: 25px;
-    right: 20%;
-}
-
-.tool-tip:hover .tool-tip-text {
-    visibility: visible;
-    font-weight: 100;
 }
 
 .text-middle{
@@ -39,21 +21,31 @@
 }
 
 .database-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    margin: 8vh auto 0 auto;
     height: auto;
-    width: auto;    
+    width: 300px;    
     background: rgba(256, 256, 256, .4);
     border: solid #212529 3px;
     border-radius: 5px;
     padding: 5pt 5pt 5pt 5pt;
 }
 
+.dark-border{
+    border-color: #212529;
+}
+
+.instructions{
+    font-size: 12px;
+    padding: 10pt 0 10pt 10pt;
+}
+
+.input{
+    max-width: 250px;
+    margin-left: 12px;
+}
+
 @media (min-width: 320px) and (max-width: 999px) {
-    .file-handler-container {
+    /* .file-handler-container {
         margin-top: 40px;
         height: 50px;
     }
@@ -64,7 +56,7 @@
     .description-field{
         font-size: 12px;
         width: 40%;
-    }
+    } */
 }
 
 @media (min-width: 1000px) {

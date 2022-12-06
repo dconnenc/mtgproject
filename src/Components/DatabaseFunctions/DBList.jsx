@@ -16,7 +16,7 @@ export const DBList = ({userDBCards, user}) => {
                     <th>Delete</th>
                 </tr>   
                 </thead>
-                <tbody>
+                <tbody className="dark-border">
                    {cardsArray ? cardsArray.map(userDBCards => 
                                 <tr key={userDBCards.id} className="text-middle">
                                     <td>{userDBCards.list}</td>

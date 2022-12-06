@@ -10,7 +10,7 @@ const AppContextProvider = ({children}) => {
     const [comparisonCards, setComparisonCards] = useState([[],[]]);
     const [userDBCards, setUserDBCards] = useState([]);
     const [listName, setListName] = useState(["MTGO Vintage Cube"]);
-    const [isLoading, setIsLoading] = useState([false])
+    const [isLoading, setIsLoading] = useState(false)
     
     return(
         <CardsContext.Provider value={{
