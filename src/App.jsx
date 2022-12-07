@@ -31,7 +31,8 @@ function App({user}) {
   useEffect(() => {
     backgroundQuery()
       .then(data => {
-          setBackground(data.image_uris.art_crop);
+          let backgroundImage = data.image_uris ? data.image_uris.art_crop : data.card_faces[0].image_uris.art_crop;
+          setBackground(backgroundImage);
       })
       .catch(error =>
         console.log(error.message));

@@ -46,7 +46,7 @@ export const Comparison = ({ user }) => {
       }}).sort((a, b) => (a.score < b.score) ? 1 : -1))
     
     //update the DB with new values
-    UpdateCardScore(cards, user.id)
+    UpdateCardScore(cards, user.id, listName)
       
     //sets the comparison cards to two random cards from the list
     const randomCardNum = Math.floor(Math.random() * cards.length)

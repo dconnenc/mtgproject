@@ -19,7 +19,7 @@ export const ProfilePage = ({ user }) => {
     useEffect(() => {
         backgroundQuery()
         .then(data => {
-            const backgroundImage = data.image_uris.art_crop ? data.image_uris.art_crop : data.card_faces[0].image_uris.art_crop;
+            let backgroundImage = data.image_uris ? data.image_uris.art_crop : data.card_faces[0].image_uris.art_crop;
             setBackground(backgroundImage);
         })
         .catch(error =>
