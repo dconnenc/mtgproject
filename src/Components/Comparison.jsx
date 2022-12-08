@@ -39,8 +39,7 @@ export const Comparison = ({ user, list }) => {
   } 
 
   useEffect(() => {
-    if (comparisonCards[0].length === 0 && cards.length)  { 
-      console.log("setting comparison")
+      
       //sets the comparison cards to two random cards from the list
       let randomCardNum = Math.floor(Math.random() * cards.length)
       let randomCardNum1 = Math.floor(Math.random() * cards.length)
@@ -48,14 +47,14 @@ export const Comparison = ({ user, list }) => {
       while(randomCardNum == randomCardNum1){
         return randomCardNum1 = Math.floor(Math.random() * cards.length)
       }
-
+      console.log("setting comparison");
       setComparisonCards([[cards[randomCardNum]], [cards[randomCardNum1]]])
-    }
-}, [])
+      console.log(comparisonCards);
+}, [])  
 
   const [firstList, secondList] = comparisonCards;
 
-  if(!firstList?.length){
+  if(!comparisonCards?.length){
       return (
         <div>No Comparison Cards</div>
       )

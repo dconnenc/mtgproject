@@ -45,6 +45,8 @@ The front end files are still in need of refactoring, and a are disorganized.
 //Known Bugs & ToDo List//
 -Implement Logic to dualfaced cards to be flipped
 
+-Comparison doesn't refresh on page load.
+
 -DBPatch for Comparison on landing page. Currently it is fed ID from logged in user, and a list from... where? This function should be agnostic
 
 -Review GetCardsByIDandList() in the ListPage component. Cards.cards.cards seems supsicious?
