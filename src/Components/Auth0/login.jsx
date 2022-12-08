@@ -5,7 +5,7 @@ export const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
   const clickHandler = () => {
-    loginWithRedirect()
+    loginWithRedirect({ appState: { returnTo: window.location.pathname } })
   }
   
   return  <div className="greeting-text underline right green clickable" 

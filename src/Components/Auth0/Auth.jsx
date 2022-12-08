@@ -8,7 +8,7 @@ export const Auth = () => {
   var background = "https://preview.redd.it/qnnotlcehu731.jpg?auto=webp&s=55d9e57e829608fc8e632eb2e4165d816288177c"
 
   const clickHandler = () => {
-    loginWithRedirect()
+    loginWithRedirect({ appState: { returnTo: window.location.pathname } })
   }
 
       return(
