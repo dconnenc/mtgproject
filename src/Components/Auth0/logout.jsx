@@ -5,7 +5,7 @@ export const LogoutButton = () => {
   const { logout } = useAuth0();
 
   return (
-    <div className="greeting-text underline right" 
+    <div className="greeting-text underline right pink clickable" 
       onClick={() => logout({ returnTo: window.location.origin })
     }>
       Log Out

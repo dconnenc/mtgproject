@@ -1,33 +1,11 @@
-/*This code defines a Comparison React component that allows a user to select one of two cards and updates the card's score in the database.
-
-The code generates random card numbers using the Math.random function and then uses these numbers to select cards from the list. 
-However, this approach has the potential to select the same card twice,
-which can be avoided by using a Fisher-Yates shuffle algorithm to shuffle the list of cards and then selecting the first two cards from the shuffled list.
-
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    // Pick a random index from 0 to i
-    const j = Math.floor(Math.random() * (i + 1));
-
-    // Swap the element at i with the element at j
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-
-  return array;
-}
-
-*/
-
-
 import { useContext, useEffect } from "react";
 import { CardsContext } from "./AppContext"
 import { UpdateCardScore } from "./Functions/UpdateCardScore";
 
-export const Comparison = ({ user }) => {
+export const Comparison = ({ user, list }) => {
 
   const context = useContext(CardsContext);
 
-  const [listName, setListName] = context["listName"]
   const [cards, setCards] = context["cards"]
   const [comparisonCards, setComparisonCards] = context["comparisonCards"]
 
@@ -46,11 +24,15 @@ export const Comparison = ({ user }) => {
       }}).sort((a, b) => (a.score < b.score) ? 1 : -1))
     
     //update the DB with new values
-    UpdateCardScore(cards, user.id, listName)
+    UpdateCardScore(cards, user.id, list)
       
     //sets the comparison cards to two random cards from the list
     const randomCardNum = Math.floor(Math.random() * cards.length)
     const randomCardNum1 = Math.floor(Math.random() * cards.length)
+    
+    while(randomCardNum == randomCardNum1){
+      return randomCardNum1 = Math.floor(Math.random() * cards.length)
+    }
 
     const [first, second] = comparisonCards
     setComparisonCards([[cards[randomCardNum], ...first.slice(0, 4)], [cards[randomCardNum1], ...second.slice(0,4)]])
@@ -61,7 +43,9 @@ export const Comparison = ({ user }) => {
       //sets the comparison cards to two random cards from the list
       const randomCardNum = Math.floor(Math.random() * cards.length)
       const randomCardNum1 = Math.floor(Math.random() * cards.length)
-      
+      while(randomCardNum == randomCardNum1){
+        return randomCardNum1 = Math.floor(Math.random() * cards.length)
+      }
       setComparisonCards([[cards[randomCardNum]], [cards[randomCardNum1]]])
   }
 }, [cards])
@@ -76,7 +60,7 @@ export const Comparison = ({ user }) => {
       return (
     <> 
       <div className="instruction-wrapper whitesmoke below-header">
-        <div className="">P1P1 - {listName}</div>
+        <div className="">P1P1 - {list ? list : 'MTGO Vintage Cube'}</div>
         <div>Pack 1 Pick 1 <br /> Which would you choose? </div>
       </div>
       <div className="comparison-card-container" id="comparison-card-container">

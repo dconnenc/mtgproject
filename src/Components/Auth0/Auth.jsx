@@ -16,7 +16,7 @@ export const Auth = () => {
           backgroundImage: `url(${background})`,
         }}>
           <Header />
-            <div className="greeting-text huge center-box" onClick={clickHandler}>Please login</div>
+            <div className="greeting-text huge center-box clickable" onClick={clickHandler}>Please login</div>
           <Footer />
         </div>
       )

@@ -4,6 +4,5 @@ export const backgroundQuery = async () => {
   const response = await fetch(query);
   const data = await response.json()
 
-  console.log("background data, for debugging when no at crop is found", data)
   return data;
 }

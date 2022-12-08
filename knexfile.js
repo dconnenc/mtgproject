@@ -10,6 +10,7 @@ module.exports = {
       user: 'postgres',
       host: 'localhost',
       database: 'api',
+      //congrats, you can really do some damage now =)
       password: 'password',
       port: 5432,
     }

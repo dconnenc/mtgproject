@@ -36,8 +36,17 @@
 
 @media (min-width: 320px) and (max-width: 999px) {
 
-  // Mobile and tablet CSS
-
+  .card-number{
+    font-size:  10px;
+  }
+  
+  .card-name{
+    font-size:  10px;
+  }
+  
+  .card-data{
+    font-size:  10px;
+  }
 }
 
 @media (min-width: 1000px) {

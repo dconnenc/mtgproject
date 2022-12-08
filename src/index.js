@@ -12,8 +12,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import AppContextProvider from './Components/AppContext';
 import { Loading } from './Components/Loading';
 
-//should findOrCreateUser() (lines 14-33) be imported from another location  -- FETCHES?
-
+console.log(window.location.href)
 //On Authentication posts user information to database
 const findOrCreateUser = async (externalUser, setUser) => {
   const name    =       `${externalUser.given_name} ${externalUser.family_name}`;
@@ -35,13 +34,6 @@ const findOrCreateUser = async (externalUser, setUser) => {
   }
 }
 
-// ProtectedRoute is a higher order component that augments a component with
-// two things:
-//
-// 1. It ensures a user is authenticated
-// 2. It finds or creates a user
-
-//SHOULD PROTECTED ROUTES (48-74) BE IMPORTED FROM ITS OWN COMPONENT SIMILIAR TO APPCONTEXT?
 const ProtectedRoute = ({ component, ...args }) => {
   const Component = withAuthenticationRequired(component, args);
   const { isAuthenticated, isLoading, user: externalUser } = useAuth0();
@@ -63,7 +55,7 @@ const ProtectedRoute = ({ component, ...args }) => {
         <Component user={{...externalUser, ...user}}/>
       )
     }
-  } else {
+  } else if(!isAuthenticated && !isLoading) {
     return(
       <Auth />
     )

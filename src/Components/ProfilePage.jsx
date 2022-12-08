@@ -26,7 +26,7 @@ export const ProfilePage = ({ user }) => {
             console.log(error.message));
     }, [setBackground]);
 
-    console.log(isLoading)
+
     return(
         <div className="background-image" style={{
             backgroundImage: `url(${background})`

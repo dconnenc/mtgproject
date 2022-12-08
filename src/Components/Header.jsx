@@ -11,8 +11,8 @@ export const Header = ({user}) => {
       <div id="header" className="header">
           <Link to={"/"}><img id="logo" className="logo left" src={Logo} alt="logo"/></Link>
           <div className="right greeting-text underline">
-            {isAuthenticated ? <Link className="greeting-text left" to={"/"}>Home</Link> : <div></div>}
-            {isAuthenticated ? <Link className="greeting-text left" to={`/profile/${user?.id}`}>{user?.name}'s Lists</Link> : <div></div>}
+            {isAuthenticated ? <Link className="greeting-text left clickable" to={"/"}>Home</Link> : <div></div>}
+            {isAuthenticated ? <Link className="greeting-text left yellow clickable" to={`/profile/${user?.id}`}>My Lists</Link> : <div></div>}
             <Authenticator />
           </div>
     </div>

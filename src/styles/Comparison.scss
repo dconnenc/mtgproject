@@ -158,6 +158,31 @@
     .comparison-card-container {
         height: 300px;
     }
+
+    .first-comparison-card-1 {
+      display: none;
+    }
+    .first-comparison-card-2 {
+      display: none;
+    }
+    .first-comparison-card-3 {
+      display: none;
+    }
+    .first-comparison-card-4 {
+      display: none;
+    }
+    .second-comparison-card-1 {
+      display: none;
+    }
+    .second-comparison-card-2 {
+      display: none;
+    }
+    .second-comparison-card-3 {
+      display: none;
+    }
+    .second-comparison-card-4 {
+      display: none;
+    }
 }   
 @media (min-width: 1000px) {
 

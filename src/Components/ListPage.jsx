@@ -12,7 +12,6 @@ export const ListPage = ({ user }) => {
 
     const contextCards = useContext(CardsContext);
     const [cards, setCards] = contextCards["cards"]
-    const [comparisonCards, setComparisonCards] = contextCards["comparisonCards"];
 
     const [background, setBackground] = useState([]);
 
@@ -50,7 +49,7 @@ export const ListPage = ({ user }) => {
         }}>
             <Header user={user}/>
 
-            <ListManager user={user} />
+            <ListManager user={user} list={list} />
             
             <Footer />
         </div>
