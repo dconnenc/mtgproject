@@ -1,4 +1,4 @@
-const findOrCreateUser = async (externalUser, setUser) => {
+export const findOrCreateUser = async (externalUser, setUser) => {
     const name    =       `${externalUser.given_name} ${externalUser.family_name}`;
     const email   =       externalUser.email;
     const external_id =   externalUser.sub;

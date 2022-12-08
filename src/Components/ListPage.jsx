@@ -12,7 +12,6 @@ export const ListPage = ({ user }) => {
 
     const contextCards = useContext(CardsContext);
     const [cards, setCards] = contextCards["cards"]
-
     const [background, setBackground] = useState([]);
 
     const fetchDBCardsByIdDescription = useCallback(async () => {

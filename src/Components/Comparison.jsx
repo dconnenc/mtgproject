@@ -27,8 +27,8 @@ export const Comparison = ({ user, list }) => {
     UpdateCardScore(cards, user.id, list)
       
     //sets the comparison cards to two random cards from the list
-    const randomCardNum = Math.floor(Math.random() * cards.length)
-    const randomCardNum1 = Math.floor(Math.random() * cards.length)
+    let randomCardNum = Math.floor(Math.random() * cards.length)
+    let randomCardNum1 = Math.floor(Math.random() * cards.length)
     
     while(randomCardNum == randomCardNum1){
       return randomCardNum1 = Math.floor(Math.random() * cards.length)
@@ -38,17 +38,20 @@ export const Comparison = ({ user, list }) => {
     setComparisonCards([[cards[randomCardNum], ...first.slice(0, 4)], [cards[randomCardNum1], ...second.slice(0,4)]])
   } 
 
-  useEffect(() => { 
-    if (comparisonCards[0].length === 0 && cards.length)  {
+  useEffect(() => {
+    if (comparisonCards[0].length === 0 && cards.length)  { 
+      console.log("setting comparison")
       //sets the comparison cards to two random cards from the list
-      const randomCardNum = Math.floor(Math.random() * cards.length)
-      const randomCardNum1 = Math.floor(Math.random() * cards.length)
+      let randomCardNum = Math.floor(Math.random() * cards.length)
+      let randomCardNum1 = Math.floor(Math.random() * cards.length)
+        //should be preventing hash collision
       while(randomCardNum == randomCardNum1){
         return randomCardNum1 = Math.floor(Math.random() * cards.length)
       }
+
       setComparisonCards([[cards[randomCardNum]], [cards[randomCardNum1]]])
-  }
-}, [cards])
+    }
+}, [])
 
   const [firstList, secondList] = comparisonCards;
 

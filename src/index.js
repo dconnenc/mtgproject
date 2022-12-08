@@ -1,39 +1,17 @@
 import { React, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css'
-import { Auth0Provider, withAuthenticationRequired } from '@auth0/auth0-react';
+import { useAuth0, Auth0Provider, withAuthenticationRequired } from '@auth0/auth0-react';
+import AppContextProvider from './Components/AppContext';
 import { ProfilePage } from './Components/ProfilePage';
 import { ListPage } from './Components/ListPage.jsx'
 import { Auth } from './Components/Auth0/Auth.jsx';
-import { useAuth0 } from "@auth0/auth0-react";
-import AppContextProvider from './Components/AppContext';
 import { Loading } from './Components/Loading';
+import { findOrCreateUser } from './Components/Functions/findOrCreateUser';
 
-console.log(window.location.href)
 //On Authentication posts user information to database
-const findOrCreateUser = async (externalUser, setUser) => {
-  const name    =       `${externalUser.given_name} ${externalUser.family_name}`;
-  const email   =       externalUser.email;
-  const external_id =   externalUser.sub;
-
-  try {
-    await fetch(`${process.env.REACT_APP_API_URL}/users`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json",},
-      body: JSON.stringify({ name: name, email: email, external_id: external_id })
-    })
-      .then(response => response.json())
-      .then((data) => {
-        setUser({ ...data[0], fetching: false });
-      });
-  } catch (error) {
-    console.error(error.message)
-  }
-}
-
 const ProtectedRoute = ({ component, ...args }) => {
   const Component = withAuthenticationRequired(component, args);
   const { isAuthenticated, isLoading, user: externalUser } = useAuth0();
@@ -55,7 +33,7 @@ const ProtectedRoute = ({ component, ...args }) => {
         <Component user={{...externalUser, ...user}}/>
       )
     }
-  } else if(!isAuthenticated && !isLoading) {
+  } else if(!isAuthenticated) {
     return(
       <Auth />
     )
@@ -63,9 +41,12 @@ const ProtectedRoute = ({ component, ...args }) => {
 };
 
 const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
+  console.log(props);
   const navigate = useNavigate();
   const onRedirectCallback = (appState) => {
     navigate((appState && appState.returnTo) || window.location.pathname);
+    console.log("redirected")
+    console.log(appState)
   };
 
   return (
