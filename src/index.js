@@ -41,12 +41,8 @@ const ProtectedRoute = ({ component, ...args }) => {
 };
 
 const Auth0ProviderWithRedirectCallback = ({ children, ...props }) => {
-  console.log(props);
   const navigate = useNavigate();
   const onRedirectCallback = (appState) => {
-
-    console.log(window.location.pathname)
-    console.log("appState=", appState)
     navigate((appState && appState.returnTo) || window.location.pathname);
   };
 
