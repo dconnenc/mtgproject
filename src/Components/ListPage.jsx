@@ -4,14 +4,16 @@ import { ListManager } from "./ListManager"
 import { useParams } from "react-router-dom";
 import { CardsContext } from "./AppContext";
 import { useContext, useEffect, useCallback, useState } from "react";
-import { backgroundQuery } from "./Functions/backgroundQuery"
+import { backgroundQuery } from "./Functions/backgroundQuery";
 
 export const ListPage = ({ user }) => {
     const {id} = useParams();
     const {list} = useParams();
 
-    const contextCards = useContext(CardsContext);
-    const [cards, setCards] = contextCards["cards"]
+    const context = useContext(CardsContext);
+    const [_, setCards] = context["cards"]
+    const [cardsLoaded, setCardsLoaded] = context["cardsLoaded"];
+
     const [background, setBackground] = useState([]);
 
     const fetchDBCardsByIdDescription = useCallback(async () => {
@@ -22,6 +24,7 @@ export const ListPage = ({ user }) => {
 
             let parsedCards = JSON.parse(jsonData.cards[0].cards)
             setCards(parsedCards.cards)
+            setCardsLoaded(true)
         } catch (error) {
             console.error(error.message)
         }

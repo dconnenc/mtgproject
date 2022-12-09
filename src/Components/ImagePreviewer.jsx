@@ -4,9 +4,8 @@ import  mtgcardback  from "../Assets/mtgcardback.jpg";
 
 function ImagePreviewer() {
   const context = useContext(CardsContext);
-   
-  const [cards, setCards] = context["cards"]
-  const [previewCard, setPreviewCard] = context["previewCard"]
+  
+  const [previewCard, _] = context["previewCard"]
 
 
     return (

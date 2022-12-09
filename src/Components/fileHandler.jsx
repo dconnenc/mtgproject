@@ -18,7 +18,7 @@ export const FileHandler = ({user}) => {
   const context = useContext(CardsContext);
   const [cards, setCards] = context["cards"];
   const [cardInput, setCardInput] = context["cardInput"];
-  const [isLoading, setIsLoading] = context["isLoading"];
+  const [_, setIsLoading] = context["isLoading"];
 
   const [list, setList] = useState('');
 

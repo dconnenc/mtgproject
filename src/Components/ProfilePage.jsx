@@ -13,7 +13,7 @@ export const ProfilePage = ({ user }) => {
     const [background, setBackground] = useState([]);
     
     const contextCards = useContext(CardsContext);
-    const [isLoading, setIsLoading] = contextCards["isLoading"];
+    const [isLoading, _] = contextCards["isLoading"];
 
     
     useEffect(() => {

@@ -6,8 +6,8 @@ export const Table = () => {
   
   const context = useContext(CardsContext);
 
-  const [cards, setCards] = context["cards"]
-  const [previewCard, setPreviewCard] = context["previewCard"]
+  const [cards, _setCards] = context["cards"]
+  const [_previewCard, setPreviewCard] = context["previewCard"]
   
   if(!cards?.length) {
     return <div></div>

@@ -1,13 +1,15 @@
 import { useContext, useEffect } from "react";
 import { CardsContext } from "./AppContext"
 import { UpdateCardScore } from "./Functions/UpdateCardScore";
+import { randomNumber } from "./Functions/randomNumberGenerator";
+
 
 export const Comparison = ({ user, list }) => {
 
   const context = useContext(CardsContext);
-
   const [cards, setCards] = context["cards"]
   const [comparisonCards, setComparisonCards] = context["comparisonCards"]
+  const [cardsLoaded, setCardsLoaded] = context["cardsLoaded"];
 
   //patches db entry in the cards column of the cards table
   //hits the node.js file on the backend
@@ -26,31 +28,20 @@ export const Comparison = ({ user, list }) => {
     //update the DB with new values
     UpdateCardScore(cards, user.id, list)
       
-    //sets the comparison cards to two random cards from the list
-    let randomCardNum = Math.floor(Math.random() * cards.length)
-    let randomCardNum1 = Math.floor(Math.random() * cards.length)
-    
-    while(randomCardNum == randomCardNum1){
-      return randomCardNum1 = Math.floor(Math.random() * cards.length)
-    }
-
+    let [firstNum, secondNum] = randomNumber(cards.length);
     const [first, second] = comparisonCards
-    setComparisonCards([[cards[randomCardNum], ...first.slice(0, 4)], [cards[randomCardNum1], ...second.slice(0,4)]])
+    setComparisonCards([[cards[firstNum], ...first.slice(0, 4)], [cards[secondNum], ...second.slice(0,4)]])
   } 
 
   useEffect(() => {
-      
-      //sets the comparison cards to two random cards from the list
-      let randomCardNum = Math.floor(Math.random() * cards.length)
-      let randomCardNum1 = Math.floor(Math.random() * cards.length)
-        //should be preventing hash collision
-      while(randomCardNum == randomCardNum1){
-        return randomCardNum1 = Math.floor(Math.random() * cards.length)
-      }
-      console.log("setting comparison");
-      setComparisonCards([[cards[randomCardNum]], [cards[randomCardNum1]]])
-      console.log(comparisonCards);
-}, [])  
+    console.log('useEffect made it to gate');
+    if(cards.length){
+      //summons [0, i] noncolliding numbers
+      let [firstNum, secondNum] = randomNumber(cards.length);
+      setComparisonCards([[cards[firstNum]], [cards[secondNum]]])
+      console.log("useEffect made it to:", comparisonCards);
+    }
+}, [cardsLoaded])  
 
   const [firstList, secondList] = comparisonCards;
 

@@ -12,7 +12,8 @@ const AppContextProvider = ({children}) => {
     const [listName, setListName] = useState(["MTGO Vintage Cube"]);
     const [isLoading, setIsLoading] = useState(false)
     const [deleted, setDeleted] = useState([])
-    
+    const [cardsLoaded, setCardsLoaded] = useState(false)
+
     return(
         <CardsContext.Provider value={{
             cards: [cards, setCards], 
@@ -22,7 +23,8 @@ const AppContextProvider = ({children}) => {
             userDBCards: [userDBCards, setUserDBCards],
             listName: [listName, setListName],
             isLoading: [isLoading, setIsLoading],
-            deleted: [deleted, setDeleted]
+            deleted: [deleted, setDeleted],
+            cardsLoaded: [cardsLoaded, setCardsLoaded]
             }}>
                     {children}
         </CardsContext.Provider>

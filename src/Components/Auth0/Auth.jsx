@@ -16,7 +16,15 @@ export const Auth = () => {
           backgroundImage: `url(${background})`,
         }}>
           <Header />
-            <div className="greeting-text huge center-box clickable" onClick={clickHandler}>Please login</div>
+            <div className="greeting-text center-box clickable" onClick={clickHandler}>
+              <div className="huge">Please login</div>
+                <div>   
+                      My Pick 1 Pack 1 is an interactive tool that allows Magic the Gathering
+                      fans to evaluate cards in a head to head setting. The application was created
+                      with Magic's 'Cube' format in mind and allows users to upload their own cube, 
+                      and their players to weigh-in to determine a card's score. 
+                </div>
+              </div>
           <Footer />
         </div>
       )
