@@ -12,6 +12,7 @@ function App({user}) {
   const [cards, setCards] = contextCards["cards"];
   const [comparisonCards, setComparisonCards] = contextCards["comparisonCards"];
   const [background, setBackground] = useState([]);
+  const [cardsLoaded, setCardsLoaded] = contextCards["cardsLoaded"]
 
   const fetchDefaultCards = async () => {
     try {
@@ -22,7 +23,7 @@ function App({user}) {
       let parsedCards = JSON.parse(jsonData.cards[0].cards)
       
       setCards(parsedCards.cards)
-  
+      setCardsLoaded(true);
     } catch (error) {
       console.error(error.message)
     }

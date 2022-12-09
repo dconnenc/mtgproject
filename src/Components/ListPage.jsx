@@ -11,7 +11,7 @@ export const ListPage = ({ user }) => {
     const {list} = useParams();
 
     const context = useContext(CardsContext);
-    const [_, setCards] = context["cards"]
+    const [_, setCards] = context["cards"];
     const [cardsLoaded, setCardsLoaded] = context["cardsLoaded"];
 
     const [background, setBackground] = useState([]);
@@ -23,8 +23,8 @@ export const ListPage = ({ user }) => {
             const jsonData = await response.json();
 
             let parsedCards = JSON.parse(jsonData.cards[0].cards)
-            setCards(parsedCards.cards)
-            setCardsLoaded(true)
+            setCards(parsedCards.cards);
+            setCardsLoaded(true);
         } catch (error) {
             console.error(error.message)
         }
