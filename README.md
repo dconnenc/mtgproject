@@ -44,6 +44,10 @@ The front end files are still in need of refactoring, and a are disorganized.
 
 //Known Bugs & ToDo List//
 -Implement Logic to dualfaced cards to be flipped
+-rerun stub seed for landing page to populate dualfaced cards. 
+-"card-data" id duplication
+-embedded login from auth0
+-table row id not correct
 
 -Comparison doesn't refresh on page load.
 

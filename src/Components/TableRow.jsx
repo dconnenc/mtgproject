@@ -42,7 +42,7 @@ export const TableRow = ({ card, setPreviewCard, index }) => {
       id={card} className="table-row"
       onClick={() => console.log(card)}
       onMouseEnter={() => {
-        setPreviewCard({img: card.image_uris ? card.image_uris : card.card_faces[0].image_uris.normal})
+        setPreviewCard({img: card.image.front})
       }}
     >
       <td id="card-number">{index + 1}</td>

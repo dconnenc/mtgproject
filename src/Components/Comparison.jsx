@@ -62,11 +62,11 @@ export const Comparison = ({ user, list }) => {
             firstList.map((card, index) => {
               if(index === 0){
                 return <img key={card.name} onClick={() => newComparison(0, 1)} 
-                            src={card.image_uris ? card.image_uris : card.card_faces[0].image_uris.normal } 
+                            src={card.image.front} 
                             alt="" id="first-comparison-card" className={`first-comparison-card`}/>
               } else {
                 return <img key={card.name} 
-                            src={card.image_uris ? card.image_uris : card.card_faces[0].image_uris.normal }
+                            src={card.image.front}
                             alt="" id="comparison-card" className={`first-comparison-card-${index}`}/>
               }
           })}
@@ -76,10 +76,10 @@ export const Comparison = ({ user, list }) => {
             secondList.map((card, index) => {
               if(index === 0){
                 return  <img  key={card.name} onClick={() => newComparison(1, 0)} 
-                                src={card.image_uris ? card.image_uris : card.card_faces[0].image_uris.normal }
+                                src={card.image.front}
                                 alt="" id="comparison-card" className={`second-comparison-card`} />
               } else {
-                return  <img  key={card.name} src={card.image_uris ? card.image_uris : card.card_faces[0].image_uris.normal } 
+                return  <img  key={card.name} src={card.image.front} 
                                 alt="" id="comparison-card" className={`second-comparison-card-${index}`} />
               }
           })} 

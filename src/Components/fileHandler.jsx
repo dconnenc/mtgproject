@@ -50,14 +50,12 @@ export const FileHandler = ({user}) => {
       const queryArray = cardBatch
         .filter((cardName) => cardName !== "")
         .map((cardName) => {
-          //These lines of code dont do anything but for some reason everything breaks when I try to refactor them. 
-          // Expansion // Explosion -> split('//') -> [Expansion, Explosion]
-          // Skeletal Swarming -> [Skeletal Swarming, undefined] -> [Skeletal Swarming]
           const [name, ]= cardName.split('//');
           return {
             name,
           };
         });
+        console.log("queryarray=", queryArray)
       //queries scryfall api, check util folder
       return ScryfallQuery({ identifiers: queryArray });
     });
@@ -66,19 +64,25 @@ export const FileHandler = ({user}) => {
     
     if (retrievedBatch.length) {
       const retrievedCards = retrievedBatch.flatMap((batch) => batch.data);
+    
       const scoredCards = retrievedCards.map(card => {
-        const { color_identity, image_uris, card_faces, name, score, rarity } = card;
+
+        const { color_identity, image_uris, card_faces, name, score, rarity, dfc } = card;
+        
         return {
           color_identity,
-          image_uris: image_uris?.normal,
+          image: {
+            front: image_uris ? image_uris.normal : card_faces[0].image_uris.normal,
+            back: image_uris ? image_uris.normal : card_faces[1].image_uris.normal 
+          },
+          dfc: !(image_uris),
           name,
           score,
           rarity,
-          card_faces,
           score: 1000
         }
       });
-
+      console.log(scoredCards)
       postDBCards(scoredCards, user.id, list);
       setIsLoading(false)
     }
